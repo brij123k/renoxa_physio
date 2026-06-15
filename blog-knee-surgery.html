@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>What to Expect When Recovering After Knee Surgery · Renoxa Physiotherapy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --teal-bright:#2c8497;--teal:#1c6675;--petrol:#0f4452;--petrol-deep:#0a2e38;--ink:#072028;
+    --glass-bg:rgba(255,255,255,.07);--glass-brd:rgba(255,255,255,.22);
+    --text:#eef6f8;--text-dim:#b9d2d8;--body:#d4e3e7;--wa-green:#25d366;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Manrope',system-ui,sans-serif;color:var(--text);background:linear-gradient(180deg,#0f4452 0%,#072028 100%);-webkit-font-smoothing:antialiased;overflow-x:clip;min-height:100vh;}
+
+  .topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 30px;background:rgba(7,32,40,.6);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.1);}
+  .tb-brand{display:flex;flex-direction:column;line-height:1;text-decoration:none;}
+  .tb-brand .name{font-size:22px;font-weight:800;letter-spacing:.12em;color:#fff;}
+  .tb-brand .sub{font-size:8px;font-weight:600;letter-spacing:.46em;color:var(--text-dim);margin-top:5px;}
+  .tb-book{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:12px;background:rgba(37,211,102,.16);border:1px solid rgba(37,211,102,.5);color:#fff;text-decoration:none;font-weight:700;font-size:14px;transition:.2s;white-space:nowrap;}
+  .tb-book:hover{background:rgba(37,211,102,.3);}
+  .tb-book svg{width:18px;height:18px;fill:var(--wa-green);}
+
+  .article{max-width:760px;margin:0 auto;padding:46px 24px 90px;}
+  .back{display:inline-flex;align-items:center;gap:8px;color:var(--text-dim);text-decoration:none;font-size:14px;font-weight:600;margin-bottom:26px;transition:color .2s;}
+  .back:hover{color:#fff;}
+  .back svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.4;}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-bright);margin-bottom:14px;}
+  h1{font-size:clamp(30px,5vw,46px);font-weight:800;line-height:1.14;margin-bottom:16px;}
+  .meta{display:flex;align-items:center;gap:12px;color:var(--text-dim);font-size:14px;margin-bottom:30px;}
+  .meta .dot{width:4px;height:4px;border-radius:50%;background:var(--text-dim);}
+  .cover{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:22px;border:1px solid var(--glass-brd);background:#0d3744;margin-bottom:36px;}
+  .prose p{font-size:17px;line-height:1.78;color:var(--body);margin-bottom:22px;}
+  .prose h2{font-size:25px;font-weight:800;color:#fff;margin:38px 0 14px;}
+  .prose ul{margin:0 0 22px;padding-left:0;list-style:none;}
+  .prose li{position:relative;font-size:17px;line-height:1.7;color:var(--body);padding-left:30px;margin-bottom:12px;}
+  .prose li::before{content:"";position:absolute;left:6px;top:11px;width:8px;height:8px;border-radius:50%;background:var(--teal-bright);}
+  .prose strong{color:#fff;font-weight:700;}
+  .note{margin:34px 0 0;padding:18px 22px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid var(--glass-brd);font-size:14.5px;line-height:1.6;color:var(--text-dim);}
+
+  .cta-box{margin-top:44px;padding:34px 30px;border-radius:24px;text-align:center;background:radial-gradient(120% 120% at 50% 0%, rgba(44,132,151,.4), rgba(15,68,82,0) 70%),rgba(255,255,255,.05);border:1px solid var(--glass-brd);}
+  .cta-box h3{font-size:24px;font-weight:800;margin-bottom:8px;}
+  .cta-box p{color:var(--text-dim);font-size:15px;margin-bottom:20px;}
+  .cta-box a{display:inline-flex;align-items:center;gap:10px;padding:15px 32px;border-radius:14px;background:var(--wa-green);color:#fff;text-decoration:none;font-weight:700;font-size:16px;transition:.2s;}
+  .cta-box a:hover{background:#1fbb59;}
+  .cta-box a svg{width:20px;height:20px;fill:#fff;}
+
+  .more{max-width:760px;margin:0 auto;padding:0 24px 80px;}
+  .more h4{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);margin-bottom:16px;}
+  .more a{display:block;color:var(--text);text-decoration:none;font-size:16px;font-weight:600;padding:14px 16px;border-radius:12px;border:1px solid var(--glass-brd);background:rgba(255,255,255,.04);margin-bottom:10px;transition:.2s;}
+  .more a:hover{background:rgba(255,255,255,.09);}
+
+  footer{background:#04141a;color:var(--text-dim);text-align:center;padding:30px 20px;font-size:13px;border-top:1px solid rgba(255,255,255,.08);}
+  footer a{color:var(--text-dim);text-decoration:none;}
+  footer a:hover{color:#fff;}
+
+  .wa-fab{position:fixed;right:24px;bottom:24px;width:58px;height:58px;border-radius:50%;background:var(--wa-green);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.35);z-index:40;transition:transform .2s;}
+  .wa-fab:hover{transform:scale(1.08);}
+  .wa-fab svg{width:30px;height:30px;fill:#fff;}
+  @media(max-width:600px){.topbar{padding:14px 16px;}.article{padding:34px 18px 70px;}.tb-book{padding:9px 14px;font-size:13px;}}
+</style>
+</head>
+<body>
+  <div class="topbar">
+    <a class="tb-brand" href="index.html "><span class="name">Renoxa</span><span class="sub">PHYSIOTHERAPY</span></a>
+    <a class="tb-book" href="https://wa.me/15551234567?text=Hi%20Renoxa%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>Book Now</a>
+  </div>
+
+  <article class="article">
+    <a class="back" href="index.html #blog"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Back to all articles</a>
+    <div class="eyebrow">Rehabilitation</div>
+    <h1>What to Expect When Recovering After Knee Surgery</h1>
+    <div class="meta"><span>6 min read</span><span class="dot"></span><span>Renoxa Physiotherapy</span></div>
+    <img class="cover" src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_31_57_PM.png?v=1781359332" alt="" onerror="this.style.opacity='0.4'">
+    <div class="prose">
+      <p>Recovering after knee surgery can feel slow at first, but a steady, well-paced rehab plan makes a real difference to how well — and how quickly — you get back to normal life. Here's a general picture of what the journey often looks like.</p>
+      <h2>The first two weeks</h2>
+      <p>Early on, the goals are simple: control swelling, protect the joint, and start gentle movement. Ice, elevation, and the specific exercises your physiotherapist gives you all help. Small, frequent movement is better than long periods of stillness.</p>
+      <h2>Weeks three to six</h2>
+      <p>As swelling settles, the focus shifts to regaining range of motion and rebuilding the muscles around the knee, especially the quadriceps. You'll likely progress from supported exercises to standing work and balance.</p>
+      <h2>Beyond six weeks</h2>
+      <p>This is where strength and confidence return. Walking gets easier, stairs feel less daunting, and you gradually rebuild toward your normal activities and, if relevant, sport.</p>
+      <h2>Habits that speed recovery</h2>
+      <ul><li>Do your home exercises consistently — little and often</li><li>Keep up with swelling control even when you feel better</li><li>Don't rush milestones; progress beats speed</li><li>Tell your physio about any new pain or instability early</li></ul>
+      <p>Every surgery and every body is different, so your timeline may look different from a friend's. What matters most is steady progress and a plan that adapts to how your knee responds week to week.</p>
+      <div class="note"><strong>A quick note:</strong> This article is general guidance, not a personal diagnosis. Pain that is severe, sudden, or not improving should be checked by a physiotherapist or doctor. If anything here makes your symptoms worse, stop and get in touch with us.</div>
+    </div>
+
+    <div class="cta-box">
+      <h3>Want a plan made for your body?</h3>
+      <p>Tell us what's bothering you and we'll take it from there on WhatsApp.</p>
+      <a href="https://wa.me/15551234567?text=Hi%20Renoxa%2C%20I%20am%20recovering%20after%20knee%20surgery%20and%20would%20like%20to%20book%20rehab." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>Book on WhatsApp</a>
+    </div>
+  </article>
+
+  <div class="more">
+    <h4>Keep reading</h4>
+    <a href="blog-back-pain.html">5 Stretches to Ease Lower Back Pain at Home</a>
+    <a href="blog-posture.html">Desk Job? 6 Posture Habits That Save Your Neck</a>
+    <a href="blog-sports-injury.html">Returning to Sport Safely After an Injury</a>
+  </div>
+
+  <footer>© 2026 Renoxa Physiotherapy · <a href="index.html ">Home</a> · <a href="index.html #services">Services</a> · <a href="index.html #contact">Contact</a></footer>
+
+  <a class="wa-fab" href="https://wa.me/15551234567?text=Hi%20Renoxa%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></a>
+</body>
+</html>
