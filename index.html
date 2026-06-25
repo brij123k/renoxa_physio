@@ -84,30 +84,28 @@
   .link-play:hover .ring{background:rgba(255,255,255,.15)}
   .link-play .ring svg{width:13px;height:13px;fill:var(--text);margin-left:2px}
 
-  .treat{position:relative;z-index:8;margin-top:auto;padding:0 46px 54px;}
+  .treat{position:relative;z-index:8;margin-top:auto;padding:0 46px 46px;display:flex;align-items:flex-end;justify-content:space-between;gap:34px;flex-wrap:wrap;}
+  .treat-left{flex:0 0 auto;}
   .treat .eyebrow{font-size:clamp(18px,1.5vw,24px);font-weight:400;color:var(--text-dim);margin-bottom:6px;}
+  .hero-stats{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end;align-items:stretch;z-index:8;}
+  .hstat{background:rgba(9,40,49,.5);border:1px solid var(--glass-brd);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:15px;padding:13px 18px;min-width:116px;text-align:center;box-shadow:0 10px 28px rgba(0,0,0,.28);}
+  .hero-stats .stat-num{font-size:clamp(22px,2vw,30px);font-weight:800;color:#fff;line-height:1;display:flex;align-items:baseline;justify-content:center;gap:.04em;}
+  .hero-stats .stat-num .suffix{font-size:.55em;font-weight:800;color:var(--teal-bright);}
+  .hero-stats .stat-num .star{font-size:.6em;color:#ffce4d;margin-left:.06em;}
+  .hstat-label{font-size:11px;font-weight:600;color:var(--text-dim);margin-top:6px;letter-spacing:.02em;white-space:nowrap;}
+  @media(max-width:1200px){.hstat{min-width:104px;padding:12px 14px;}}
+  @media(max-width:980px){.treat{justify-content:flex-start;}.hero-stats{justify-content:flex-start;}}
+  @media(max-width:680px){
+    .treat{flex-direction:column;align-items:flex-start;gap:20px;padding:24px 18px 28px !important;}
+    .hero-stats{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .hstat{min-width:0;padding:12px 10px;}
+    .hstat-label{white-space:normal;font-size:10.5px;}
+  }
 
   .wa-fab{position:fixed;right:30px;bottom:30px;width:60px;height:60px;border-radius:50%;background:var(--wa-green);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.35);z-index:50;transition:transform .25s, box-shadow .25s;animation:fab-pulse 2.6s ease-in-out infinite;}
   .wa-fab:hover{transform:scale(1.08);box-shadow:0 10px 30px rgba(37,211,102,.5)}
   .wa-fab svg{width:32px;height:32px;fill:#fff}
   @keyframes fab-pulse{0%,100%{box-shadow:0 8px 24px rgba(0,0,0,.35),0 0 0 0 rgba(37,211,102,.45)}50%{box-shadow:0 8px 24px rgba(0,0,0,.35),0 0 0 14px rgba(37,211,102,0)}}
-
-  .video-fab-card{position:fixed;right:30px;bottom:104px;width:170px;z-index:49;border-radius:18px;overflow:hidden;background:#06181d;border:1px solid var(--glass-brd);box-shadow:0 14px 40px rgba(0,0,0,.4);backdrop-filter:blur(10px);}
-  .video-fab-card .vf-media{position:relative;width:100%;aspect-ratio:3/2;overflow:hidden;}
-  .video-fab-card video{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;}
-  .vf-tag{position:absolute;top:10px;left:10px;z-index:2;display:flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:rgba(0,0,0,.4);backdrop-filter:blur(6px);padding:5px 10px;border-radius:30px;}
-  .vf-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--glow);animation:vf-blink 1.6s ease-in-out infinite;}
-  @keyframes vf-blink{0%,100%{opacity:1}50%{opacity:.25}}
-  .video-fab-explore{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:11px 0;border:0;cursor:pointer;background:rgba(255,255,255,.08);color:var(--text);font-family:inherit;font-size:13px;font-weight:700;letter-spacing:.02em;text-decoration:none;transition:background .2s;}
-  .video-fab-explore:hover{background:rgba(255,255,255,.18);}
-  .video-fab-explore svg{width:13px;height:13px;stroke:var(--text);fill:none;stroke-width:2.6;flex-shrink:0;}
-  @media(max-width:680px){
-    .video-fab-card{right:18px;bottom:82px;width:96px;}
-    .video-fab-explore{font-size:10px;padding:7px 0;gap:5px;}
-    .video-fab-explore svg{width:11px;height:11px;}
-    .vf-tag{font-size:8.5px;padding:3px 7px;gap:4px;top:6px;left:6px;}
-    .vf-tag .dot{width:5px;height:5px;}
-  }
 
   .video-modal{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;padding:24px;background:rgba(4,18,22,.78);backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease;}
   .video-modal.open{opacity:1;visibility:visible}
@@ -130,7 +128,6 @@
   @media(max-width:680px){
     .stage{padding:10px}
     .hero{border-radius:18px;min-height:auto;padding-bottom:30px;}
-    /* keep menu button + logo + Book Now all on one line */
     header{padding:18px 16px;flex-wrap:nowrap;gap:10px;}
     .menu-btn{width:30px;height:26px;gap:5px;}
     .menu-btn span{width:30px;height:2px;}
@@ -151,10 +148,9 @@
     .wa-fab svg{width:28px;height:28px;}
   }
 
-  /* ============ SECOND SECTION: GALLERY (clip-path shapes) ============ */
+  /* ============ SECOND SECTION: GALLERY (keeps overlap with hero) ============ */
   .section{
-    position:sticky;
-    top:0;
+    position:relative;
     z-index:2;
     width:100%;
     min-height:100vh;
@@ -179,7 +175,7 @@
   .card{width:300px;height:430px;overflow:hidden;background:rgba(255,255,255,.05);position:relative;flex:0 0 auto;user-select:none;}
   .card img{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1;pointer-events:none;-webkit-user-drag:none;user-select:none;}
   .shape-1{border-radius:60px;clip-path:polygon(15% 0%,100% 0%,100% 85%,85% 100%,0% 100%,0% 15%);}
-  .shape-2{margin-top:80px;border-radius:60px;clip-path:polygon(20% 0%,100% 0%,100% 80%,80% 100%,0% 100%,0% 20%);}
+  .shape-2{border-radius:60px;clip-path:polygon(20% 0%,100% 0%,100% 80%,80% 100%,0% 100%,0% 20%);}
   .shape-3{border-radius:60px;clip-path:polygon(20% 0%,100% 0%,100% 85%,85% 100%,0% 100%,0% 20%);}
   .shape-4{border-radius:60px;clip-path:polygon(20% 0%,100% 0%,100% 85%,85% 100%,0% 100%,0% 20%);}
   .card .slot{position:absolute;inset:0;z-index:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:rgba(238,246,248,.5);font-size:13px;font-family:inherit;cursor:pointer}
@@ -203,7 +199,7 @@
   @media(max-width:680px){
     .section{padding:64px 16px 80px;min-height:auto;}
     .card{width:200px;height:300px;}
-    .shape-2{margin-top:50px;}
+    .shape-2{margin-top:0;}
     .navigation{margin-top:28px;}
     .line{width:90px;margin-left:12px;}
   }
@@ -238,10 +234,18 @@
   .book-all{margin-top:18px;display:inline-flex;align-items:center;gap:10px;padding:16px 44px;border-radius:40px;cursor:pointer;border:0;background:#eef6f8;color:#0f3742;font-family:inherit;font-size:16px;font-weight:700;letter-spacing:.01em;box-shadow:0 12px 30px rgba(0,0,0,.28);transition:transform .2s, background .2s;}
   .book-all:hover{background:#fff;transform:translateY(-2px);}
 
+  /* ---- Mini process strip (inside services) ---- */
+  .svc-process{display:flex;align-items:flex-start;justify-content:center;gap:6px;margin-top:46px;flex-wrap:nowrap;max-width:560px;}
+  .svc-step{display:flex;flex-direction:column;align-items:center;gap:10px;flex:0 0 auto;}
+  .svc-circle{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;color:#fff;background:radial-gradient(circle at 34% 30%, rgba(54,160,182,.4), rgba(15,68,82,.15));border:1.5px solid rgba(44,132,151,.65);transition:transform .25s, box-shadow .25s;}
+  .svc-step:hover .svc-circle{transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,.3);}
+  .svc-step span{font-size:13px;font-weight:700;color:var(--text-dim);letter-spacing:.02em;}
+  .svc-line{flex:1 1 auto;min-width:14px;max-width:54px;height:2px;background:rgba(255,255,255,.2);margin-top:26px;}
+  @media(max-width:680px){.svc-process{margin-top:34px;gap:4px;}.svc-circle{width:44px;height:44px;font-size:15px;}.svc-step span{font-size:11px;}.svc-line{margin-top:21px;min-width:8px;}}
+
   /* ============ THIRD SECTION: VIDEO TESTIMONIALS ============ */
   .testimonials{
-    position:sticky;
-    top:0;
+    position:relative;
     z-index:3;
     width:100%;
     min-height:100vh;
@@ -250,10 +254,7 @@
     justify-content:center;
     padding:90px 60px 110px;
     background:linear-gradient(180deg, #0e3b47 0%, #061c23 100%);
-    border-radius:38px 38px 0 0;
-    border-top:1px solid rgba(255,255,255,.12);
-    margin-top:-46px;
-    box-shadow:0 -26px 60px rgba(0,0,0,.5);
+    border-top:1px solid rgba(255,255,255,.10);
   }
   .testi-head{text-align:center;max-width:660px;margin:0 auto 56px;}
   .testi-carousel{position:relative;max-width:1180px;margin:0 auto;width:100%;}
@@ -262,7 +263,7 @@
   .testi-track.dragging{transition:none;cursor:grabbing;}
   .testi-card{position:relative;flex:0 0 auto;width:250px;border-radius:28px;overflow:hidden;background:#06181d;border:1px solid var(--glass-brd);box-shadow:0 18px 45px rgba(0,0,0,.4);aspect-ratio:9/16;transition:transform .35s ease, box-shadow .35s ease;}
   .testi-card:hover{transform:translateY(-10px);box-shadow:0 30px 60px rgba(0,0,0,.55);}
-  .testi-card:nth-child(even){margin-top:52px;}
+  .testi-card:nth-child(even){margin-top:0;}
   .testi-arrow{position:absolute;top:46%;transform:translateY(-50%);z-index:5;width:46px;height:46px;border-radius:50%;border:1px solid var(--glass-brd);background:rgba(255,255,255,.1);backdrop-filter:blur(8px);color:#fff;font-size:26px;line-height:0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;}
   .testi-arrow:hover{background:rgba(255,255,255,.25);}
   .testi-arrow.prev{left:-12px;}
@@ -277,7 +278,7 @@
   .testi-play.is-playing svg.icon-play{display:none;}
   .testi-play:not(.is-playing) svg.icon-pause{display:none;}
   @media(max-width:680px){
-    .testimonials{padding:60px 18px 80px;min-height:100vh;margin-top:-46px;}
+    .testimonials{padding:60px 18px 80px;min-height:100vh;}
     .testi-head{margin-bottom:36px;}
     .testi-card{width:74vw;max-width:300px;margin-top:0 !important;}
     .testi-arrow{display:none;}
@@ -305,8 +306,8 @@
     .treat-toggle{font-size:clamp(30px,11vw,46px);}
   }
 
-  /* ============ BLOG (single-slide carousel, sticky overlap) ============ */
-  .blog{position:sticky;top:0;z-index:4;width:100%;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:96px 60px 110px;background:linear-gradient(180deg,#0c3744 0%, #07232b 100%);border-radius:38px 38px 0 0;border-top:1px solid rgba(255,255,255,.12);margin-top:-46px;box-shadow:0 -26px 60px rgba(0,0,0,.5);}
+  /* ============ BLOG ============ */
+  .blog{position:relative;z-index:4;width:100%;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:96px 60px 110px;background:linear-gradient(180deg,#0c3744 0%, #07232b 100%);border-top:1px solid rgba(255,255,255,.10);}
   .blog-head{text-align:center;max-width:660px;margin:0 auto 48px;}
   .blog-carousel{position:relative;max-width:900px;margin:0 auto;width:100%;}
   .blog-viewport{overflow:hidden;border-radius:24px;}
@@ -326,8 +327,8 @@
   .blog-arrow.prev{left:-18px;}
   .blog-arrow.next{right:-18px;}
 
-  /* ============ FAQ (slider, sticky overlap) ============ */
-  .faq{position:sticky;top:0;z-index:5;width:100%;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:96px 60px 110px;background:linear-gradient(180deg,#0a323d 0%, #04161c 100%);border-radius:38px 38px 0 0;border-top:1px solid rgba(255,255,255,.12);margin-top:-46px;box-shadow:0 -26px 60px rgba(0,0,0,.5);}
+  /* ============ FAQ (slider) ============ */
+  .faq{position:relative;z-index:5;width:100%;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:96px 60px 110px;background:linear-gradient(180deg,#0a323d 0%, #04161c 100%);border-top:1px solid rgba(255,255,255,.10);}
   .faq-head{text-align:center;max-width:660px;margin:0 auto 44px;}
   .faq-carousel{position:relative;max-width:1100px;margin:0 auto;width:100%;}
   .faq-viewport{overflow:hidden;}
@@ -342,7 +343,6 @@
   .faq-arrow.prev{left:-18px;}
   .faq-arrow.next{right:-18px;}
 
-  /* All section sliders keep the sticky overlap on phones too */
   @media(max-width:760px){
     .blog{padding:56px 18px 64px;}
     .bpost{flex-direction:column;min-height:0;}
@@ -357,7 +357,6 @@
   }
 
   /* ============ TABLET RESPONSIVE ============ */
-  /* Portrait tablets (~700–980px): tighter padding, stacked blog cards */
   @media(min-width:681px) and (max-width:980px){
     .section{padding:72px 34px 90px;}
     .testimonials{padding:72px 34px 88px;}
@@ -373,7 +372,6 @@
     .faq-slide{width:300px;}
     .testi-card{width:215px;}
   }
-  /* Landscape tablets / small laptops (~981–1200px): give the hero copy room */
   @media(min-width:981px) and (max-width:1200px){
     .section{padding:88px 44px 110px;}
     .testimonials{padding:84px 44px 100px;}
@@ -384,6 +382,125 @@
     .patient-stage{width:52%;}
     .bpost-title{font-size:24px;}
   }
+
+  /* ============================================================= */
+  /* ============ NEW SECTIONS (normal scroll, no overlap) ======= */
+  /* ============================================================= */
+  .flow{position:relative;z-index:3;width:100%;padding:96px 60px;border-top:1px solid rgba(255,255,255,.08);}
+  .flow-head{text-align:center;max-width:680px;margin:0 auto 52px;}
+  .bg-a{background:linear-gradient(180deg,#0e3b47 0%, #0a2e38 100%);}
+  .bg-b{background:linear-gradient(180deg,#0c3744 0%, #08262e 100%);}
+  @media(max-width:980px){.flow{padding:72px 34px;}}
+  @media(max-width:680px){.flow{padding:60px 18px;}.flow-head{margin-bottom:38px;}}
+
+  /* ---- Stats ---- */
+  .stats-wrap{background:linear-gradient(180deg,#0f4452 0%,#0b313c 100%);}
+  .stats-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .stat{background:rgba(255,255,255,.05);border:1px solid var(--glass-brd);border-radius:22px;padding:34px 22px;text-align:center;backdrop-filter:blur(10px);}
+  .stat-num{font-size:clamp(34px,4vw,52px);font-weight:800;line-height:1;color:#fff;display:flex;align-items:baseline;justify-content:center;gap:.04em;}
+  .stat-num .suffix{font-size:.55em;font-weight:800;color:var(--teal-bright);}
+  .stat-num .star{font-size:.62em;color:#ffce4d;margin-left:.08em;}
+  .stat-label{margin-top:12px;font-size:14px;font-weight:600;letter-spacing:.02em;color:var(--text-dim);}
+  @media(max-width:760px){.stats-grid{grid-template-columns:repeat(2,1fr);gap:16px;}.stat{padding:26px 16px;}}
+
+  /* ---- Why choose ---- */
+  .why-grid{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .why-card{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.025));border:1px solid var(--glass-brd);border-radius:26px;padding:38px 30px 32px;backdrop-filter:blur(10px);overflow:hidden;transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;}
+  .why-card::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 50% -10%, rgba(44,132,151,.30), transparent 60%);opacity:0;transition:opacity .3s ease;pointer-events:none;}
+  .why-card:hover{transform:translateY(-8px);border-color:rgba(44,132,151,.55);box-shadow:0 26px 55px rgba(0,0,0,.42);}
+  .why-card:hover::before{opacity:1;}
+  .why-ico{position:relative;width:66px;height:66px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 34% 30%, rgba(54,160,182,.6), rgba(15,68,82,.3));border:1px solid rgba(44,132,151,.5);margin-bottom:22px;box-shadow:0 10px 24px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.18);}
+  .why-ico svg{width:28px;height:28px;stroke:#d4eef4;fill:none;stroke-width:2;}
+  .why-card h3{position:relative;font-size:19px;font-weight:800;color:#fff;margin-bottom:9px;}
+  .why-card p{position:relative;font-size:14.5px;line-height:1.6;color:var(--text-dim);}
+  @media(max-width:920px){.why-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.why-grid{grid-template-columns:1fr;}}
+
+  /* ---- How it works ---- */
+  .steps-grid{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .step{position:relative;background:rgba(255,255,255,.04);border:1px solid var(--glass-brd);border-radius:22px;padding:32px 26px;}
+  .step-num{font-size:46px;font-weight:800;line-height:1;color:rgba(44,132,151,.5);margin-bottom:14px;}
+  .step h3{font-size:19px;font-weight:800;color:#fff;margin-bottom:9px;}
+  .step p{font-size:14.5px;line-height:1.6;color:var(--text-dim);}
+  .step:not(:last-child)::after{content:"";position:absolute;top:46px;right:-13px;width:26px;height:2px;background:rgba(255,255,255,.2);}
+  @media(max-width:920px){.steps-grid{grid-template-columns:repeat(2,1fr);}.step:not(:last-child)::after{display:none;}}
+  @media(max-width:520px){.steps-grid{grid-template-columns:1fr;}}
+
+  /* ---- Doctors ---- */
+  .docs-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .doc-card{background:rgba(255,255,255,.05);border:1px solid var(--glass-brd);border-radius:24px;overflow:hidden;backdrop-filter:blur(10px);transition:transform .25s;}
+  .doc-card:hover{transform:translateY(-6px);}
+  .doc-photo{position:relative;width:100%;aspect-ratio:4/5;background:linear-gradient(160deg,#155161,#0a2c36);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .doc-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .doc-initials{font-size:46px;font-weight:800;color:rgba(255,255,255,.5);letter-spacing:.04em;}
+  .doc-info{padding:20px 22px 24px;}
+  .doc-name{font-size:18px;font-weight:800;color:#fff;}
+  .doc-qual{font-size:13px;font-weight:700;color:var(--teal-bright);margin-top:3px;letter-spacing:.02em;}
+  .doc-spec{font-size:14px;color:var(--text-dim);margin-top:10px;line-height:1.5;}
+  .doc-exp{display:inline-block;margin-top:14px;font-size:12px;font-weight:700;color:#cfe6ea;background:rgba(255,255,255,.07);border:1px solid var(--glass-brd);padding:6px 12px;border-radius:30px;}
+  @media(max-width:980px){.docs-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:520px){.docs-grid{grid-template-columns:1fr 1fr;gap:14px;}.doc-info{padding:16px 16px 18px;}.doc-name{font-size:15px;}.doc-initials{font-size:34px;}}
+
+  /* ---- Home physiotherapy band ---- */
+  .homecare{background:
+      radial-gradient(120% 120% at 85% 10%, rgba(44,132,151,.4) 0%, rgba(15,68,82,0) 55%),
+      linear-gradient(140deg,#11515f 0%,#0a2e38 60%,#072028 100%);}
+  .homecare-inner{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;}
+  .homecare h2{font-size:clamp(28px,3.6vw,46px);font-weight:800;line-height:1.1;color:#fff;margin-bottom:16px;}
+  .homecare p.lead2{font-size:16px;line-height:1.65;color:var(--text-dim);margin-bottom:26px;max-width:520px;}
+  .home-list{display:flex;flex-direction:column;gap:14px;margin-bottom:30px;}
+  .home-list li{list-style:none;display:flex;align-items:flex-start;gap:12px;font-size:15px;color:#e6f2f4;line-height:1.5;}
+  .home-list svg{width:22px;height:22px;flex-shrink:0;margin-top:1px;stroke:var(--wa-green);fill:none;stroke-width:2.4;}
+  .home-cta{display:inline-flex;align-items:center;gap:11px;padding:16px 34px;border-radius:14px;background:rgba(37,211,102,.16);border:1px solid rgba(37,211,102,.5);color:#fff;font-family:inherit;font-size:16px;font-weight:700;text-decoration:none;transition:.2s;}
+  .home-cta:hover{background:rgba(37,211,102,.3);}
+  .home-cta svg{width:21px;height:21px;fill:var(--wa-green);}
+  .home-visual{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/3;background:rgba(255,255,255,.05);border:1px solid var(--glass-brd);}
+  .home-visual img{width:100%;height:100%;object-fit:cover;}
+  @media(max-width:880px){.homecare-inner{grid-template-columns:1fr;gap:30px;}.home-visual{order:-1;}}
+
+  /* ---- Pricing ---- */
+  .price-grid{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch;}
+  .price-card{position:relative;display:flex;flex-direction:column;background:rgba(255,255,255,.05);border:1px solid var(--glass-brd);border-radius:24px;padding:34px 30px;backdrop-filter:blur(10px);transition:transform .25s;}
+  .price-card:hover{transform:translateY(-6px);}
+  .price-card.popular{background:linear-gradient(180deg,rgba(44,132,151,.28),rgba(15,68,82,.18));border-color:rgba(44,132,151,.6);box-shadow:0 24px 60px rgba(0,0,0,.4);}
+  .price-tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--teal-bright);color:#04181d;font-size:11.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:7px 16px;border-radius:30px;white-space:nowrap;}
+  .price-name{font-size:16px;font-weight:700;color:var(--text-dim);letter-spacing:.02em;}
+  .price-amt{font-size:42px;font-weight:800;color:#fff;margin:10px 0 4px;display:flex;align-items:baseline;gap:.1em;}
+  .price-amt .per{font-size:15px;font-weight:600;color:var(--text-dim);}
+  .price-desc{font-size:14px;color:var(--text-dim);margin-bottom:22px;line-height:1.5;}
+  .price-feats{list-style:none;display:flex;flex-direction:column;gap:13px;margin-bottom:28px;flex:1;}
+  .price-feats li{display:flex;align-items:flex-start;gap:10px;font-size:14.5px;color:#e6f2f4;line-height:1.45;}
+  .price-feats svg{width:19px;height:19px;flex-shrink:0;margin-top:1px;stroke:var(--teal-bright);fill:none;stroke-width:2.6;}
+  .price-btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:15px;border:0;border-radius:13px;cursor:pointer;font-family:inherit;font-size:15.5px;font-weight:700;background:rgba(255,255,255,.1);border:1px solid var(--glass-brd);color:#fff;transition:.2s;}
+  .price-btn:hover{background:rgba(255,255,255,.2);}
+  .price-card.popular .price-btn{background:#25d366;border-color:#25d366;color:#fff;}
+  .price-card.popular .price-btn:hover{background:#1fbb59;}
+  .price-note{text-align:center;max-width:680px;margin:30px auto 0;font-size:13.5px;color:var(--text-dim);line-height:1.6;}
+  @media(max-width:900px){.price-grid{grid-template-columns:1fr;max-width:440px;}.price-card.popular{order:-1;}}
+
+  /* ---- Certifications ---- */
+  .cert{background:linear-gradient(180deg,#0b313c 0%,#082630 100%);padding-top:60px;padding-bottom:60px;}
+  .cert-head{text-align:center;margin-bottom:34px;}
+  .cert-head .services-eyebrow{margin-bottom:6px;}
+  .cert-head p{font-size:14.5px;color:var(--text-dim);}
+  .cert-strip{max-width:1040px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:16px;}
+  .cert-item{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.05);border:1px solid var(--glass-brd);border-radius:16px;padding:16px 24px;min-width:170px;justify-content:center;}
+  .cert-item svg{width:26px;height:26px;stroke:var(--teal-bright);fill:none;stroke-width:1.8;flex-shrink:0;}
+  .cert-item span{font-size:14px;font-weight:700;color:#dceef1;line-height:1.2;}
+  @media(max-width:680px){.cert-item{min-width:0;flex:1 1 calc(50% - 16px);padding:14px 14px;}.cert-item span{font-size:12.5px;}}
+
+  /* ---- Map & locations ---- */
+  .map-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.3fr .7fr;gap:28px;align-items:stretch;}
+  .map-frame{position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--glass-brd);min-height:380px;background:#0a2c36;}
+  .map-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.2) contrast(1.05);}
+  .loc-list{display:flex;flex-direction:column;gap:18px;}
+  .loc-card{background:rgba(255,255,255,.05);border:1px solid var(--glass-brd);border-radius:20px;padding:24px 24px;backdrop-filter:blur(10px);}
+  .loc-card h3{font-size:18px;font-weight:800;color:#fff;margin-bottom:12px;display:flex;align-items:center;gap:9px;}
+  .loc-card h3 svg{width:19px;height:19px;stroke:var(--teal-bright);fill:none;stroke-width:2;}
+  .loc-card p{font-size:14px;line-height:1.6;color:var(--text-dim);margin-bottom:6px;}
+  .loc-card a{color:var(--teal-bright);text-decoration:none;font-weight:700;}
+  .loc-card a:hover{text-decoration:underline;}
+  @media(max-width:880px){.map-grid{grid-template-columns:1fr;}.map-frame{min-height:300px;}}
 
   /* ============ FOOTER ============ */
   .site-footer{position:relative;z-index:6;background:#04141a;color:var(--text-dim);padding:64px 60px 28px;}
@@ -403,13 +520,10 @@
   .footer-bottom{max-width:1180px;margin:46px auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:13px;}
   .footer-bottom a{color:var(--text-dim);text-decoration:none;}
   .footer-bottom a:hover{color:#fff;}
-
-  /* group inner columns so the 2-grid stays clean */
   .footer-links{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
   @media(max-width:760px){.footer-top{grid-template-columns:1fr;gap:36px;}}
   @media(max-width:520px){.footer-links{grid-template-columns:1fr 1fr;}.site-footer{padding:48px 22px 24px;}.footer-bottom{flex-direction:column;}}
 
-  /* ---- Footer highlight pulse (from hamburger) ---- */
   .f-highlight{position:relative;border-radius:14px;animation:fHi 2.2s ease;}
   @keyframes fHi{
     0%{box-shadow:0 0 0 0 rgba(44,132,151,0);background:rgba(44,132,151,0);}
@@ -418,10 +532,14 @@
     100%{box-shadow:0 0 0 0 rgba(44,132,151,0);background:rgba(44,132,151,0);}
   }
   .f-highlight{padding:14px;margin:-14px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:.001ms !important;transition-duration:.001ms !important;}
+    html{scroll-behavior:auto;}
+  }
 </style>
 </head>
 <body>
-
 <div class="stage" id="top">
   <div class="hero">
     <svg class="waves" viewBox="0 0 600 600" fill="none" aria-hidden="true">
@@ -451,17 +569,25 @@
       <img class="patient-img" src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/Untitled_design_32.png?v=1781342264" alt="Physiotherapy patient" onerror="this.onerror=null;this.style.opacity='0.5';">
     </div>
     <div class="treat">
-      <div class="eyebrow">Explore Our</div>
-      <div class="treat-dd" id="treatDd">
-        <button class="treat-toggle" id="treatToggle" aria-expanded="false">Treatments<svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="treat-menu" id="treatMenu" role="menu">
-          <a href="#service/ ">Neck &amp; Spine Care</a>
-          <a href="#services">Back Pain Relief</a>
-          <a href="#services">Shoulder Rehab</a>
-          <a href="#services">Knee &amp; Joint Therapy</a>
-          <a href="#services">Sports Injury Recovery</a>
-          <a href="#services">Posture Correction</a>
+      <div class="treat-left">
+        <div class="eyebrow">Explore Our</div>
+        <div class="treat-dd" id="treatDd">
+          <button class="treat-toggle" id="treatToggle" aria-expanded="false">Treatments<svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="treat-menu" id="treatMenu" role="menu">
+            <a href="#services">Neck &amp; Spine Care</a>
+            <a href="#services">Back Pain Relief</a>
+            <a href="#services">Shoulder Rehab</a>
+            <a href="#services">Knee &amp; Joint Therapy</a>
+            <a href="#services">Sports Injury Recovery</a>
+            <a href="#services">Posture Correction</a>
+          </div>
         </div>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><div class="stat-num" data-target="12000" data-suffix="+">0</div><div class="hstat-label">Patients Treated</div></div>
+        <div class="hstat"><div class="stat-num" data-target="15" data-suffix="+">0</div><div class="hstat-label">Years of Experience</div></div>
+        <div class="hstat"><div class="stat-num" data-target="4.9" data-decimals="1" data-star="1">0</div><div class="hstat-label">Google Rating</div></div>
+        <div class="hstat"><div class="stat-num" data-target="98" data-suffix="%">0</div><div class="hstat-label">Recovery Rate</div></div>
       </div>
     </div>
   </div>
@@ -481,8 +607,8 @@
         <div class="card shape-1"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_29_45_PM.png?v=1781359225" alt="" onerror="this.style.display='none'"><div class="slot">Image 1</div><span class="card-badge">Shoulder Rehab</span></div>
         <div class="card shape-2"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_31_57_PM.png?v=1781359332" alt="" onerror="this.style.display='none'"><div class="slot">Image 2</div><span class="card-badge">Knee Therapy</span></div>
         <div class="card shape-3"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_33_51_PM.png?v=1781359445" alt="" onerror="this.style.display='none'"><div class="slot">Image 3</div><span class="card-badge">Back Pain Relief</span></div>
-        <div class="card shape-4"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_36_53_PM.png?v=1781359630" alt="" onerror="this.style.display='none'"><div class="slot">Image 4</div><span class="card-badge">Ankle & Foot Care</span></div>
-        <div class="card shape-1"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_37_17_PM.png?v=1781359650" alt="" onerror="this.style.display='none'"><div class="slot">Image 5</div><span class="card-badge">Neck & Spine</span></div>
+        <div class="card shape-4"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_36_53_PM.png?v=1781359630" alt="" onerror="this.style.display='none'"><div class="slot">Image 4</div><span class="card-badge">Ankle &amp; Foot Care</span></div>
+        <div class="card shape-1"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_37_17_PM.png?v=1781359650" alt="" onerror="this.style.display='none'"><div class="slot">Image 5</div><span class="card-badge">Neck &amp; Spine</span></div>
         <div class="card shape-2"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_40_23_PM.png?v=1781359836" alt="" onerror="this.style.display='none'"><div class="slot">Image 6</div><span class="card-badge">Sports Injury</span></div>
         <div class="card shape-3"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_40_37_PM.png?v=1781359851" alt="" onerror="this.style.display='none'"><div class="slot">Image 7</div><span class="card-badge">Posture Correction</span></div>
         <div class="card shape-4"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_40_54_PM.png?v=1781359868" alt="" onerror="this.style.display='none'"><div class="slot">Image 8</div><span class="card-badge">Post-Surgery Rehab</span></div>
@@ -490,8 +616,18 @@
     </div>
   </div>
   <button class="book-all" id="bookOpen" type="button">Book Now</button>
+  <div class="svc-process">
+    <div class="svc-step"><div class="svc-circle">1</div><span>Book</span></div>
+    <div class="svc-line"></div>
+    <div class="svc-step"><div class="svc-circle">2</div><span>Assess</span></div>
+    <div class="svc-line"></div>
+    <div class="svc-step"><div class="svc-circle">3</div><span>Plan</span></div>
+    <div class="svc-line"></div>
+    <div class="svc-step"><div class="svc-circle">4</div><span>Recover</span></div>
+  </div>
 </section>
 
+<!-- ============ CLIENT TESTIMONIALS ============ -->
 <section class="testimonials" id="testimonials">
   <div class="testi-head">
     <div class="services-eyebrow">Real stories</div>
@@ -508,6 +644,180 @@
     <div class="testi-card"><video muted loop playsinline preload="metadata" src="REPLACE_WITH_TESTIMONIAL_4.mp4"></video><div class="testi-overlay"><div class="testi-name">Sameer Khan</div><div class="testi-role">Posture correction</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
     </div></div>
     <div class="navigation"><div class="dots" id="testiDots"></div></div>
+  </div>
+</section>
+
+<!-- ============ PHYSIOTHERAPY AT HOME ============ -->
+<section class="flow homecare" id="home-physio">
+  <div class="homecare-inner">
+    <div>
+      <div class="services-eyebrow">Care at your doorstep</div>
+      <h2>Physiotherapy<br>at Home</h2>
+      <p class="lead2">Can't travel to the clinic? Our therapists bring expert physiotherapy to you — ideal for post-surgery recovery, elderly patients and anyone with limited mobility.</p>
+      <ul class="home-list">
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Same qualified therapists who treat you in-clinic</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Portable equipment for a full session at home</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Flexible time slots, including evenings</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Available across selected areas in the city</li>
+      </ul>
+      <a class="home-cta" href="https://wa.me/15551234567?text=Hi%20Renoxa%2C%20I%27d%20like%20to%20book%20a%20home%20physiotherapy%20visit." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        Book a Home Visit
+      </a>
+    </div>
+    <div class="home-visual">
+      <img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_36_53_PM.png?v=1781359630" alt="Home physiotherapy session" onerror="this.style.opacity='0.4'">
+    </div>
+  </div>
+</section>
+
+<!-- ============ CARE BUILT AROUND YOU ============ -->
+<section class="flow bg-b" id="why">
+  <div class="flow-head">
+    <div class="services-eyebrow">Why Renoxa</div>
+    <h2 class="services-title">Care Built Around You</h2>
+    <p class="services-sub">What makes our patients trust us with their recovery, again and again.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-ico"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8z"/></svg></div>
+      <h3>Certified Expert Team</h3>
+      <p>Every session is led by qualified physiotherapists with BPT and MPT degrees and years of clinical experience.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-ico"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+      <h3>Personalized Treatment Plans</h3>
+      <p>No two bodies are the same. Your plan is built from a full assessment and adjusted as you progress.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-ico"><svg viewBox="0 0 24 24"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
+      <h3>Advanced Equipment</h3>
+      <p>Modern rehab technology and tools that speed up healing and make every session more effective.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+      <h3>One-on-One Sessions</h3>
+      <p>You get a therapist's full attention every visit — never rushed, never handed off mid-treatment.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-ico"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-9 8.5 8.5 8.5 0 0 1-4-1L3 21l1.5-4.5A8.5 8.5 0 1 1 21 11.5z"/></svg></div>
+      <h3>Continuous Follow-up</h3>
+      <p>We check in between visits on WhatsApp and guide your home exercises so progress never stalls.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-ico"><svg viewBox="0 0 24 24"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <h3>Transparent Pricing</h3>
+      <p>Clear session and package rates with no hidden charges, plus cashless insurance support.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLANS & PACKAGES ============ -->
+<section class="flow bg-a" id="pricing">
+  <div class="flow-head">
+    <div class="services-eyebrow">Simple pricing</div>
+    <h2 class="services-title">Plans &amp; Packages</h2>
+    <p class="services-sub">Transparent rates with no hidden charges. Pay per session or save with a package.</p>
+  </div>
+  <div class="price-grid">
+    <div class="price-card">
+      <div class="price-name">Single Session</div>
+      <div class="price-amt">₹800<span class="per">/ visit</span></div>
+      <div class="price-desc">Best to try us out or for occasional pain relief.</div>
+      <ul class="price-feats">
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>One 45-min session</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Full physical assessment</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Home exercise guidance</li>
+      </ul>
+      <button class="price-btn" data-plan="Single Session (₹800)">Choose Plan</button>
+    </div>
+    <div class="price-card popular">
+      <span class="price-tag">Most Popular</span>
+      <div class="price-name">Recovery Package</div>
+      <div class="price-amt">₹4,200<span class="per">/ 6 sessions</span></div>
+      <div class="price-desc">Ideal for most back, neck and joint conditions.</div>
+      <ul class="price-feats">
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Six guided sessions</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Personalized treatment plan</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>WhatsApp follow-up support</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Save ₹600 vs single sessions</li>
+      </ul>
+      <button class="price-btn" data-plan="Recovery Package (₹4,200 / 6 sessions)">Choose Plan</button>
+    </div>
+    <div class="price-card">
+      <div class="price-name">Complete Care</div>
+      <div class="price-amt">₹7,800<span class="per">/ 12 sessions</span></div>
+      <div class="price-desc">For surgery recovery &amp; long-term rehabilitation.</div>
+      <ul class="price-feats">
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Twelve guided sessions</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Progress reviews built in</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Priority scheduling</li>
+        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Save ₹1,800 vs single sessions</li>
+      </ul>
+      <button class="price-btn" data-plan="Complete Care (₹7,800 / 12 sessions)">Choose Plan</button>
+    </div>
+  </div>
+  <p class="price-note">Prices shown are samples — update them to your actual rates. Cashless insurance accepted with select providers. Home-visit charges may vary by location.</p>
+</section>
+
+<!-- ============ OUR PHYSIOTHERAPISTS ============ -->
+<section class="flow bg-b" id="doctors">
+  <div class="flow-head">
+    <div class="services-eyebrow">Meet the team</div>
+    <h2 class="services-title">Our Physiotherapists</h2>
+    <p class="services-sub">Experienced, qualified and genuinely invested in getting you moving again.</p>
+  </div>
+  <div class="docs-grid">
+    <div class="doc-card">
+      <div class="doc-photo"><img src="REPLACE_DOCTOR_1.jpg" alt="Dr. Aarav Mehta" onerror="this.style.display='none'"><span class="doc-initials">AM</span></div>
+      <div class="doc-info">
+        <div class="doc-name">Dr. Aarav Mehta</div>
+        <div class="doc-qual">MPT — Orthopedics</div>
+        <div class="doc-spec">Spine, sports injuries &amp; post-surgery rehabilitation.</div>
+        <span class="doc-exp">15+ years experience</span>
+      </div>
+    </div>
+    <div class="doc-card">
+      <div class="doc-photo"><img src="REPLACE_DOCTOR_2.jpg" alt="Dr. Priya Nair" onerror="this.style.display='none'"><span class="doc-initials">PN</span></div>
+      <div class="doc-info">
+        <div class="doc-name">Dr. Priya Nair</div>
+        <div class="doc-qual">MPT — Neurology</div>
+        <div class="doc-spec">Stroke recovery, paralysis &amp; neuro rehabilitation.</div>
+        <span class="doc-exp">12+ years experience</span>
+      </div>
+    </div>
+    <div class="doc-card">
+      <div class="doc-photo"><img src="REPLACE_DOCTOR_3.jpg" alt="Dr. Vikram Singh" onerror="this.style.display='none'"><span class="doc-initials">VS</span></div>
+      <div class="doc-info">
+        <div class="doc-name">Dr. Vikram Singh</div>
+        <div class="doc-qual">MPT — Sports</div>
+        <div class="doc-spec">Athlete recovery, knee &amp; shoulder injuries.</div>
+        <span class="doc-exp">10+ years experience</span>
+      </div>
+    </div>
+    <div class="doc-card">
+      <div class="doc-photo"><img src="REPLACE_DOCTOR_4.jpg" alt="Dr. Sneha Reddy" onerror="this.style.display='none'"><span class="doc-initials">SR</span></div>
+      <div class="doc-info">
+        <div class="doc-name">Dr. Sneha Reddy</div>
+        <div class="doc-qual">BPT</div>
+        <div class="doc-spec">Posture correction &amp; women's health physiotherapy.</div>
+        <span class="doc-exp">8+ years experience</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CERTIFICATIONS ============ -->
+<section class="flow cert" id="certifications">
+  <div class="cert-head">
+    <div class="services-eyebrow">Accredited &amp; trusted</div>
+    <p>Registered and certified — your care is in qualified hands.</p>
+  </div>
+  <div class="cert-strip">
+    <div class="cert-item"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8z"/></svg><span>Indian Association of Physiotherapists</span></div>
+    <div class="cert-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5L7 22l5-3 5 3-1.5-8.5"/></svg><span>ISO 9001 Certified Clinic</span></div>
+    <div class="cert-item"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/></svg><span>MPT &amp; BPT Qualified Team</span></div>
+    <div class="cert-item"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><span>Govt. Registered Practice</span></div>
   </div>
 </section>
 
@@ -572,7 +882,7 @@
   </div>
 </section>
 
-<!-- ============ FAQ (slider) ============ -->
+<!-- ============ FAQ ============ -->
 <section class="faq" id="faq">
   <div class="faq-head">
     <div class="services-eyebrow">Good to know</div>
@@ -617,7 +927,34 @@
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
+<!-- ============ MAP & LOCATIONS ============ -->
+<section class="flow bg-b" id="locations">
+  <div class="flow-head">
+    <div class="services-eyebrow">Find us</div>
+    <h2 class="services-title">Visit a Clinic</h2>
+    <p class="services-sub">Drop in for an assessment, or reach out and we'll come to you.</p>
+  </div>
+  <div class="map-grid">
+    <div class="map-frame">
+      <iframe title="Renoxa clinic location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Connaught+Place+New+Delhi&output=embed"></iframe>
+    </div>
+    <div class="loc-list">
+      <div class="loc-card">
+        <h3><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Main Clinic</h3>
+        <p>123 Wellness Avenue, Connaught Place,<br>New Delhi, 110001</p>
+        <p><strong style="color:#fff;">Hours:</strong> Mon–Sat, 8am–8pm</p>
+        <p><a href="tel:+15551234567">+1 555 123 4567</a></p>
+      </div>
+      <div class="loc-card">
+        <h3><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Home Visits</h3>
+        <p>Available across selected areas in the city for patients with limited mobility.</p>
+        <p><a href="https://wa.me/15551234567?text=Hi%20Renoxa%2C%20I%27d%20like%20to%20check%20home%20visit%20availability." target="_blank" rel="noopener">Check availability on WhatsApp →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer class="site-footer" id="site-footer">
   <div class="footer-top">
     <div class="footer-brand" id="f-brand">
@@ -634,16 +971,19 @@
       <div class="f-col" id="f-explore">
         <h4>Explore</h4>
         <a href="#services">Services</a>
+        <a href="#doctors">Our Doctors</a>
+        <a href="#pricing">Pricing</a>
         <a href="#testimonials">Testimonials</a>
         <a href="#blog">Blog</a>
         <a href="#faq">FAQ</a>
       </div>
       <div class="f-col" id="f-treatments">
         <h4>Treatments</h4>
-        <a href="#services/">Neck &amp; Spine</a>
+        <a href="#services">Neck &amp; Spine</a>
         <a href="#services">Back Pain</a>
         <a href="#services">Knee &amp; Joint</a>
         <a href="#services">Sports Injury</a>
+        <a href="#home-physio">Home Physio</a>
       </div>
       <div class="f-col" id="f-blog">
         <h4>Blog</h4>
@@ -665,16 +1005,6 @@
     <span><a href="#">Privacy</a> &nbsp;·&nbsp; <a href="#">Terms</a></span>
   </div>
 </footer>
-
-<!-- <div class="video-fab-card" id="videoFabCard">
-  <div class="vf-media">
-    <video autoplay muted loop playsinline preload="auto" poster="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/Untitled_design_32.png?v=1781342264">
-      <source src="REPLACE_WITH_YOUR_VIDEO_URL.mp4" type="video/mp4">
-    </video>
-    <span class="vf-tag"><span class="dot"></span>Live</span>
-  </div>
-  <a class="video-fab-explore" href="#testimonials">Explore<svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-</div> -->
 
 <a class="wa-fab" href="https://wa.me/15551234567?text=Hi%20Renoxa%2C%20I%27d%20like%20to%20book%20a%20physiotherapy%20assessment." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
@@ -711,7 +1041,12 @@
   </div>
 </div>
 
+<div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Clinic intro video">
+  <div class="video-box"><button class="video-close" id="closeVideo" aria-label="Close video">&times;</button><div id="videoSlot"></div></div>
+</div>
 <script>
+  const WA_NUMBER = "15551234567";
+
   /* ---- Three-line button: scroll to footer + highlight key columns ---- */
   (function(){
     const btn=document.getElementById('menuBtn');
@@ -721,7 +1056,6 @@
     btn.addEventListener('click', ()=>{
       footer.scrollIntoView({behavior:'smooth'});
       targets.forEach(el=>{ el.classList.remove('f-highlight'); });
-      // restart the animation after scroll begins
       setTimeout(()=>{ targets.forEach(el=>{ void el.offsetWidth; el.classList.add('f-highlight'); }); }, 480);
     });
     targets.forEach(el=> el.addEventListener('animationend', ()=> el.classList.remove('f-highlight')));
@@ -729,17 +1063,20 @@
 
   /* ---- Booking modal ---- */
   (function(){
-    const NUM = "15551234567";
     const modal = document.getElementById('bookModal');
     const form  = document.getElementById('bookForm');
     const err   = document.getElementById('bookErr');
     const get   = id => document.getElementById(id);
-    function open(){ modal.classList.add('open'); document.body.style.overflow='hidden'; setTimeout(()=>get('bk-name').focus(),250); }
+    let presetPlan = "";
+    function open(plan){ presetPlan = plan || ""; modal.classList.add('open'); document.body.style.overflow='hidden'; setTimeout(()=>get('bk-name').focus(),250); }
     function close(){ modal.classList.remove('open'); document.body.style.overflow=''; err.style.display='none'; }
     const opener = document.getElementById('bookOpen');
-    if(opener) opener.addEventListener('click', open);
+    if(opener) opener.addEventListener('click', ()=>open());
     const heroBook = document.getElementById('heroBook');
-    if(heroBook) heroBook.addEventListener('click', open);
+    if(heroBook) heroBook.addEventListener('click', ()=>open());
+    document.querySelectorAll('.price-btn').forEach(b=>{
+      b.addEventListener('click', ()=> open(b.getAttribute('data-plan')||''));
+    });
     modal.querySelectorAll('[data-close]').forEach(el=> el.addEventListener('click', close));
     modal.addEventListener('click', e=>{ if(e.target===modal) close(); });
     document.addEventListener('keydown', e=>{ if(e.key==='Escape' && modal.classList.contains('open')) close(); });
@@ -754,7 +1091,8 @@
       if(age)  msg += "Age: "  + age  + "\n";
       if(city) msg += "City: " + city + "\n";
       msg += "Concern: " + prob;
-      window.open("https://wa.me/" + NUM + "?text=" + encodeURIComponent(msg), "_blank");
+      if(presetPlan) msg += "\nPlan: " + presetPlan;
+      window.open("https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(msg), "_blank");
       close();
     });
   })();
@@ -770,21 +1108,40 @@
     document.addEventListener('keydown', e=>{ if(e.key==='Escape') setOpen(false); });
   })();
 
-  /* ---- Floating preview video autoplay ---- */
+  /* ---- Stat counters (count up when scrolled into view) ---- */
   (function(){
-    const card=document.getElementById('videoFabCard'); if(!card) return;
-    const vid=card.querySelector('video'); if(!vid) return;
-    const tryPlay=()=>vid.play().catch(()=>{}); tryPlay();
-    document.addEventListener('visibilitychange',()=>{ if(!document.hidden) tryPlay(); });
-    vid.addEventListener('pause',tryPlay);
+    const nums=document.querySelectorAll('.stat-num');
+    if(!nums.length) return;
+    function format(val, decimals){
+      if(decimals>0) return val.toFixed(decimals);
+      return Math.round(val).toLocaleString('en-IN');
+    }
+    function run(el){
+      const target=parseFloat(el.dataset.target||'0');
+      const decimals=parseInt(el.dataset.decimals||'0',10);
+      const suffix=el.dataset.suffix||'';
+      const star=el.dataset.star==='1';
+      const dur=1500; const start=performance.now();
+      function frame(now){
+        const p=Math.min(1,(now-start)/dur);
+        const eased=1-Math.pow(1-p,3);
+        const cur=target*eased;
+        el.innerHTML = format(cur,decimals)
+          + (suffix?'<span class="suffix">'+suffix+'</span>':'')
+          + (star?'<span class="star">★</span>':'');
+        if(p<1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }
+    const io=new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{
+        if(en.isIntersecting){ run(en.target); io.unobserve(en.target); }
+      });
+    },{threshold:.5});
+    nums.forEach(n=>io.observe(n));
   })();
-</script>
 
-<div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Clinic intro video">
-  <div class="video-box"><button class="video-close" id="closeVideo" aria-label="Close video">&times;</button><div id="videoSlot"></div></div>
-</div>
-
-<script>
+  /* ---- Clinic intro video modal ---- */
   const YOUTUBE_ID = "YOUTUBE_ID";
   const vmodal=document.getElementById('videoModal'), vslot=document.getElementById('videoSlot'), vopen=document.getElementById('openVideo'), vclose=document.getElementById('closeVideo');
   function openVideo(){ vslot.innerHTML='<iframe src="https://www.youtube.com/embed/'+YOUTUBE_ID+'?autoplay=1&rel=0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>'; vmodal.classList.add('open'); document.body.style.overflow='hidden'; }
