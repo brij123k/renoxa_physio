@@ -3,7 +3,27 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Renoxa · Physiotherapy &amp; Rehabilitation</title>
+<title>Renoxa Physiotherapy | Physiotherapy &amp; Rehabilitation Clinic in New Delhi</title>
+<meta name="description" content="Renoxa Physiotherapy offers personalized, one-on-one physiotherapy in New Delhi for back pain, neck &amp; spine, sports injuries, post-surgery rehab and posture correction — plus home visits. Book an assessment today." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://www.renoxaphysio.com/" />
+<meta name="theme-color" content="#0a2e38" />
+
+<!-- Open Graph (Facebook, WhatsApp, LinkedIn previews) -->
+<meta property="og:type" content="business.business" />
+<meta property="og:site_name" content="Renoxa Physiotherapy" />
+<meta property="og:title" content="Renoxa Physiotherapy | Physiotherapy &amp; Rehabilitation Clinic in New Delhi" />
+<meta property="og:description" content="Personalized physiotherapy and rehabilitation for back pain, sports injuries, post-surgery recovery and more — in-clinic and at-home visits in New Delhi." />
+<meta property="og:image" content="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/Untitled_design_32.png?v=1781342264" />
+<meta property="og:url" content="https://www.renoxaphysio.com/" />
+<meta property="og:locale" content="en_IN" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Renoxa Physiotherapy | Physiotherapy &amp; Rehabilitation Clinic in New Delhi" />
+<meta name="twitter:description" content="Personalized physiotherapy and rehabilitation for back pain, sports injuries, post-surgery recovery and more — in-clinic and at-home visits in New Delhi." />
+<meta name="twitter:image" content="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/Untitled_design_32.png?v=1781342264" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -591,56 +611,6 @@
   .home-visual img{width:100%;height:100%;object-fit:cover;}
   @media(max-width:980px){.homecare-inner{grid-template-columns:1fr;gap:30px;}.home-visual{order:-1;}}
 
-  /* ---- Pricing (small-card carousel) ---- */
-  .price-carousel{position:relative;max-width:840px;margin:0 auto;width:100%;}
-  .price-viewport{overflow:hidden;}
-  .price-track{display:flex;align-items:stretch;gap:20px;transition:transform .55s cubic-bezier(.4,0,.2,1);will-change:transform;cursor:grab;touch-action:pan-y;}
-  .price-track.dragging{transition:none;cursor:grabbing;}
-  .price-card{position:relative;width:220px;flex:0 0 auto;display:flex;flex-direction:column;background:rgba(255,255,255,.05);border:1px solid var(--glass-brd);border-radius:18px;padding:24px 20px;backdrop-filter:blur(10px);transition:transform .25s;}
-  .price-card:hover{transform:translateY(-6px);}
-  .price-card.popular{background:linear-gradient(180deg,rgba(44,132,151,.28),rgba(15,68,82,.18));border-color:rgba(44,132,151,.6);box-shadow:0 24px 60px rgba(0,0,0,.4);}
-  .price-tag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--teal-bright);color:#04181d;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:6px 13px;border-radius:30px;white-space:nowrap;}
-  .price-name{font-size:13px;font-weight:700;color:var(--text-dim);letter-spacing:.02em;}
-  .price-amt{font-size:28px;font-weight:800;color:#fff;margin:8px 0 3px;display:flex;align-items:baseline;gap:.1em;}
-  .price-amt .per{font-size:12px;font-weight:600;color:var(--text-dim);}
-  .price-desc{font-size:12px;color:var(--text-dim);margin-bottom:16px;line-height:1.5;}
-  .price-feats{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:20px;flex:1;}
-  .price-feats li{display:flex;align-items:flex-start;gap:8px;font-size:12px;color:#e6f2f4;line-height:1.4;}
-  .price-feats svg{width:15px;height:15px;flex-shrink:0;margin-top:1px;stroke:var(--teal-bright);fill:none;stroke-width:2.6;}
-  .price-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:11px;border:0;border-radius:10px;cursor:pointer;font-family:inherit;font-size:13px;font-weight:700;background:rgba(255,255,255,.1);border:1px solid var(--glass-brd);color:#fff;transition:.2s;}
-  .price-btn:hover{background:rgba(255,255,255,.2);}
-  .price-card.popular .price-btn{background:#25d366;border-color:#25d366;color:#fff;}
-  .price-card.popular .price-btn:hover{background:#1fbb59;}
-  .price-note{text-align:center;max-width:680px;margin:30px auto 0;font-size:13.5px;color:var(--text-dim);line-height:1.6;}
-  @media(max-width:680px){.price-card{width:200px;}}
-
-  .price-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:44px;height:44px;border-radius:50%;border:1px solid var(--glass-brd);background:rgba(255,255,255,.12);backdrop-filter:blur(8px);color:#fff;font-size:25px;line-height:0;cursor:pointer;align-items:center;justify-content:center;transition:.2s;display:none;}
-  .price-arrow:hover{background:rgba(255,255,255,.26);}
-  .price-arrow.prev{left:-16px;}
-  .price-arrow.next{right:-16px;}
-  /* price-arrow stays hidden at every width — dots + swipe/drag are the nav on mobile, real grid on desktop */
-
-  /* Desktop / tablet: real grid, original big cards, no carousel chrome */
-  @media(min-width:761px){
-    .price-carousel{max-width:1080px;}
-    .price-track{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch;transform:none !important;cursor:default;}
-    .price-card{width:auto;padding:34px 30px;border-radius:24px;}
-    .price-tag{font-size:11.5px;padding:7px 16px;top:-13px;}
-    .price-name{font-size:16px;}
-    .price-amt{font-size:42px;margin:10px 0 4px;}
-    .price-amt .per{font-size:15px;}
-    .price-desc{font-size:14px;margin-bottom:22px;}
-    .price-feats{gap:13px;margin-bottom:28px;}
-    .price-feats li{font-size:14.5px;gap:10px;}
-    .price-feats svg{width:19px;height:19px;}
-    .price-btn{padding:15px;font-size:15.5px;border-radius:13px;}
-    .price-carousel .navigation{display:none;}
-  }
-  @media(min-width:761px) and (max-width:900px){
-    .price-track{grid-template-columns:1fr;max-width:440px;margin:0 auto;}
-    .price-card.popular{order:-1;}
-  }
-
   /* ---- Map & locations ---- */
   .map-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.3fr .7fr;gap:28px;align-items:stretch;}
   .map-frame{position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--glass-brd);min-height:380px;background:#0a2c36;}
@@ -760,9 +730,6 @@
     .hero-stats .stat-num{font-size:19px;}
     .hstat-label{font-size:9.5px;}
 
-    .price-card{width:190px;padding:20px 16px;}
-    .price-amt{font-size:25px;}
-
     .cert-inline{margin-bottom:30px;padding:20px 14px 18px;border-radius:18px;}
     .cert-strip{gap:8px;}
     .cert-item{padding:12px 10px;flex:1 1 calc(50% - 8px);}
@@ -808,7 +775,6 @@
     <a href="#doctors"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Our Physiotherapists</a>
     <a href="#testimonials"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-9 8.5 8.5 8.5 0 0 1-4-1L3 21l1.5-4.5A8.5 8.5 0 1 1 21 11.5z"/></svg>Testimonials</a>
     <a href="#home-physio"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M9 21V12h6v9"/></svg>Physiotherapy at Home</a>
-    <a href="#pricing"><svg viewBox="0 0 24 24"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Plans &amp; Packages</a>
     <a href="#why"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8z"/></svg>Why Renoxa</a>
     <a href="#blog"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Blog</a>
     <a href="#faq"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 5 .5c0 1.5-2.5 2-2.5 3.5"/><path d="M12 17h.01"/></svg>FAQ</a>
@@ -850,6 +816,7 @@
   </div>
 </aside>
 
+<main>
 <div class="stage" id="top">
   <div class="hero">
     <svg class="waves" viewBox="0 0 600 600" fill="none" aria-hidden="true">
@@ -876,7 +843,7 @@
       </div>
     </div>
     <div class="patient-stage">
-      <img class="patient-img" src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/Untitled_design_32.png?v=1781342264" alt="Physiotherapy patient" onerror="this.onerror=null;this.style.opacity='0.5';">
+      <img class="patient-img" src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/Untitled_design_32.png?v=1781342264" alt="Physiotherapist treating a patient's shoulder at Renoxa clinic" onerror="this.onerror=null;this.style.opacity='0.5';">
     </div>
     <div class="treat">
       <div class="treat-left">
@@ -927,14 +894,14 @@
     <button class="gal-arrow next" id="galNext" aria-label="Scroll right">&#8250;</button>
     <div class="gallery-viewport">
       <div class="gallery" id="track">
-        <div class="card shape-1"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_29_45_PM.png?v=1781359225" alt="" onerror="this.style.display='none'"><div class="slot">Image 1</div><span class="card-badge">Shoulder Rehab</span></div>
-        <div class="card shape-2"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_31_57_PM.png?v=1781359332" alt="" onerror="this.style.display='none'"><div class="slot">Image 2</div><span class="card-badge">Knee Therapy</span></div>
-        <div class="card shape-3"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_33_51_PM.png?v=1781359445" alt="" onerror="this.style.display='none'"><div class="slot">Image 3</div><span class="card-badge">Back Pain Relief</span></div>
-        <div class="card shape-4"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_36_53_PM.png?v=1781359630" alt="" onerror="this.style.display='none'"><div class="slot">Image 4</div><span class="card-badge">Ankle &amp; Foot Care</span></div>
-        <div class="card shape-1"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_37_17_PM.png?v=1781359650" alt="" onerror="this.style.display='none'"><div class="slot">Image 5</div><span class="card-badge">Neck &amp; Spine</span></div>
-        <div class="card shape-2"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_40_23_PM.png?v=1781359836" alt="" onerror="this.style.display='none'"><div class="slot">Image 6</div><span class="card-badge">Sports Injury</span></div>
-        <div class="card shape-3"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_40_37_PM.png?v=1781359851" alt="" onerror="this.style.display='none'"><div class="slot">Image 7</div><span class="card-badge">Posture Correction</span></div>
-        <div class="card shape-4"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_40_54_PM.png?v=1781359868" alt="" onerror="this.style.display='none'"><div class="slot">Image 8</div><span class="card-badge">Post-Surgery Rehab</span></div>
+        <div class="card shape-1"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_29_45_PM.png?v=1781359225" alt="Shoulder rehabilitation physiotherapy session at Renoxa" onerror="this.style.display='none'"><div class="slot">Image 1</div><span class="card-badge">Shoulder Rehab</span></div>
+        <div class="card shape-2"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_31_57_PM.png?v=1781359332" alt="Knee therapy and joint physiotherapy treatment at Renoxa" onerror="this.style.display='none'"><div class="slot">Image 2</div><span class="card-badge">Knee Therapy</span></div>
+        <div class="card shape-3"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_33_51_PM.png?v=1781359445" alt="Back pain relief physiotherapy treatment at Renoxa" onerror="this.style.display='none'"><div class="slot">Image 3</div><span class="card-badge">Back Pain Relief</span></div>
+        <div class="card shape-4"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_36_53_PM.png?v=1781359630" alt="Ankle and foot care physiotherapy session at Renoxa" onerror="this.style.display='none'"><div class="slot">Image 4</div><span class="card-badge">Ankle &amp; Foot Care</span></div>
+        <div class="card shape-1"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_37_17_PM.png?v=1781359650" alt="Neck and spine care physiotherapy treatment at Renoxa" onerror="this.style.display='none'"><div class="slot">Image 5</div><span class="card-badge">Neck &amp; Spine</span></div>
+        <div class="card shape-2"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_40_23_PM.png?v=1781359836" alt="Sports injury recovery physiotherapy session at Renoxa" onerror="this.style.display='none'"><div class="slot">Image 6</div><span class="card-badge">Sports Injury</span></div>
+        <div class="card shape-3"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_40_37_PM.png?v=1781359851" alt="Posture correction physiotherapy exercise at Renoxa" onerror="this.style.display='none'"><div class="slot">Image 7</div><span class="card-badge">Posture Correction</span></div>
+        <div class="card shape-4"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_40_54_PM.png?v=1781359868" alt="Post-surgery rehabilitation physiotherapy at Renoxa" onerror="this.style.display='none'"><div class="slot">Image 8</div><span class="card-badge">Post-Surgery Rehab</span></div>
       </div>
     </div>
   </div>
@@ -962,7 +929,7 @@
     <button class="docs-arrow next" id="docsNext" aria-label="Next physiotherapist">&#8250;</button>
     <div class="docs-viewport"><div class="docs-track" id="docsTrack">
     <div class="doc-card">
-      <div class="doc-photo"><img src="REPLACE_DOCTOR_1.jpg" alt="Dr. Aarav Mehta" onerror="this.style.display='none'"><span class="doc-initials">AM</span></div>
+      <div class="doc-photo"><img src="REPLACE_DOCTOR_1.jpg" alt="Dr. Aarav Mehta, MPT Orthopedics physiotherapist at Renoxa" onerror="this.style.display='none'"><span class="doc-initials">AM</span></div>
       <div class="doc-info">
         <div class="doc-name">Dr. Aarav Mehta</div>
         <div class="doc-qual">MPT — Orthopedics</div>
@@ -971,7 +938,7 @@
       </div>
     </div>
     <div class="doc-card">
-      <div class="doc-photo"><img src="REPLACE_DOCTOR_2.jpg" alt="Dr. Priya Nair" onerror="this.style.display='none'"><span class="doc-initials">PN</span></div>
+      <div class="doc-photo"><img src="REPLACE_DOCTOR_2.jpg" alt="Dr. Priya Nair, MPT Neurology physiotherapist at Renoxa" onerror="this.style.display='none'"><span class="doc-initials">PN</span></div>
       <div class="doc-info">
         <div class="doc-name">Dr. Priya Nair</div>
         <div class="doc-qual">MPT — Neurology</div>
@@ -980,7 +947,7 @@
       </div>
     </div>
     <div class="doc-card">
-      <div class="doc-photo"><img src="REPLACE_DOCTOR_3.jpg" alt="Dr. Vikram Singh" onerror="this.style.display='none'"><span class="doc-initials">VS</span></div>
+      <div class="doc-photo"><img src="REPLACE_DOCTOR_3.jpg" alt="Dr. Vikram Singh, MPT Sports physiotherapist at Renoxa" onerror="this.style.display='none'"><span class="doc-initials">VS</span></div>
       <div class="doc-info">
         <div class="doc-name">Dr. Vikram Singh</div>
         <div class="doc-qual">MPT — Sports</div>
@@ -989,7 +956,7 @@
       </div>
     </div>
     <div class="doc-card">
-      <div class="doc-photo"><img src="REPLACE_DOCTOR_4.jpg" alt="Dr. Sneha Reddy" onerror="this.style.display='none'"><span class="doc-initials">SR</span></div>
+      <div class="doc-photo"><img src="REPLACE_DOCTOR_4.jpg" alt="Dr. Sneha Reddy, BPT physiotherapist at Renoxa" onerror="this.style.display='none'"><span class="doc-initials">SR</span></div>
       <div class="doc-info">
         <div class="doc-name">Dr. Sneha Reddy</div>
         <div class="doc-qual">BPT</div>
@@ -1041,64 +1008,10 @@
       </a>
     </div>
     <div class="home-visual">
-      <img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_36_53_PM.png?v=1781359630" alt="Home physiotherapy session" onerror="this.style.opacity='0.4'">
+      <img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_36_53_PM.png?v=1781359630" alt="Physiotherapist providing a home physiotherapy visit" onerror="this.style.opacity='0.4'">
     </div>
   </div>
 </section>
-
-<!-- ============ PLANS & PACKAGES ============ -->
-<section class="flow bg-a" id="pricing">
-  <div class="flow-head">
-    <div class="services-eyebrow">Simple pricing</div>
-    <h2 class="services-title">Plans &amp; Packages</h2>
-    <p class="services-sub">Transparent rates with no hidden charges. Pay per session or save with a package.</p>
-  </div>
-  <div class="price-carousel">
-    <button class="price-arrow prev" id="pricePrev" aria-label="Previous plan">&#8249;</button>
-    <button class="price-arrow next" id="priceNext" aria-label="Next plan">&#8250;</button>
-    <div class="price-viewport"><div class="price-track" id="priceTrack">
-    <div class="price-card">
-      <div class="price-name">Single Session</div>
-      <div class="price-amt">₹800<span class="per">/ visit</span></div>
-      <div class="price-desc">Best to try us out or for occasional pain relief.</div>
-      <ul class="price-feats">
-        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>One 45-min session</li>
-        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Full physical assessment</li>
-        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Home exercise guidance</li>
-      </ul>
-      <button class="price-btn" data-plan="Single Session (₹800)">Choose Plan</button>
-    </div>
-    <div class="price-card popular">
-      <span class="price-tag">Most Popular</span>
-      <div class="price-name">Recovery Package</div>
-      <div class="price-amt">₹4,200<span class="per">/ 6 sessions</span></div>
-      <div class="price-desc">Ideal for most back, neck and joint conditions.</div>
-      <ul class="price-feats">
-        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Six guided sessions</li>
-        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Personalized treatment plan</li>
-        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>WhatsApp follow-up support</li>
-        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Save ₹600 vs single sessions</li>
-      </ul>
-      <button class="price-btn" data-plan="Recovery Package (₹4,200 / 6 sessions)">Choose Plan</button>
-    </div>
-    <div class="price-card">
-      <div class="price-name">Complete Care</div>
-      <div class="price-amt">₹7,800<span class="per">/ 12 sessions</span></div>
-      <div class="price-desc">For surgery recovery &amp; long-term rehabilitation.</div>
-      <ul class="price-feats">
-        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Twelve guided sessions</li>
-        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Progress reviews built in</li>
-        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Priority scheduling</li>
-        <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Save ₹1,800 vs single sessions</li>
-      </ul>
-      <button class="price-btn" data-plan="Complete Care (₹7,800 / 12 sessions)">Choose Plan</button>
-    </div>
-    </div></div>
-    <div class="navigation"><div class="dots" id="priceDots"></div></div>
-  </div>
-  <p class="price-note">Prices shown are samples — update them to your actual rates. Cashless insurance accepted with select providers. Home-visit charges may vary by location.</p>
-</section>
-
 <!-- ============ CARE BUILT AROUND YOU ============ -->
 <section class="flow bg-b" id="why">
   <div class="flow-head">
@@ -1108,7 +1021,7 @@
   </div>
   <div class="why-grid">
     <div class="why-card">
-      <div class="why-thumb"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_29_45_PM.png?v=1781359225" alt="" onerror="this.parentElement.style.display='none'"></div>
+      <div class="why-thumb"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_29_45_PM.png?v=1781359225" alt="Certified physiotherapist treating a patient at Renoxa" onerror="this.parentElement.style.display='none'"></div>
       <div class="why-body">
         <div class="why-ico"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8z"/></svg></div>
         <h3>Certified Expert Team</h3>
@@ -1116,7 +1029,7 @@
       </div>
     </div>
     <div class="why-card">
-      <div class="why-thumb"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_31_57_PM.png?v=1781359332" alt="" onerror="this.parentElement.style.display='none'"></div>
+      <div class="why-thumb"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_31_57_PM.png?v=1781359332" alt="Physiotherapist creating a personalized treatment plan at Renoxa" onerror="this.parentElement.style.display='none'"></div>
       <div class="why-body">
         <div class="why-ico"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
         <h3>Personalized Treatment Plans</h3>
@@ -1124,7 +1037,7 @@
       </div>
     </div>
     <div class="why-card">
-      <div class="why-thumb"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_33_51_PM.png?v=1781359445" alt="" onerror="this.parentElement.style.display='none'"></div>
+      <div class="why-thumb"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_33_51_PM.png?v=1781359445" alt="Advanced physiotherapy rehab equipment at Renoxa clinic" onerror="this.parentElement.style.display='none'"></div>
       <div class="why-body">
         <div class="why-ico"><svg viewBox="0 0 24 24"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
         <h3>Advanced Equipment</h3>
@@ -1132,7 +1045,7 @@
       </div>
     </div>
     <div class="why-card">
-      <div class="why-thumb"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_37_17_PM.png?v=1781359650" alt="" onerror="this.parentElement.style.display='none'"></div>
+      <div class="why-thumb"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_37_17_PM.png?v=1781359650" alt="One-on-one physiotherapy session at Renoxa" onerror="this.parentElement.style.display='none'"></div>
       <div class="why-body">
         <div class="why-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
         <h3>One-on-One Sessions</h3>
@@ -1140,7 +1053,7 @@
       </div>
     </div>
     <div class="why-card">
-      <div class="why-thumb"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_40_23_PM.png?v=1781359836" alt="" onerror="this.parentElement.style.display='none'"></div>
+      <div class="why-thumb"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_40_23_PM.png?v=1781359836" alt="Physiotherapist following up with a patient on WhatsApp" onerror="this.parentElement.style.display='none'"></div>
       <div class="why-body">
         <div class="why-ico"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-9 8.5 8.5 8.5 0 0 1-4-1L3 21l1.5-4.5A8.5 8.5 0 1 1 21 11.5z"/></svg></div>
         <h3>Continuous Follow-up</h3>
@@ -1148,7 +1061,7 @@
       </div>
     </div>
     <div class="why-card">
-      <div class="why-thumb"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_40_54_PM.png?v=1781359868" alt="" onerror="this.parentElement.style.display='none'"></div>
+      <div class="why-thumb"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_40_54_PM.png?v=1781359868" alt="Transparent pricing consultation at Renoxa physiotherapy clinic" onerror="this.parentElement.style.display='none'"></div>
       <div class="why-body">
         <div class="why-ico"><svg viewBox="0 0 24 24"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
         <h3>Transparent Pricing</h3>
@@ -1170,7 +1083,7 @@
     <button class="blog-arrow next" id="blogNext" aria-label="Next article">&#8250;</button>
     <div class="blog-viewport"><div class="blog-track" id="blogTrack">
       <a class="bpost" href="blog-back-pain.html">
-        <img class="bpost-img" src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_33_51_PM.png?v=1781359445" alt="" onerror="this.style.opacity='0.4'">
+        <img class="bpost-img" src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_33_51_PM.png?v=1781359445" alt="Woman doing a lower back stretch at home" onerror="this.style.opacity='0.4'">
         <div class="bpost-body">
           <span class="bpost-cat">Back Pain</span>
           <div class="bpost-title">5 Stretches to Ease Lower Back Pain at Home</div>
@@ -1179,7 +1092,7 @@
         </div>
       </a>
       <a class="bpost" href="blog-knee-surgery.html">
-        <img class="bpost-img" src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_31_57_PM.png?v=1781359332" alt="" onerror="this.style.opacity='0.4'">
+        <img class="bpost-img" src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_31_57_PM.png?v=1781359332" alt="Patient recovering from knee surgery with physiotherapy support" onerror="this.style.opacity='0.4'">
         <div class="bpost-body">
           <span class="bpost-cat">Rehabilitation</span>
           <div class="bpost-title">What to Expect When Recovering After Knee Surgery</div>
@@ -1188,7 +1101,7 @@
         </div>
       </a>
       <a class="bpost" href="blog-posture.html">
-        <img class="bpost-img" src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_40_37_PM.png?v=1781359851" alt="" onerror="this.style.opacity='0.4'">
+        <img class="bpost-img" src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_40_37_PM.png?v=1781359851" alt="Person correcting desk posture during office work" onerror="this.style.opacity='0.4'">
         <div class="bpost-body">
           <span class="bpost-cat">Posture</span>
           <div class="bpost-title">Desk Job? 6 Posture Habits That Save Your Neck</div>
@@ -1197,7 +1110,7 @@
         </div>
       </a>
       <a class="bpost" href="blog-sports-injury.html">
-        <img class="bpost-img" src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_40_23_PM.png?v=1781359836" alt="" onerror="this.style.opacity='0.4'">
+        <img class="bpost-img" src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_40_23_PM.png?v=1781359836" alt="Athlete returning to sport after injury rehabilitation" onerror="this.style.opacity='0.4'">
         <div class="bpost-body">
           <span class="bpost-cat">Sports Injury</span>
           <div class="bpost-title">Returning to Sport Safely After an Injury</div>
@@ -1206,7 +1119,7 @@
         </div>
       </a>
       <a class="bpost" href="blog-frozen-shoulder.html">
-        <img class="bpost-img" src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_29_45_PM.png?v=1781359225" alt="" onerror="this.style.opacity='0.4'">
+        <img class="bpost-img" src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_29_45_PM.png?v=1781359225" alt="Physiotherapist treating frozen shoulder condition" onerror="this.style.opacity='0.4'">
         <div class="bpost-body">
           <span class="bpost-cat">Shoulder</span>
           <div class="bpost-title">Frozen Shoulder: Why It Happens and How to Treat It</div>
@@ -1291,6 +1204,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <footer class="site-footer" id="site-footer">
   <div class="footer-top">
@@ -1309,7 +1223,6 @@
         <h4>Explore</h4>
         <a href="#services">Services</a>
         <a href="#doctors">Our Doctors</a>
-        <a href="#pricing">Pricing</a>
         <a href="#testimonials">Testimonials</a>
         <a href="#blog">Blog</a>
         <a href="#faq">FAQ</a>
@@ -1654,7 +1567,7 @@
     document.addEventListener('keydown', e=>{ if(e.key==='Escape' && modal.classList.contains('open')) close(); });
   })();
 
-  /* ---- Reusable single-slide carousel (Blog + FAQ + Pricing + Doctors) ---- */
+  /* ---- Reusable single-slide carousel (Blog + FAQ + Doctors) ---- */
   function initCarousel(opts){
     const track=document.getElementById(opts.track);
     const dotsWrap=document.getElementById(opts.dots);
@@ -1690,8 +1603,6 @@
     function debouncedBuild(){ clearTimeout(rebuildT); rebuildT=setTimeout(build,120); }
     build();
     window.addEventListener('resize',debouncedBuild);
-    // images inside cards (blog thumbnails etc.) can change card height/width after load —
-    // rebuild once everything has finished loading so the math is based on real sizes
     window.addEventListener('load', build);
     [...track.querySelectorAll('img')].forEach(img=>{
       if(!img.complete) img.addEventListener('load', debouncedBuild, {once:true});
@@ -1707,8 +1618,137 @@
   }
   initCarousel({track:'blogTrack',dots:'blogDots',prev:'blogPrev',next:'blogNext',gap:26});
   initCarousel({track:'faqTrack',dots:'faqDots',prev:'faqPrev',next:'faqNext',gap:24});
-  initCarousel({track:'priceTrack',dots:'priceDots',prev:'pricePrev',next:'priceNext',gap:20});
   initCarousel({track:'docsTrack',dots:'docsDots',prev:'docsPrev',next:'docsNext',gap:18});
+</script>
+
+<!-- ============ STRUCTURED DATA (schema.org JSON-LD) — powers SEO rich results, -->
+<!-- AEO featured-snippet / voice-answer eligibility, and gives generative engines -->
+<!-- (ChatGPT, Gemini, Perplexity, Copilot) a clean, unambiguous fact source to cite. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PhysicalTherapy",
+  "@id": "https://www.renoxaphysio.com/#clinic",
+  "name": "Renoxa Physiotherapy",
+  "alternateName": "Renoxa",
+  "description": "Renoxa is a physiotherapy and rehabilitation clinic offering personalized, one-on-one treatment for back pain, neck and spine issues, sports injuries, post-surgery recovery, and posture correction, with both in-clinic and at-home visits.",
+  "url": "https://www.renoxaphysio.com/",
+  "telephone": "+1-555-123-4567",
+  "email": "hello@renoxa.com",
+  "priceRange": "₹₹",
+  "image": "https://cdn.shopify.com/s/files/1/0778/9474/6301/files/Untitled_design_32.png?v=1781342264",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Wellness Avenue, Connaught Place",
+    "addressLocality": "New Delhi",
+    "postalCode": "110001",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 28.6315,
+    "longitude": 77.2167
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "08:00",
+      "closes": "20:00"
+    }
+  ],
+  "medicalSpecialty": "Physiotherapy",
+  "availableService": [
+    { "@type": "MedicalTherapy", "name": "Neck & Spine Care" },
+    { "@type": "MedicalTherapy", "name": "Back Pain Relief" },
+    { "@type": "MedicalTherapy", "name": "Shoulder Rehabilitation" },
+    { "@type": "MedicalTherapy", "name": "Knee & Joint Therapy" },
+    { "@type": "MedicalTherapy", "name": "Sports Injury Recovery" },
+    { "@type": "MedicalTherapy", "name": "Posture Correction" },
+    { "@type": "MedicalTherapy", "name": "Post-Surgery Rehabilitation" },
+    { "@type": "MedicalTherapy", "name": "Home Physiotherapy Visits" }
+  ],
+  "employee": [
+    { "@type": "Physician", "name": "Dr. Aarav Mehta", "medicalSpecialty": "Orthopedic Physiotherapy", "hasCredential": "MPT — Orthopedics" },
+    { "@type": "Physician", "name": "Dr. Priya Nair", "medicalSpecialty": "Neurological Physiotherapy", "hasCredential": "MPT — Neurology" },
+    { "@type": "Physician", "name": "Dr. Vikram Singh", "medicalSpecialty": "Sports Physiotherapy", "hasCredential": "MPT — Sports" },
+    { "@type": "Physician", "name": "Dr. Sneha Reddy", "medicalSpecialty": "General Physiotherapy", "hasCredential": "BPT" }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "312",
+    "bestRating": "5"
+  },
+  "sameAs": [
+    "https://www.instagram.com/renoxaphysio",
+    "https://www.facebook.com/renoxaphysio"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need a doctor's referral to book a physiotherapy appointment at Renoxa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No referral is needed. You can book an assessment with Renoxa directly and the team will guide you from there. If your insurer requires a referral, they'll let you know during your first visit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long is each physiotherapy session at Renoxa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A first assessment usually takes 45–60 minutes, and follow-up treatment sessions are typically 30–45 minutes depending on the treatment plan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What conditions does Renoxa Physiotherapy treat?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Renoxa treats neck and back pain, shoulder and knee injuries, sciatica, sports injuries, post-surgery rehabilitation, and posture-related issues, among others."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many physiotherapy sessions will I need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It varies by condition and goals. After an assessment, Renoxa's physiotherapists give a clear, personalized estimate — many patients see meaningful progress within a few sessions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Renoxa offer home physiotherapy visits?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, home visits are available in selected areas for patients with limited mobility. Reach out on WhatsApp to check availability for a specific location."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Renoxa accept insurance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Renoxa works with several major insurers and also offers self-pay packages. Contact the clinic with provider details to confirm coverage."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Renoxa Physiotherapy",
+  "url": "https://www.renoxaphysio.com/"
+}
 </script>
 
 </body>
