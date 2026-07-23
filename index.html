@@ -173,12 +173,11 @@
     position:relative;
     z-index:2;
     width:100%;
-    min-height:100vh;
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    padding:80px 60px 96px;
+    padding:52px 60px 76px;
     background:
       radial-gradient(110% 80% at 50% 0%, rgba(44,132,151,.40) 0%, rgba(15,68,82,0) 58%),
       linear-gradient(180deg, #0f4452 0%, #0a2e38 100%);
@@ -251,6 +250,17 @@
   .services-sub{font-size:clamp(15px,1.4vw,18px);color:var(--text-dim);line-height:1.55;}
   .book-all{margin-top:18px;display:inline-flex;align-items:center;gap:10px;padding:16px 44px;border-radius:40px;cursor:pointer;border:0;background:#eef6f8;color:#0f3742;font-family:inherit;font-size:16px;font-weight:700;letter-spacing:.01em;box-shadow:0 12px 30px rgba(0,0,0,.28);transition:transform .2s, background .2s;}
   .book-all:hover{background:#fff;transform:translateY(-2px);}
+
+  /* ---- Conditions we treat (chip grid inside Services) ---- */
+  .cond-wrap{width:100%;max-width:980px;margin:0 auto 48px;text-align:center;}
+  .cond-list{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;}
+  .cond-chip{padding:12px 24px;border-radius:30px;background:rgba(255,255,255,.06);border:1px solid var(--glass-brd);color:var(--text);font-size:14.5px;font-weight:700;letter-spacing:.01em;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:transform .2s ease, background .2s ease, border-color .2s ease;}
+  .cond-chip:hover{background:rgba(44,132,151,.28);border-color:rgba(90,196,218,.55);transform:translateY(-3px);}
+  @media(max-width:680px){
+    .cond-wrap{margin-bottom:34px;}
+    .cond-list{gap:8px;}
+    .cond-chip{padding:9px 16px;font-size:12.5px;border-radius:20px;}
+  }
 
   /* ---- Recovery journey steps (inside services — premium look) ---- */
   .svc-process{position:relative;display:flex;align-items:flex-start;justify-content:center;gap:10px;margin-top:52px;flex-wrap:nowrap;
@@ -339,20 +349,19 @@
     position:relative;
     z-index:3;
     width:100%;
-    min-height:100vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
-    padding:76px 60px 90px;
+    padding:48px 60px 70px;
     background:linear-gradient(180deg, #0e3b47 0%, #061c23 100%);
     border-top:1px solid rgba(255,255,255,.10);
   }
-  .testi-head{text-align:center;max-width:660px;margin:0 auto 48px;}
-  .testi-carousel{position:relative;max-width:1180px;margin:0 auto;width:100%;}
+  .testi-head{text-align:center;max-width:660px;margin:0 auto 32px;}
+  .testi-carousel{position:relative;max-width:1500px;margin:0 auto;width:100%;}
   .testi-viewport{overflow:hidden;}
   .testi-track{display:flex;align-items:flex-start;gap:26px;transition:transform .55s cubic-bezier(.4,0,.2,1);will-change:transform;cursor:grab;touch-action:pan-y;}
   .testi-track.dragging{transition:none;cursor:grabbing;}
-  .testi-card{position:relative;flex:0 0 auto;width:250px;border-radius:28px;overflow:hidden;background:#06181d;border:1px solid var(--glass-brd);box-shadow:0 18px 45px rgba(0,0,0,.4);aspect-ratio:9/16;transition:transform .35s ease, box-shadow .35s ease;}
+  .testi-card{position:relative;flex:0 0 auto;width:calc((100% - 130px) / 6);border-radius:28px;overflow:hidden;background:#06181d;border:1px solid var(--glass-brd);box-shadow:0 18px 45px rgba(0,0,0,.4);aspect-ratio:9/16;transition:transform .35s ease, box-shadow .35s ease;}
   .testi-card:hover{transform:translateY(-10px);box-shadow:0 30px 60px rgba(0,0,0,.55);}
   .testi-card:nth-child(even){margin-top:0;}
   .testi-arrow{position:absolute;top:46%;transform:translateY(-50%);z-index:5;width:46px;height:46px;border-radius:50%;border:1px solid var(--glass-brd);background:rgba(255,255,255,.1);backdrop-filter:blur(8px);color:#fff;font-size:26px;line-height:0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;}
@@ -369,7 +378,7 @@
   .testi-play.is-playing svg.icon-play{display:none;}
   .testi-play:not(.is-playing) svg.icon-pause{display:none;}
   @media(max-width:680px){
-    .testimonials{padding:52px 18px 64px;min-height:100vh;}
+    .testimonials{padding:52px 18px 64px;}
     .testi-head{margin-bottom:32px;}
     .testi-card{width:74vw;max-width:300px;margin-top:0 !important;}
     .testi-arrow{display:none;}
@@ -398,8 +407,8 @@
   }
 
   /* ============ BLOG ============ */
-  .blog{position:relative;z-index:4;width:100%;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 60px 96px;background:linear-gradient(180deg,#0c3744 0%, #07232b 100%);border-top:1px solid rgba(255,255,255,.10);}
-  .blog-head{text-align:center;max-width:660px;margin:0 auto 40px;}
+  .blog{position:relative;z-index:4;width:100%;display:flex;flex-direction:column;justify-content:center;padding:52px 60px 76px;background:linear-gradient(180deg,#0c3744 0%, #07232b 100%);border-top:1px solid rgba(255,255,255,.10);}
+  .blog-head{text-align:center;max-width:660px;margin:0 auto 28px;}
   .blog-carousel{position:relative;max-width:900px;margin:0 auto;width:100%;}
   .blog-viewport{overflow:hidden;border-radius:24px;}
   .blog-track{display:flex;align-items:stretch;gap:26px;transition:transform .55s cubic-bezier(.4,0,.2,1);will-change:transform;cursor:grab;touch-action:pan-y;}
@@ -419,8 +428,8 @@
   .blog-arrow.next{right:-18px;}
 
   /* ============ FAQ (slider) ============ */
-  .faq{position:relative;z-index:5;width:100%;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 60px 96px;background:linear-gradient(180deg,#0a323d 0%, #04161c 100%);border-top:1px solid rgba(255,255,255,.10);}
-  .faq-head{text-align:center;max-width:660px;margin:0 auto 36px;}
+  .faq{position:relative;z-index:5;width:100%;display:flex;flex-direction:column;justify-content:center;padding:52px 60px 76px;background:linear-gradient(180deg,#0a323d 0%, #04161c 100%);border-top:1px solid rgba(255,255,255,.10);}
+  .faq-head{text-align:center;max-width:660px;margin:0 auto 26px;}
   .faq-carousel{position:relative;max-width:1100px;margin:0 auto;width:100%;}
   .faq-viewport{overflow:hidden;}
   .faq-track{display:flex;align-items:stretch;gap:24px;transition:transform .55s cubic-bezier(.4,0,.2,1);will-change:transform;cursor:grab;touch-action:pan-y;}
@@ -449,10 +458,10 @@
 
   /* ============ TABLET RESPONSIVE ============ */
   @media(min-width:681px) and (max-width:980px){
-    .section{padding:64px 34px 78px;}
-    .testimonials{padding:64px 34px 76px;}
-    .blog{padding:64px 34px 76px;}
-    .faq{padding:64px 34px 76px;min-height:auto;}
+    .section{padding:44px 34px 60px;}
+    .testimonials{padding:44px 34px 56px;}
+    .blog{padding:44px 34px 56px;}
+    .faq{padding:44px 34px 56px;min-height:auto;}
     .copy h1{font-size:clamp(34px,5.4vw,50px);}
     .copy .lead{max-width:80%;}
     .bpost{flex-direction:column;min-height:0;}
@@ -469,10 +478,10 @@
     .map-grid{grid-template-columns:1fr;}
   }
   @media(min-width:981px) and (max-width:1200px){
-    .section{padding:76px 44px 96px;}
-    .testimonials{padding:72px 44px 88px;}
-    .blog{padding:76px 44px 88px;}
-    .faq{padding:76px 44px 88px;}
+    .section{padding:52px 44px 76px;}
+    .testimonials{padding:48px 44px 68px;}
+    .blog{padding:52px 44px 68px;}
+    .faq{padding:52px 44px 68px;}
     .copy{max-width:62%;}
     .copy .lead{max-width:92%;}
     .patient-stage{width:52%;}
@@ -483,8 +492,8 @@
   /* ============================================================= */
   /* ============ NEW SECTIONS (normal scroll, no overlap) ======= */
   /* ============================================================= */
-  .flow{position:relative;z-index:3;width:100%;padding:76px 60px;border-top:1px solid rgba(255,255,255,.08);}
-  .flow-head{text-align:center;max-width:680px;margin:0 auto 44px;}
+  .flow{position:relative;z-index:3;width:100%;padding:52px 60px;border-top:1px solid rgba(255,255,255,.08);}
+  .flow-head{text-align:center;max-width:680px;margin:0 auto 32px;}
   .bg-a{background:linear-gradient(180deg,#0e3b47 0%, #0a2e38 100%);}
   .bg-b{background:linear-gradient(180deg,#0c3744 0%, #08262e 100%);}
   @media(max-width:980px){.flow{padding:60px 34px;}}
@@ -771,9 +780,9 @@
   <div class="sb-label">Menu</div>
   <nav class="sb-nav">
     <a href="#top"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg>Home</a>
+    <a href="#testimonials"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-9 8.5 8.5 8.5 0 0 1-4-1L3 21l1.5-4.5A8.5 8.5 0 1 1 21 11.5z"/></svg>Testimonials</a>
     <a href="#services"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>Our Services</a>
     <a href="#doctors"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Our Physiotherapists</a>
-    <a href="#testimonials"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-9 8.5 8.5 8.5 0 0 1-4-1L3 21l1.5-4.5A8.5 8.5 0 1 1 21 11.5z"/></svg>Testimonials</a>
     <a href="#home-physio"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8"/><path d="M9 21V12h6v9"/></svg>Physiotherapy at Home</a>
     <a href="#why"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8z"/></svg>Why Renoxa</a>
     <a href="#blog"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Blog</a>
@@ -793,7 +802,7 @@
 
   <div class="sb-cta">
     <button class="sb-book" id="sbBook" type="button">Book Now</button>
-    <a class="sb-wa" href="https://wa.me/15551234567?text=Hi%20Renoxa%2C%20I%27d%20like%20to%20book%20a%20physiotherapy%20assessment." target="_blank" rel="noopener">
+    <a class="sb-wa" href="https://wa.me/919310515789?text=Hi%20Renoxa%2C%20I%27d%20like%20to%20book%20a%20physiotherapy%20assessment." target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
       Chat on WhatsApp
     </a>
@@ -801,16 +810,17 @@
 
   <div class="sb-label">Contact</div>
   <div class="sb-contact">
-    <div><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg><span><strong>+1 555 123 4567</strong></span></div>
-    <div><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg><span>hello@renoxa.com</span></div>
-    <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Mon–Sat, 8am–8pm</span></div>
+    <div><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.68 2.81a2 2 0 0 1-.45 2.11L8 9.91a16 16 0 0 0 6.09 6.09l1.27-1.27a2 2 0 0 1 2.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0 1 22 16.92z"/></svg><span><strong>+91 93105 15789</strong><br>+91 99109 48594</span></div>
+    <div><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg><span>Renoxahelp@gmail.com</span></div>
+    <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span>Mon–Sun, 9am–9pm<br>Emergency: available anytime</span></div>
+    <div><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Amafit Gym, 344, Padmana Naidu Marg, Shakti Khand III, Indirapuram, Ghaziabad, UP 201014</span></div>
   </div>
 
   <div class="sb-foot">
     <div class="sb-social">
-      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.86s0 3.6-.07 4.86c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.86.07s-3.6 0-4.86-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.86c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.2 8.8 2.2 12 2.2zm0 4.86A4.94 4.94 0 1 1 7.06 12 4.94 4.94 0 0 1 12 7.06zm0 1.8A3.14 3.14 0 1 0 15.14 12 3.14 3.14 0 0 0 12 8.86zm5.15-3.2a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15z"/></svg></a>
+      <a href="https://www.instagram.com/renoxa_physio/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.86s0 3.6-.07 4.86c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.86.07s-3.6 0-4.86-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.86c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.2 8.8 2.2 12 2.2zm0 4.86A4.94 4.94 0 1 1 7.06 12 4.94 4.94 0 0 1 12 7.06zm0 1.8A3.14 3.14 0 1 0 15.14 12 3.14 3.14 0 0 0 12 8.86zm5.15-3.2a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15z"/></svg></a>
       <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
-      <a href="https://wa.me/15551234567" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></a>
+      <a href="https://wa.me/919310515789" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></a>
     </div>
     <span class="sb-copy">© 2026 Renoxa</span>
   </div>
@@ -835,18 +845,19 @@
       <h1><b>Physiotherapy</b> that <br>Transforms <b>Your Recovery</b></h1>
       <p class="lead">Personalized care for every patient — from daily aches to post-injury rehabilitation</p>
       <div class="cta-row">
-        <a class="btn-primary btn-whatsapp" href="https://wa.me/15551234567?text=Hi%20Renoxa%2C%20I%27d%20like%20to%20book%20a%20physiotherapy%20assessment." target="_blank" rel="noopener">
+        <a class="btn-primary btn-whatsapp" href="https://wa.me/919310515789?text=Hi%20Renoxa%2C%20I%27d%20like%20to%20book%20a%20physiotherapy%20assessment." target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
           WhatsApp
         </a>
-        <button type="button" class="link-play" id="openVideo"><span class="ring"><svg viewBox="0 0 10 12"><path d="M0 0 L10 6 L0 12 Z"/></svg></span>Discover the clinic</button>
+        <!-- <button type="button" class="link-play" id="openVideo"><span class="ring"><svg viewBox="0 0 10 12"><path d="M0 0 L10 6 L0 12 Z"/></svg></span>Discover the clinic</button> -->
+         <button class="btn-ghost" id="heroBook">Book Appointment</button>
       </div>
     </div>
     <div class="patient-stage">
       <img class="patient-img" src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/Untitled_design_32.png?v=1781342264" alt="Physiotherapist treating a patient's shoulder at Renoxa clinic" onerror="this.onerror=null;this.style.opacity='0.5';">
     </div>
     <div class="treat">
-      <div class="treat-left">
+      <!-- <div class="treat-left">
         <div class="eyebrow">Explore Our</div>
         <div class="treat-dd" id="treatDd">
           <button class="treat-toggle" id="treatToggle" aria-expanded="false">Treatments<svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
@@ -859,7 +870,7 @@
             <a href="#services">Posture Correction</a>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="hero-stats">
         <div class="hstat"><div class="stat-num" data-target="12000" data-suffix="+">0</div><div class="hstat-label">Patients Treated</div></div>
         <div class="hstat"><div class="stat-num" data-target="15" data-suffix="+">0</div><div class="hstat-label">Years of Experience</div></div>
@@ -869,6 +880,30 @@
     </div>
   </div>
 </div>
+
+<!-- ============ CLIENT TESTIMONIALS ============ -->
+<section class="testimonials" id="testimonials">
+  <div class="testi-head">
+    <div class="services-eyebrow">Real stories</div>
+    <h2 class="services-title">Client Testimonials</h2>
+    <p class="services-sub">Hear directly from the people we've helped get back on their feet.</p>
+  </div>
+  <div class="testi-carousel">
+    <button class="testi-arrow prev" id="testiPrev" aria-label="Previous">&#8249;</button>
+    <button class="testi-arrow next" id="testiNext" aria-label="Next">&#8250;</button>
+    <div class="testi-viewport"><div class="testi-track" id="testiTrack">
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="REPLACE_WITH_TESTIMONIAL_1.mp4"></video><div class="testi-overlay"><div class="testi-name">Anjali Sharma</div><div class="testi-role">Back pain recovery</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="REPLACE_WITH_TESTIMONIAL_2.mp4"></video><div class="testi-overlay"><div class="testi-name">Rohit Verma</div><div class="testi-role">Sports injury rehab</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="REPLACE_WITH_TESTIMONIAL_3.mp4"></video><div class="testi-overlay"><div class="testi-name">Meera Joshi</div><div class="testi-role">Knee surgery recovery</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="REPLACE_WITH_TESTIMONIAL_4.mp4"></video><div class="testi-overlay"><div class="testi-name">Sameer Khan</div><div class="testi-role">Posture correction</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+        <div class="testi-card"><video muted loop playsinline preload="metadata" src="REPLACE_WITH_TESTIMONIAL_1.mp4"></video><div class="testi-overlay"><div class="testi-name">Anjali Sharma</div><div class="testi-role">Back pain recovery</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="REPLACE_WITH_TESTIMONIAL_2.mp4"></video><div class="testi-overlay"><div class="testi-name">Rohit Verma</div><div class="testi-role">Sports injury rehab</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="REPLACE_WITH_TESTIMONIAL_3.mp4"></video><div class="testi-overlay"><div class="testi-name">Meera Joshi</div><div class="testi-role">Knee surgery recovery</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="REPLACE_WITH_TESTIMONIAL_4.mp4"></video><div class="testi-overlay"><div class="testi-name">Sameer Khan</div><div class="testi-role">Posture correction</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    </div></div>
+    <div class="navigation"><div class="dots" id="testiDots"></div></div>
+  </div>
+</section>
 
 <section class="section" id="services">
   <!-- Certifications — top of the section -->
@@ -888,6 +923,25 @@
     <div class="services-eyebrow">What we treat</div>
     <h2 class="services-title">Our Services</h2>
     <p class="services-sub">Specialized physiotherapy programs tailored to your body and your recovery goals.</p>
+  </div>
+  <div class="cond-wrap">
+    <div class="cond-list">
+      <span class="cond-chip">Low Back Pain</span>
+      <span class="cond-chip">Neck Pain</span>
+      <span class="cond-chip">Knee Pain</span>
+      <span class="cond-chip">Shoulder Pain &amp; Frozen Shoulder</span>
+      <span class="cond-chip">Sciatica</span>
+      <span class="cond-chip">Slip Disc</span>
+      <span class="cond-chip">Sports Injuries</span>
+      <span class="cond-chip">Muscle &amp; Ligament Injuries</span>
+      <span class="cond-chip">Arthritis</span>
+      <span class="cond-chip">Postural Problems</span>
+      <span class="cond-chip">Stroke Rehabilitation</span>
+      <span class="cond-chip">Parkinson's Rehabilitation</span>
+      <span class="cond-chip">Post-Surgery Rehabilitation</span>
+      <span class="cond-chip">Balance &amp; Walking Disorders</span>
+      <span class="cond-chip">Heel Pain (Plantar Fasciitis)</span>
+    </div>
   </div>
   <div class="gallery-wrapper">
     <button class="gal-arrow prev" id="galPrev" aria-label="Scroll left">&#8249;</button>
@@ -969,26 +1023,6 @@
   </div>
 </section>
 
-<!-- ============ CLIENT TESTIMONIALS ============ -->
-<section class="testimonials" id="testimonials">
-  <div class="testi-head">
-    <div class="services-eyebrow">Real stories</div>
-    <h2 class="services-title">Client Testimonials</h2>
-    <p class="services-sub">Hear directly from the people we've helped get back on their feet.</p>
-  </div>
-  <div class="testi-carousel">
-    <button class="testi-arrow prev" id="testiPrev" aria-label="Previous">&#8249;</button>
-    <button class="testi-arrow next" id="testiNext" aria-label="Next">&#8250;</button>
-    <div class="testi-viewport"><div class="testi-track" id="testiTrack">
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="REPLACE_WITH_TESTIMONIAL_1.mp4"></video><div class="testi-overlay"><div class="testi-name">Anjali Sharma</div><div class="testi-role">Back pain recovery</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="REPLACE_WITH_TESTIMONIAL_2.mp4"></video><div class="testi-overlay"><div class="testi-name">Rohit Verma</div><div class="testi-role">Sports injury rehab</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="REPLACE_WITH_TESTIMONIAL_3.mp4"></video><div class="testi-overlay"><div class="testi-name">Meera Joshi</div><div class="testi-role">Knee surgery recovery</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="REPLACE_WITH_TESTIMONIAL_4.mp4"></video><div class="testi-overlay"><div class="testi-name">Sameer Khan</div><div class="testi-role">Posture correction</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
-    </div></div>
-    <div class="navigation"><div class="dots" id="testiDots"></div></div>
-  </div>
-</section>
-
 <!-- ============ PHYSIOTHERAPY AT HOME ============ -->
 <section class="flow homecare" id="home-physio">
   <div class="homecare-inner">
@@ -1002,7 +1036,7 @@
         <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Flexible time slots, including evenings</li>
         <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Available across selected areas in the city</li>
       </ul>
-      <a class="home-cta" href="https://wa.me/15551234567?text=Hi%20Renoxa%2C%20I%27d%20like%20to%20book%20a%20home%20physiotherapy%20visit." target="_blank" rel="noopener">
+      <a class="home-cta" href="https://wa.me/919310515789?text=Hi%20Renoxa%2C%20I%27d%20like%20to%20book%20a%20home%20physiotherapy%20visit." target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
         Book a Home Visit
       </a>
@@ -1187,19 +1221,19 @@
   <div class="map-grid">
     <div class="map-frame">
       <iframe title="Renoxa clinic location" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps?q=Connaught+Place+New+Delhi&output=embed"></iframe>
+        src="https://www.google.com/maps?q=Amafit+Gym+344+Padmana+Naidu+Marg+Shakti+Khand+III+Indirapuram+Ghaziabad+Uttar+Pradesh+201014&output=embed"></iframe>
     </div>
     <div class="loc-list">
       <div class="loc-card">
         <h3><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Main Clinic</h3>
-        <p>123 Wellness Avenue, Connaught Place,<br>New Delhi, 110001</p>
-        <p><strong style="color:#fff;">Hours:</strong> Mon–Sat, 8am–8pm</p>
-        <p><a href="tel:+15551234567">+1 555 123 4567</a></p>
+        <p>Renoxa Chiropractic &amp; Physiotherapy Clinic, Amafit Gym, 344, Padmana Naidu Marg, Shakti Khand III, Indirapuram, Ghaziabad, Uttar Pradesh 201014</p>
+        <p><strong style="color:#fff;">Hours:</strong> Mon–Sun, 9am–9pm · Emergency: anytime</p>
+        <p><a href="tel:+919310515789">+91 93105 15789</a> &nbsp;·&nbsp; <a href="tel:+919910948594">+91 99109 48594</a></p>
       </div>
       <div class="loc-card">
         <h3><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Home Visits</h3>
         <p>Available across selected areas in the city for patients with limited mobility.</p>
-        <p><a href="https://wa.me/15551234567?text=Hi%20Renoxa%2C%20I%27d%20like%20to%20check%20home%20visit%20availability." target="_blank" rel="noopener">Check availability on WhatsApp →</a></p>
+        <p><a href="https://wa.me/919310515789?text=Hi%20Renoxa%2C%20I%27d%20like%20to%20check%20home%20visit%20availability." target="_blank" rel="noopener">Check availability on WhatsApp →</a></p>
       </div>
     </div>
   </div>
@@ -1213,9 +1247,9 @@
       <div class="fb-sub">PHYSIOTHERAPY</div>
       <p>Personalized physiotherapy and rehabilitation — helping athletes and everyday patients move, recover, and feel their best.</p>
       <div class="f-social">
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.86s0 3.6-.07 4.86c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.86.07s-3.6 0-4.86-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.86c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.5 0-4.74.07-.9.04-1.38.19-1.7.32-.43.16-.74.36-1.06.68-.32.32-.52.63-.68 1.06-.13.32-.28.8-.32 1.7C3.43 8.5 3.43 8.85 3.43 12s0 3.5.07 4.74c.04.9.19 1.38.32 1.7.16.43.36.74.68 1.06.32.32.63.52 1.06.68.32.13.8.28 1.7.32 1.24.07 1.59.07 4.74.07s3.5 0 4.74-.07c.9-.04 1.38-.19 1.7-.32.43-.16.74-.36 1.06-.68.32-.32.52-.63.68-1.06.13-.32.28-.8.32-1.7.07-1.24.07-1.59.07-4.74s0-3.5-.07-4.74c-.04-.9-.19-1.38-.32-1.7a2.85 2.85 0 0 0-.68-1.06 2.85 2.85 0 0 0-1.06-.68c-.32-.13-.8-.28-1.7-.32C15.5 4 15.15 4 12 4zm0 3.06A4.94 4.94 0 1 1 7.06 12 4.94 4.94 0 0 1 12 7.06zm0 1.8A3.14 3.14 0 1 0 15.14 12 3.14 3.14 0 0 0 12 8.86zm5.15-3.2a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15z"/></svg></a>
+        <a href="https://www.instagram.com/renoxa_physio/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.86s0 3.6-.07 4.86c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.86.07s-3.6 0-4.86-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.86c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.5 0-4.74.07-.9.04-1.38.19-1.7.32-.43.16-.74.36-1.06.68-.32.32-.52.63-.68 1.06-.13.32-.28.8-.32 1.7C3.43 8.5 3.43 8.85 3.43 12s0 3.5.07 4.74c.04.9.19 1.38.32 1.7.16.43.36.74.68 1.06.32.32.63.52 1.06.68.32.13.8.28 1.7.32 1.24.07 1.59.07 4.74.07s3.5 0 4.74-.07c.9-.04 1.38-.19 1.7-.32.43-.16.74-.36 1.06-.68.32-.32.52-.63.68-1.06.13-.32.28-.8.32-1.7.07-1.24.07-1.59.07-4.74s0-3.5-.07-4.74c-.04-.9-.19-1.38-.32-1.7a2.85 2.85 0 0 0-.68-1.06 2.85 2.85 0 0 0-1.06-.68c-.32-.13-.8-.28-1.7-.32C15.5 4 15.15 4 12 4zm0 3.06A4.94 4.94 0 1 1 7.06 12 4.94 4.94 0 0 1 12 7.06zm0 1.8A3.14 3.14 0 1 0 15.14 12 3.14 3.14 0 0 0 12 8.86zm5.15-3.2a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15z"/></svg></a>
         <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
-        <a href="https://wa.me/15551234567" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></a>
+        <a href="https://wa.me/919310515789" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></a>
       </div>
     </div>
     <div class="footer-links">
@@ -1244,9 +1278,10 @@
       </div>
       <div class="f-col f-contact" id="contact">
         <h4>Contact</h4>
-        <div><strong>Phone</strong><br>+1 555 123 4567</div>
-        <div><strong>Email</strong><br>hello@renoxa.com</div>
-        <div><strong>Hours</strong><br>Mon–Sat, 8am–8pm</div>
+        <div><strong>Phone</strong><br>+91 93105 15789<br>+91 99109 48594</div>
+        <div><strong>Email</strong><br>Renoxahelp@gmail.com</div>
+        <div><strong>Hours</strong><br>Mon–Sun, 9am–9pm<br>Emergency: anytime</div>
+        <div><strong>Address</strong><br>Amafit Gym, 344, Padmana Naidu Marg, Shakti Khand III, Indirapuram, Ghaziabad, UP 201014</div>
       </div>
     </div>
   </div>
@@ -1256,7 +1291,7 @@
   </div>
 </footer>
 
-<a class="wa-fab" href="https://wa.me/15551234567?text=Hi%20Renoxa%2C%20I%27d%20like%20to%20book%20a%20physiotherapy%20assessment." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+<a class="wa-fab" href="https://wa.me/919310515789?text=Hi%20Renoxa%2C%20I%27d%20like%20to%20book%20a%20physiotherapy%20assessment." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
 </a>
 
@@ -1307,7 +1342,7 @@
   <div class="video-box"><button class="video-close" id="closeVideo" aria-label="Close video">&times;</button><div id="videoSlot"></div></div>
 </div>
 <script>
-  const WA_NUMBER = "15551234567";
+  const WA_NUMBER = "919310515789";
 
   /* ---- Sidebar (three-line menu button) ---- */
   (function(){
@@ -1629,43 +1664,52 @@
   "@context": "https://schema.org",
   "@type": "PhysicalTherapy",
   "@id": "https://www.renoxaphysio.com/#clinic",
-  "name": "Renoxa Physiotherapy",
+  "name": "Renoxa Chiropractic & Physiotherapy Clinic",
   "alternateName": "Renoxa",
-  "description": "Renoxa is a physiotherapy and rehabilitation clinic offering personalized, one-on-one treatment for back pain, neck and spine issues, sports injuries, post-surgery recovery, and posture correction, with both in-clinic and at-home visits.",
+  "description": "Renoxa is a physiotherapy and rehabilitation clinic in Indirapuram, Ghaziabad offering personalized, one-on-one treatment for back pain, neck and spine issues, sports injuries, post-surgery recovery, and posture correction, with both in-clinic and at-home visits.",
   "url": "https://www.renoxaphysio.com/",
-  "telephone": "+1-555-123-4567",
-  "email": "hello@renoxa.com",
+  "telephone": "+91-93105-15789",
+  "email": "Renoxahelp@gmail.com",
   "priceRange": "₹₹",
   "image": "https://cdn.shopify.com/s/files/1/0778/9474/6301/files/Untitled_design_32.png?v=1781342264",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "123 Wellness Avenue, Connaught Place",
-    "addressLocality": "New Delhi",
-    "postalCode": "110001",
+    "streetAddress": "Amafit Gym, 344, Padmana Naidu Marg, Shakti Khand III, Indirapuram",
+    "addressLocality": "Ghaziabad",
+    "addressRegion": "Uttar Pradesh",
+    "postalCode": "201014",
     "addressCountry": "IN"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 28.6315,
-    "longitude": 77.2167
+    "latitude": 28.6469,
+    "longitude": 77.3762
   },
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-      "opens": "08:00",
-      "closes": "20:00"
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "09:00",
+      "closes": "21:00"
     }
   ],
   "medicalSpecialty": "Physiotherapy",
   "availableService": [
-    { "@type": "MedicalTherapy", "name": "Neck & Spine Care" },
-    { "@type": "MedicalTherapy", "name": "Back Pain Relief" },
-    { "@type": "MedicalTherapy", "name": "Shoulder Rehabilitation" },
-    { "@type": "MedicalTherapy", "name": "Knee & Joint Therapy" },
-    { "@type": "MedicalTherapy", "name": "Sports Injury Recovery" },
-    { "@type": "MedicalTherapy", "name": "Posture Correction" },
+    { "@type": "MedicalTherapy", "name": "Low Back Pain" },
+    { "@type": "MedicalTherapy", "name": "Neck Pain" },
+    { "@type": "MedicalTherapy", "name": "Knee Pain" },
+    { "@type": "MedicalTherapy", "name": "Shoulder Pain & Frozen Shoulder" },
+    { "@type": "MedicalTherapy", "name": "Sciatica" },
+    { "@type": "MedicalTherapy", "name": "Slip Disc" },
+    { "@type": "MedicalTherapy", "name": "Sports Injuries" },
+    { "@type": "MedicalTherapy", "name": "Muscle & Ligament Injuries" },
+    { "@type": "MedicalTherapy", "name": "Arthritis" },
+    { "@type": "MedicalTherapy", "name": "Postural Problems" },
+    { "@type": "MedicalTherapy", "name": "Stroke Rehabilitation" },
+    { "@type": "MedicalTherapy", "name": "Parkinson's Rehabilitation" },
     { "@type": "MedicalTherapy", "name": "Post-Surgery Rehabilitation" },
+    { "@type": "MedicalTherapy", "name": "Balance & Walking Disorders" },
+    { "@type": "MedicalTherapy", "name": "Heel Pain (Plantar Fasciitis)" },
     { "@type": "MedicalTherapy", "name": "Home Physiotherapy Visits" }
   ],
   "employee": [
@@ -1681,8 +1725,7 @@
     "bestRating": "5"
   },
   "sameAs": [
-    "https://www.instagram.com/renoxaphysio",
-    "https://www.facebook.com/renoxaphysio"
+    "https://www.instagram.com/renoxa_physio/"
   ]
 }
 </script>
