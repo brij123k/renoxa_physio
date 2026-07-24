@@ -104,6 +104,25 @@
   .link-play:hover .ring{background:rgba(255,255,255,.15)}
   .link-play .ring svg{width:13px;height:13px;fill:var(--text);margin-left:2px}
 
+  .hero-certs{position:relative;z-index:8;display:grid;grid-template-columns:repeat(2, max-content);gap:10px 14px;margin-top:26px;padding:0 46px 20px;}
+  .hero-cert-item{display:inline-flex;align-items:center;gap:10px;padding:6px 18px 6px 6px;border-radius:30px;background:rgba(255,255,255,.05);border:1px solid var(--glass-brd);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);font-size:13px;font-weight:700;color:var(--text);white-space:nowrap;letter-spacing:.01em;box-shadow:0 8px 20px rgba(0,0,0,.18);transition:transform .25s ease, border-color .25s ease, background .25s ease;}
+  .hero-cert-item:hover{transform:translateY(-2px);border-color:rgba(90,196,218,.55);background:rgba(255,255,255,.09);}
+  .hero-cert-ico{width:28px;height:28px;flex-shrink:0;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 34% 30%, rgba(54,160,182,.65), rgba(15,68,82,.35));border:1px solid rgba(44,132,151,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.2);}
+  .hero-cert-ico svg{width:13px;height:13px;stroke:#d9f1f5;fill:none;stroke-width:2.1;}
+  @media(max-width:980px){.hero-certs{margin-top:20px;padding:0 32px 18px;grid-template-columns:repeat(2, minmax(0,max-content));}}
+  @media(max-width:680px){
+    .hero-certs{margin-top:16px;padding:0 18px 14px;gap:8px 10px;grid-template-columns:repeat(2, minmax(0,1fr));}
+    .hero-cert-item{padding:5px 13px 5px 5px;font-size:11px;gap:8px;white-space:normal;}
+    .hero-cert-ico{width:24px;height:24px;}
+    .hero-cert-ico svg{width:11px;height:11px;}
+  }
+  @media(max-width:400px){
+    .hero-certs{gap:7px;grid-template-columns:1fr;}
+    .hero-cert-item{padding:4px 11px 4px 4px;font-size:10px;gap:7px;}
+    .hero-cert-ico{width:21px;height:21px;}
+    .hero-cert-ico svg{width:10px;height:10px;}
+  }
+
   .treat{position:relative;z-index:8;margin-top:auto;padding:0 46px 46px;display:flex;align-items:flex-end;justify-content:space-between;gap:34px;flex-wrap:wrap;}
   .treat-left{flex:0 0 auto;}
   .treat .eyebrow{font-size:clamp(18px,1.5vw,24px);font-weight:400;color:var(--text-dim);margin-bottom:6px;}
@@ -651,9 +670,18 @@
   .footer-bottom{max-width:1180px;margin:46px auto 0;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:13px;}
   .footer-bottom a{color:var(--text-dim);text-decoration:none;}
   .footer-bottom a:hover{color:#fff;}
-  .footer-links{display:grid;grid-template-columns:1fr 1fr;gap:32px;}
+  .footer-links{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
   @media(max-width:760px){.footer-top{grid-template-columns:1fr;gap:36px;}}
   @media(max-width:520px){.footer-links{grid-template-columns:1fr 1fr;}.site-footer{padding:48px 22px 24px;}.footer-bottom{flex-direction:column;}}
+
+  .footer-treatments{max-width:1180px;margin:44px auto 0;padding-top:32px;border-top:1px solid rgba(255,255,255,.1);}
+  .footer-treatments h4{color:#fff;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px;}
+  .footer-treatments-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:11px 28px;}
+  .footer-treatments-grid a{color:var(--text-dim);text-decoration:none;font-size:13.5px;line-height:1.4;transition:color .2s;}
+  .footer-treatments-grid a:hover{color:#fff;}
+  @media(min-width:761px) and (max-width:1000px){.footer-treatments-grid{grid-template-columns:repeat(3,1fr);}}
+  @media(max-width:760px){.footer-treatments{margin-top:36px;padding-top:28px;}.footer-treatments-grid{grid-template-columns:repeat(2,1fr);gap:10px 20px;}}
+  @media(max-width:520px){.footer-treatments-grid{grid-template-columns:1fr 1fr;gap:9px 16px;}.footer-treatments-grid a{font-size:12.5px;}}
 
   .f-highlight{position:relative;border-radius:14px;animation:fHi 2.2s ease;}
   @keyframes fHi{
@@ -792,12 +820,21 @@
 
   <div class="sb-label">Treatments</div>
   <div class="sb-treats">
-    <a href="#services">Neck &amp; Spine</a>
-    <a href="#services">Back Pain</a>
-    <a href="#services">Shoulder Rehab</a>
-    <a href="#services">Knee &amp; Joint</a>
-    <a href="#services">Sports Injury</a>
-    <a href="#services">Posture</a>
+    <a href="#services">Low Back Pain</a>
+    <a href="#services">Neck Pain</a>
+    <a href="#services">Knee Pain</a>
+    <a href="#services">Shoulder Pain &amp; Frozen Shoulder</a>
+    <a href="#services">Sciatica</a>
+    <a href="#services">Slip Disc</a>
+    <a href="#services">Sports Injuries</a>
+    <a href="#services">Muscle &amp; Ligament Injuries</a>
+    <a href="#services">Arthritis</a>
+    <a href="#services">Postural Problems</a>
+    <a href="#services">Stroke Rehabilitation</a>
+    <a href="#services">Parkinson's Rehabilitation</a>
+    <a href="#services">Post-Surgery Rehabilitation</a>
+    <a href="#services">Balance &amp; Walking Disorders</a>
+    <a href="#services">Heel Pain (Plantar Fasciitis)</a>
   </div>
 
   <div class="sb-cta">
@@ -837,7 +874,7 @@
     </svg>
     <div class="orb"></div>
     <header>
-      <button class="menu-btn" id="menuBtn" aria-label="Go to contact section"><span></span><span></span><span></span></button>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
       <div class="brand"><div class="name">Renoxa</div><div class="sub">PHYSIOTHERAPY</div></div>
       <button class="btn-ghost" id="heroBook">Book Now</button>
     </header>
@@ -850,11 +887,17 @@
           WhatsApp
         </a>
         <!-- <button type="button" class="link-play" id="openVideo"><span class="ring"><svg viewBox="0 0 10 12"><path d="M0 0 L10 6 L0 12 Z"/></svg></span>Discover the clinic</button> -->
-         <button class="btn-ghost" id="heroBook">Book Appointment</button>
+         <button class="btn-ghost" id="heroBookCta">Book Appointment</button>
       </div>
     </div>
     <div class="patient-stage">
       <img class="patient-img" src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/Untitled_design_32.png?v=1781342264" alt="Physiotherapist treating a patient's shoulder at Renoxa clinic" onerror="this.onerror=null;this.style.opacity='0.5';">
+    </div>
+    <div class="hero-certs">
+      <span class="hero-cert-item"><span class="hero-cert-ico"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8z"/></svg></span>Indian Association of Physiotherapists</span>
+      <span class="hero-cert-item"><span class="hero-cert-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5L7 22l5-3 5 3-1.5-8.5"/></svg></span>ISO 9001 Certified Clinic</span>
+      <span class="hero-cert-item"><span class="hero-cert-ico"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/></svg></span>MPT &amp; BPT Qualified Team</span>
+      <span class="hero-cert-item"><span class="hero-cert-ico"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>Govt. Registered Practice</span>
     </div>
     <div class="treat">
       <!-- <div class="treat-left">
@@ -862,12 +905,21 @@
         <div class="treat-dd" id="treatDd">
           <button class="treat-toggle" id="treatToggle" aria-expanded="false">Treatments<svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
           <div class="treat-menu" id="treatMenu" role="menu">
-            <a href="#services">Neck &amp; Spine Care</a>
-            <a href="#services">Back Pain Relief</a>
-            <a href="#services">Shoulder Rehab</a>
-            <a href="#services">Knee &amp; Joint Therapy</a>
-            <a href="#services">Sports Injury Recovery</a>
-            <a href="#services">Posture Correction</a>
+            <a href="#services">Low Back Pain</a>
+            <a href="#services">Neck Pain</a>
+            <a href="#services">Knee Pain</a>
+            <a href="#services">Shoulder Pain &amp; Frozen Shoulder</a>
+            <a href="#services">Sciatica</a>
+            <a href="#services">Slip Disc</a>
+            <a href="#services">Sports Injuries</a>
+            <a href="#services">Muscle &amp; Ligament Injuries</a>
+            <a href="#services">Arthritis</a>
+            <a href="#services">Postural Problems</a>
+            <a href="#services">Stroke Rehabilitation</a>
+            <a href="#services">Parkinson's Rehabilitation</a>
+            <a href="#services">Post-Surgery Rehabilitation</a>
+            <a href="#services">Balance &amp; Walking Disorders</a>
+            <a href="#services">Heel Pain (Plantar Fasciitis)</a>
           </div>
         </div>
       </div> -->
@@ -906,42 +958,10 @@
 </section>
 
 <section class="section" id="services">
-  <!-- Certifications — top of the section -->
-  <div class="cert-inline" id="certifications">
-    <div class="cert-head">
-      <div class="services-eyebrow">Accredited &amp; trusted</div>
-      <p>Registered and certified — your care is in qualified hands.</p>
-    </div>
-    <div class="cert-strip">
-      <div class="cert-item"><span class="cert-ico"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8z"/></svg></span><span>Indian Association of Physiotherapists</span></div>
-      <div class="cert-item"><span class="cert-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5L7 22l5-3 5 3-1.5-8.5"/></svg></span><span>ISO 9001 Certified Clinic</span></div>
-      <div class="cert-item"><span class="cert-ico"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/></svg></span><span>MPT &amp; BPT Qualified Team</span></div>
-      <div class="cert-item"><span class="cert-ico"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><span>Govt. Registered Practice</span></div>
-    </div>
-  </div>
   <div class="services-head">
     <div class="services-eyebrow">What we treat</div>
     <h2 class="services-title">Our Services</h2>
     <p class="services-sub">Specialized physiotherapy programs tailored to your body and your recovery goals.</p>
-  </div>
-  <div class="cond-wrap">
-    <div class="cond-list">
-      <span class="cond-chip">Low Back Pain</span>
-      <span class="cond-chip">Neck Pain</span>
-      <span class="cond-chip">Knee Pain</span>
-      <span class="cond-chip">Shoulder Pain &amp; Frozen Shoulder</span>
-      <span class="cond-chip">Sciatica</span>
-      <span class="cond-chip">Slip Disc</span>
-      <span class="cond-chip">Sports Injuries</span>
-      <span class="cond-chip">Muscle &amp; Ligament Injuries</span>
-      <span class="cond-chip">Arthritis</span>
-      <span class="cond-chip">Postural Problems</span>
-      <span class="cond-chip">Stroke Rehabilitation</span>
-      <span class="cond-chip">Parkinson's Rehabilitation</span>
-      <span class="cond-chip">Post-Surgery Rehabilitation</span>
-      <span class="cond-chip">Balance &amp; Walking Disorders</span>
-      <span class="cond-chip">Heel Pain (Plantar Fasciitis)</span>
-    </div>
   </div>
   <div class="gallery-wrapper">
     <button class="gal-arrow prev" id="galPrev" aria-label="Scroll left">&#8249;</button>
@@ -1261,14 +1281,6 @@
         <a href="#blog">Blog</a>
         <a href="#faq">FAQ</a>
       </div>
-      <div class="f-col" id="f-treatments">
-        <h4>Treatments</h4>
-        <a href="#services">Neck &amp; Spine</a>
-        <a href="#services">Back Pain</a>
-        <a href="#services">Knee &amp; Joint</a>
-        <a href="#services">Sports Injury</a>
-        <a href="#home-physio">Home Physio</a>
-      </div>
       <div class="f-col" id="f-blog">
         <h4>Blog</h4>
         <a href="blog-back-pain.html">Back Pain Stretches</a>
@@ -1283,6 +1295,27 @@
         <div><strong>Hours</strong><br>Mon–Sun, 9am–9pm<br>Emergency: anytime</div>
         <div><strong>Address</strong><br>Amafit Gym, 344, Padmana Naidu Marg, Shakti Khand III, Indirapuram, Ghaziabad, UP 201014</div>
       </div>
+    </div>
+  </div>
+  <div class="footer-treatments">
+    <h4>Treatments</h4>
+    <div class="footer-treatments-grid">
+      <a href="#services">Low Back Pain</a>
+      <a href="#services">Neck Pain</a>
+      <a href="#services">Knee Pain</a>
+      <a href="#services">Shoulder Pain &amp; Frozen Shoulder</a>
+      <a href="#services">Sciatica</a>
+      <a href="#services">Slip Disc</a>
+      <a href="#services">Sports Injuries</a>
+      <a href="#services">Muscle &amp; Ligament Injuries</a>
+      <a href="#services">Arthritis</a>
+      <a href="#services">Postural Problems</a>
+      <a href="#services">Stroke Rehabilitation</a>
+      <a href="#services">Parkinson's Rehabilitation</a>
+      <a href="#services">Post-Surgery Rehabilitation</a>
+      <a href="#services">Balance &amp; Walking Disorders</a>
+      <a href="#services">Heel Pain (Plantar Fasciitis)</a>
+      <a href="#home-physio">Home Physio</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -1309,12 +1342,21 @@
       </div>
       <div class="field"><label for="bk-problem">What's bothering you?</label>
         <select id="bk-problem">
-          <option value="Neck pain">Neck pain</option>
-          <option value="Back pain">Back pain</option>
-          <option value="Shoulder pain">Shoulder pain</option>
-          <option value="Knee pain">Knee pain</option>
-          <option value="Sports injury">Sports injury</option>
-          <option value="Posture correction">Posture correction</option>
+          <option value="Low Back Pain">Low Back Pain</option>
+          <option value="Neck Pain">Neck Pain</option>
+          <option value="Knee Pain">Knee Pain</option>
+          <option value="Shoulder Pain & Frozen Shoulder">Shoulder Pain &amp; Frozen Shoulder</option>
+          <option value="Sciatica">Sciatica</option>
+          <option value="Slip Disc">Slip Disc</option>
+          <option value="Sports Injuries">Sports Injuries</option>
+          <option value="Muscle & Ligament Injuries">Muscle &amp; Ligament Injuries</option>
+          <option value="Arthritis">Arthritis</option>
+          <option value="Postural Problems">Postural Problems</option>
+          <option value="Stroke Rehabilitation">Stroke Rehabilitation</option>
+          <option value="Parkinson's Rehabilitation">Parkinson's Rehabilitation</option>
+          <option value="Post-Surgery Rehabilitation">Post-Surgery Rehabilitation</option>
+          <option value="Balance & Walking Disorders">Balance &amp; Walking Disorders</option>
+          <option value="Heel Pain (Plantar Fasciitis)">Heel Pain (Plantar Fasciitis)</option>
           <option value="Other">Other</option>
         </select>
       </div>
@@ -1389,6 +1431,8 @@
     if(opener) opener.addEventListener('click', ()=>open());
     const heroBook = document.getElementById('heroBook');
     if(heroBook) heroBook.addEventListener('click', ()=>open());
+    const heroBookCta = document.getElementById('heroBookCta');
+    if(heroBookCta) heroBookCta.addEventListener('click', ()=>open());
     document.querySelectorAll('.price-btn').forEach(b=>{
       b.addEventListener('click', ()=> open(b.getAttribute('data-plan')||''));
     });
