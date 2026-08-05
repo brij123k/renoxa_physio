@@ -84,6 +84,7 @@
   .menu-btn span:nth-child(2){width:34px}
   .menu-btn:hover span:nth-child(2){width:46px}
   .brand{display:flex;flex-direction:column;align-items:center;line-height:1}
+  a.brand-link, a.sb-brand-link, a.fb-brand-link{text-decoration:none;color:inherit;display:inline-flex;cursor:pointer;}
   .brand .name{font-size:34px;font-weight:800;letter-spacing:.14em;display:flex;align-items:center;}
   .brand .sub{font-size:10px;font-weight:600;letter-spacing:.52em;color:var(--text-dim);margin-top:7px;margin-left:.5em;}
   .btn-ghost{font-family:inherit;font-size:16px;font-weight:600;color:var(--text);padding:15px 30px;border-radius:14px;cursor:pointer;background:var(--glass-bg);border:1px solid var(--glass-brd);backdrop-filter:blur(12px);transition:.25s;flex-shrink:0;}
@@ -266,12 +267,14 @@
 
   /* ---- Services quad-cards (4 services per card, circular avatars) ---- */
   .quad-wrap{width:100%;max-width:1180px;margin:0 auto 40px;}
+  .quad-viewport{overflow:hidden;}
   .quad-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  @media(min-width:681px){ .quad-grid{transform:none !important;cursor:default;} }
   .quad-card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
     border:1px solid var(--glass-brd);border-radius:26px;padding:14px;display:flex;flex-direction:column;
-    box-shadow:0 14px 34px rgba(0,0,0,.24);}
+    box-shadow:0 14px 34px rgba(0,0,0,.24);min-width:0;}
   .quad-item{display:flex;align-items:center;gap:14px;padding:12px 10px;border-radius:16px;text-decoration:none;color:var(--text);
-    transition:background .2s ease, transform .2s ease;}
+    transition:background .2s ease, transform .2s ease;min-width:0;}
   .quad-item:hover{background:rgba(44,132,151,.20);transform:translateX(3px);}
   .quad-item:not(:last-child){border-bottom:1px solid rgba(255,255,255,.07);}
   .quad-avatar{width:52px;height:52px;border-radius:50%;flex-shrink:0;overflow:hidden;position:relative;background:rgba(255,255,255,.05);border:1px solid var(--glass-brd);}
@@ -279,12 +282,15 @@
   .quad-avatar-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
     background:radial-gradient(circle at 34% 30%, rgba(54,160,182,.55), rgba(15,68,82,.3));}
   .quad-avatar-fallback svg{width:22px;height:22px;stroke:#d9f1f5;fill:none;stroke-width:1.8;}
-  .quad-name{font-size:14px;font-weight:700;line-height:1.25;}
+  .quad-name{font-size:14px;font-weight:700;line-height:1.25;min-width:0;flex:1;word-wrap:break-word;}
   @media(min-width:681px) and (max-width:980px){.quad-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(min-width:681px){ #quadNav{display:none;} }
   @media(max-width:680px){
     .quad-wrap{margin-bottom:30px;}
-    .quad-grid{grid-template-columns:1fr;gap:12px;}
-    .quad-card{border-radius:20px;padding:10px;}
+    .quad-grid{display:flex;grid-template-columns:unset;gap:14px;
+      transition:transform .55s cubic-bezier(.4,0,.2,1);will-change:transform;cursor:grab;touch-action:pan-y;}
+    .quad-grid.dragging{transition:none;cursor:grabbing;}
+    .quad-card{flex:0 0 84%;max-width:340px;border-radius:20px;padding:10px;}
     .quad-item{padding:10px 8px;gap:12px;}
     .quad-avatar{width:44px;height:44px;}
     .quad-avatar-fallback svg{width:18px;height:18px;}
@@ -647,18 +653,21 @@
 
   /* Desktop / tablet: real grid, original big cards, no carousel chrome */
   @media(min-width:761px){
-    .docs-carousel{max-width:1180px;}
-    .docs-track{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;transform:none !important;cursor:default;}
-    .doc-card{width:auto;border-radius:24px;}
-    .doc-initials{font-size:46px;}
-    .doc-info{padding:20px 22px 24px;}
-    .doc-name{font-size:18px;}
-    .doc-qual{font-size:13px;margin-top:3px;}
-    .doc-spec{font-size:14px;margin-top:10px;}
-    .doc-exp{font-size:12px;margin-top:14px;padding:6px 12px;}
+    .docs-carousel{max-width:1320px;}
+    .docs-track{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;transform:none !important;cursor:default;}
+    .doc-card{width:auto;border-radius:22px;}
+    .doc-initials{font-size:38px;}
+    .doc-info{padding:16px 16px 18px;}
+    .doc-name{font-size:15.5px;}
+    .doc-qual{font-size:11.5px;margin-top:2px;}
+    .doc-spec{font-size:12px;margin-top:8px;}
+    .doc-exp{font-size:11px;margin-top:10px;padding:5px 10px;}
     .docs-carousel .navigation{display:none;}
   }
-  @media(min-width:761px) and (max-width:980px){
+  @media(min-width:761px) and (max-width:1100px){
+    .docs-track{grid-template-columns:repeat(3,1fr);}
+  }
+  @media(min-width:761px) and (max-width:900px){
     .docs-track{grid-template-columns:repeat(2,1fr);}
   }
 
@@ -842,7 +851,7 @@
 <div class="sb-overlay" id="sbOverlay"></div>
 <aside class="sidebar" id="sidebar" aria-label="Site menu">
   <div class="sb-head">
-    <div class="sb-brand"><div class="name">Renoxa</div><div class="sub">PHYSIOTHERAPY</div></div>
+    <a class="sb-brand-link" href="index.html" aria-label="Go to homepage"><div class="sb-brand"><div class="name">Renoxa</div><div class="sub">PHYSIOTHERAPY</div></div></a>
     <button class="sb-close" id="sbClose" aria-label="Close menu">&times;</button>
   </div>
 
@@ -871,10 +880,9 @@
     <a href="muscle-ligament-injuries.html">Muscle &amp; Ligament Injuries</a>
     <a href="arthritis.html">Arthritis</a>
     <a href="postural-problems.html">Postural Problems</a>
-    <a href="paralysis-rehabilitation.html">Paralysis Rehabilitation</a>
+    <a href="stroke-rehabilitation.html">Stroke Rehabilitation</a>
     <a href="parkinsons-rehabilitation.html">Parkinson's Rehabilitation</a>
-    <a href="knee-replacement-rehabilitation.html">Post Knee Replacement Rehab</a>
-      <a href="hip-replacement-rehabilitation.html">Post Hip Replacement Rehab</a>
+    <a href="post-surgery-rehabilitation.html">Post-Surgery Rehabilitation</a>
     <a href="balance-walking-disorders.html">Balance &amp; Walking Disorders</a>
     <a href="heel-pain-plantar-fasciitis.html">Heel Pain (Plantar Fasciitis)</a>
   </div>
@@ -917,7 +925,7 @@
     <div class="orb"></div>
     <header>
       <button class="menu-btn" id="menuBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
-      <div class="brand"><div class="name">Renoxa</div><div class="sub">PHYSIOTHERAPY</div></div>
+      <a class="brand-link" href="index.html" aria-label="Go to homepage"><div class="brand"><div class="name">Renoxa</div><div class="sub">PHYSIOTHERAPY</div></div></a>
       <button class="btn-ghost" id="heroBook">Book Now</button>
     </header>
     <div class="copy">
@@ -957,14 +965,10 @@
     <button class="testi-arrow prev" id="testiPrev" aria-label="Previous">&#8249;</button>
     <button class="testi-arrow next" id="testiNext" aria-label="Next">&#8250;</button>
     <div class="testi-viewport"><div class="testi-track" id="testiTrack">
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="REPLACE_WITH_TESTIMONIAL_1.mp4"></video><div class="testi-overlay"><div class="testi-name">Anjali Sharma</div><div class="testi-role">Back pain recovery</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="REPLACE_WITH_TESTIMONIAL_2.mp4"></video><div class="testi-overlay"><div class="testi-name">Rohit Verma</div><div class="testi-role">Sports injury rehab</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="REPLACE_WITH_TESTIMONIAL_3.mp4"></video><div class="testi-overlay"><div class="testi-name">Meera Joshi</div><div class="testi-role">Knee surgery recovery</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="REPLACE_WITH_TESTIMONIAL_4.mp4"></video><div class="testi-overlay"><div class="testi-name">Sameer Khan</div><div class="testi-role">Posture correction</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
-        <div class="testi-card"><video muted loop playsinline preload="metadata" src="REPLACE_WITH_TESTIMONIAL_1.mp4"></video><div class="testi-overlay"><div class="testi-name">Anjali Sharma</div><div class="testi-role">Back pain recovery</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="REPLACE_WITH_TESTIMONIAL_2.mp4"></video><div class="testi-overlay"><div class="testi-name">Rohit Verma</div><div class="testi-role">Sports injury rehab</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="REPLACE_WITH_TESTIMONIAL_3.mp4"></video><div class="testi-overlay"><div class="testi-name">Meera Joshi</div><div class="testi-role">Knee surgery recovery</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="REPLACE_WITH_TESTIMONIAL_4.mp4"></video><div class="testi-overlay"><div class="testi-name">Sameer Khan</div><div class="testi-role">Posture correction</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/b8dcd80080c447c8a0e46606983dff03.mp4"></video><div class="testi-overlay"><div class="testi-name">Anjali Sharma</div><div class="testi-role">Back pain recovery</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/0b4c1088f93d45a6b874b72ae0d67494.mp4"></video><div class="testi-overlay"><div class="testi-name">Rohit Verma</div><div class="testi-role">Sports injury rehab</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/b53f4a80f43a407589c58979cbcbd6fa.mp4"></video><div class="testi-overlay"><div class="testi-name">Meera Joshi</div><div class="testi-role">Knee surgery recovery</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/5eaec40719584069a49e679e9e1126fd.mp4"></video><div class="testi-overlay"><div class="testi-name">Sameer Khan</div><div class="testi-role">Posture correction</div></div><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
     </div></div>
     <div class="navigation"><div class="dots" id="testiDots"></div></div>
   </div>
@@ -977,7 +981,7 @@
     <p class="services-sub">Specialized physiotherapy programs tailored to your body and your recovery goals.</p>
   </div>
   <div class="quad-wrap">
-    <div class="quad-grid">
+    <div class="quad-viewport"><div class="quad-grid" id="quadTrack">
       <div class="quad-card">
         <a class="quad-item" href="low-back-pain.html"><div class="quad-avatar"><div class="quad-avatar-fallback"><svg viewBox="0 0 24 24"><path d="M12 2v20M8 6l4-2 4 2M8 10h8M8 14h8M8 18h8"/></svg></div><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_33_51_PM.png?v=1781359445" alt="Low Back Pain" onerror="this.style.display='none'"></div><span class="quad-name">Low Back Pain</span></a>
         <a class="quad-item" href="neck-pain.html"><div class="quad-avatar"><div class="quad-avatar-fallback"><svg viewBox="0 0 24 24"><path d="M12 2v20M8 6l4-2 4 2M8 10h8M8 14h8M8 18h8"/></svg></div><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_37_17_PM.png?v=1781359650" alt="Neck Pain" onerror="this.style.display='none'"></div><span class="quad-name">Neck Pain</span></a>
@@ -993,16 +997,16 @@
       <div class="quad-card">
         <a class="quad-item" href="arthritis.html"><div class="quad-avatar"><div class="quad-avatar-fallback"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_31_57_PM.png?v=1781359332" alt="Arthritis" onerror="this.style.display='none'"></div><span class="quad-name">Arthritis</span></a>
         <a class="quad-item" href="postural-problems.html"><div class="quad-avatar"><div class="quad-avatar-fallback"><svg viewBox="0 0 24 24"><path d="M12 2v20M8 6l4-2 4 2M8 10h8M8 14h8M8 18h8"/></svg></div><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_40_37_PM.png?v=1781359851" alt="Postural Problems" onerror="this.style.display='none'"></div><span class="quad-name">Postural Problems</span></a>
-        <a class="quad-item" href="paralysis-rehabilitation.html"><div class="quad-avatar"><div class="quad-avatar-fallback"><svg viewBox="0 0 24 24"><path d="M9 3a3 3 0 0 0-3 3v1a3 3 0 0 0-2 2.8V11a3 3 0 0 0 2 2.8V15a3 3 0 0 0 3 3M15 3a3 3 0 0 1 3 3v1a3 3 0 0 1 2 2.8V11a3 3 0 0 1-2 2.8V15a3 3 0 0 1-3 3M9 3v18M15 3v18"/></svg></div><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_40_54_PM.png?v=1781359868" alt="Paralysis Rehabilitation" onerror="this.style.display='none'"></div><span class="quad-name">Paralysis Rehabilitation</span></a>
+        <a class="quad-item" href="stroke-rehabilitation.html"><div class="quad-avatar"><div class="quad-avatar-fallback"><svg viewBox="0 0 24 24"><path d="M9 3a3 3 0 0 0-3 3v1a3 3 0 0 0-2 2.8V11a3 3 0 0 0 2 2.8V15a3 3 0 0 0 3 3M15 3a3 3 0 0 1 3 3v1a3 3 0 0 1 2 2.8V11a3 3 0 0 1-2 2.8V15a3 3 0 0 1-3 3M9 3v18M15 3v18"/></svg></div><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_40_54_PM.png?v=1781359868" alt="Stroke Rehabilitation" onerror="this.style.display='none'"></div><span class="quad-name">Stroke Rehabilitation</span></a>
         <a class="quad-item" href="parkinsons-rehabilitation.html"><div class="quad-avatar"><div class="quad-avatar-fallback"><svg viewBox="0 0 24 24"><path d="M9 3a3 3 0 0 0-3 3v1a3 3 0 0 0-2 2.8V11a3 3 0 0 0 2 2.8V15a3 3 0 0 0 3 3M15 3a3 3 0 0 1 3 3v1a3 3 0 0 1 2 2.8V11a3 3 0 0 1-2 2.8V15a3 3 0 0 1-3 3M9 3v18M15 3v18"/></svg></div><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_29_45_PM.png?v=1781359225" alt="Parkinson's Rehabilitation" onerror="this.style.display='none'"></div><span class="quad-name">Parkinson's Rehabilitation</span></a>
       </div>
       <div class="quad-card">
-        <a class="quad-item" href="knee-replacement-rehabilitation.html"><div class="quad-avatar"><div class="quad-avatar-fallback"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_40_54_PM.png?v=1781359868" alt="Post Knee Replacement Rehabilitation" onerror="this.style.display='none'"></div><span class="quad-name">Post Knee Replacement</span></a>
-        <a class="quad-item" href="hip-replacement-rehabilitation.html"><div class="quad-avatar"><div class="quad-avatar-fallback"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_31_57_PM.png?v=1781359332" alt="Post Hip Replacement Rehabilitation" onerror="this.style.display='none'"></div><span class="quad-name">Post Hip Replacement</span></a>
+        <a class="quad-item" href="post-surgery-rehabilitation.html"><div class="quad-avatar"><div class="quad-avatar-fallback"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_40_54_PM.png?v=1781359868" alt="Post-Surgery Rehabilitation" onerror="this.style.display='none'"></div><span class="quad-name">Post-Surgery Rehabilitation</span></a>
         <a class="quad-item" href="balance-walking-disorders.html"><div class="quad-avatar"><div class="quad-avatar-fallback"><svg viewBox="0 0 24 24"><path d="M9 3a3 3 0 0 0-3 3v1a3 3 0 0 0-2 2.8V11a3 3 0 0 0 2 2.8V15a3 3 0 0 0 3 3M15 3a3 3 0 0 1 3 3v1a3 3 0 0 1 2 2.8V11a3 3 0 0 1-2 2.8V15a3 3 0 0 1-3 3M9 3v18M15 3v18"/></svg></div><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_36_53_PM.png?v=1781359630" alt="Balance &amp; Walking Disorders" onerror="this.style.display='none'"></div><span class="quad-name">Balance &amp; Walking Disorders</span></a>
         <a class="quad-item" href="heel-pain-plantar-fasciitis.html"><div class="quad-avatar"><div class="quad-avatar-fallback"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_36_53_PM.png?v=1781359630" alt="Heel Pain (Plantar Fasciitis)" onerror="this.style.display='none'"></div><span class="quad-name">Heel Pain (Plantar Fasciitis)</span></a>
       </div>
-    </div>
+    </div></div>
+    <div class="navigation" id="quadNav"><div class="dots" id="quadDots"></div></div>
   </div>
   <button class="book-all" id="bookOpen" type="button">Book Now</button>
   <div class="svc-process">
@@ -1028,39 +1032,43 @@
     <button class="docs-arrow next" id="docsNext" aria-label="Next physiotherapist">&#8250;</button>
     <div class="docs-viewport"><div class="docs-track" id="docsTrack">
     <div class="doc-card">
-      <div class="doc-photo"><img src="REPLACE_DOCTOR_1.jpg" alt="Dr. Aarav Mehta, MPT Orthopedics physiotherapist at Renoxa" onerror="this.style.display='none'"><span class="doc-initials">AM</span></div>
+      <div class="doc-photo"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/IMG_3636_1.jpg?v=1785434903" alt="Dr. Abhi Kumar, physiotherapist" onerror="this.style.display='none'"><span class="doc-initials">AK</span></div>
       <div class="doc-info">
-        <div class="doc-name">Dr. Aarav Mehta</div>
-        <div class="doc-qual">MPT — Orthopedics</div>
-        <div class="doc-spec">Spine, sports injuries &amp; post-surgery rehabilitation.</div>
-        <span class="doc-exp">15+ years experience</span>
+        <div class="doc-name">Dr.Abhi kumar ( PT )</div>
+        <div class="doc-qual">BPT , MPT sports </div>
+        <div class="doc-spec">Specialist is manual therapy, post surgery, rehabilitation</div>
       </div>
     </div>
     <div class="doc-card">
-      <div class="doc-photo"><img src="REPLACE_DOCTOR_2.jpg" alt="Dr. Priya Nair, MPT Neurology physiotherapist at Renoxa" onerror="this.style.display='none'"><span class="doc-initials">PN</span></div>
+      <div class="doc-photo"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/WhatsApp_Image_2026-07-30_at_12.10.55_AM.jpg?v=1785432008" alt="Dr. Gungun Sharma, BPT physiotherapist, Senior Doctor at Kailash Hospital Noida" onerror="this.style.display='none'"><span class="doc-initials">GS</span></div>
       <div class="doc-info">
-        <div class="doc-name">Dr. Priya Nair</div>
-        <div class="doc-qual">MPT — Neurology</div>
-        <div class="doc-spec">Stroke recovery, paralysis &amp; neuro rehabilitation.</div>
-        <span class="doc-exp">12+ years experience</span>
-      </div>
-    </div>
-    <div class="doc-card">
-      <div class="doc-photo"><img src="REPLACE_DOCTOR_3.jpg" alt="Dr. Vikram Singh, MPT Sports physiotherapist at Renoxa" onerror="this.style.display='none'"><span class="doc-initials">VS</span></div>
-      <div class="doc-info">
-        <div class="doc-name">Dr. Vikram Singh</div>
-        <div class="doc-qual">MPT — Sports</div>
-        <div class="doc-spec">Athlete recovery, knee &amp; shoulder injuries.</div>
-        <span class="doc-exp">10+ years experience</span>
-      </div>
-    </div>
-    <div class="doc-card">
-      <div class="doc-photo"><img src="REPLACE_DOCTOR_4.jpg" alt="Dr. Sneha Reddy, BPT physiotherapist at Renoxa" onerror="this.style.display='none'"><span class="doc-initials">SR</span></div>
-      <div class="doc-info">
-        <div class="doc-name">Dr. Sneha Reddy</div>
+        <div class="doc-name">Dr. Gungun Sharma (PT)</div>
         <div class="doc-qual">BPT</div>
-        <div class="doc-spec">Posture correction &amp; women's health physiotherapy.</div>
-        <span class="doc-exp">8+ years experience</span>
+        <div class="doc-spec">Senior Doctor at Kailash Hospital, Noida-27.</div>
+      </div>
+    </div>
+    <div class="doc-card">
+      <div class="doc-photo"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/WhatsApp_Image_2026-07-30_at_12.13.45_AM_1.jpg?v=1785432007" alt="Dr. Waseem, MPT Neuro physiotherapist at Max Hospital Noida" onerror="this.style.display='none'"><span class="doc-initials">W</span></div>
+      <div class="doc-info">
+        <div class="doc-name">Dr. Waseem (PT)</div>
+        <div class="doc-qual">MPT — Neurology</div>
+        <div class="doc-spec">Max Hospital, Noida-128.</div>
+      </div>
+    </div>
+    <div class="doc-card">
+      <div class="doc-photo"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/IMG_3651.jpg?v=1785435348" alt="Dr. Priyanka Roy, physiotherapist" onerror="this.style.display='none'"><span class="doc-initials">PR</span></div>
+      <div class="doc-info">
+        <div class="doc-name">Dr.Priyanka Roy ( PT ) </div>
+        <div class="doc-qual">BPT, MPT ( cardio pulmonary )</div>
+        <div class="doc-spec">1. Jaypee Hospital 2. Max-Hospital</div>
+      </div>
+    </div>
+    <div class="doc-card">
+      <div class="doc-photo"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/IMG_3183_JPG.jpg?v=1785434600" alt="Dr. Baibhav Mishra, physiotherapist at Yatharth Hospital Greater Noida" onerror="this.style.display='none'"><span class="doc-initials">BM</span></div>
+      <div class="doc-info">
+        <div class="doc-name">Dr. Baibhav Mishra (PT)</div>
+        <div class="doc-qual">Physiotherapist</div>
+        <div class="doc-spec">Yatharth Hospital, Greater Noida.</div>
       </div>
     </div>
     </div></div>
@@ -1313,8 +1321,7 @@
 <footer class="site-footer" id="site-footer">
   <div class="footer-top">
     <div class="footer-brand" id="f-brand">
-      <div class="fb-name">Renoxa</div>
-      <div class="fb-sub">PHYSIOTHERAPY</div>
+      <a class="fb-brand-link" href="index.html" aria-label="Go to homepage"><div class="fb-name">Renoxa</div><div class="fb-sub">PHYSIOTHERAPY</div></a>
       <p>Personalized physiotherapy and rehabilitation — helping athletes and everyday patients move, recover, and feel their best.</p>
       <div class="f-social">
         <a href="https://www.instagram.com/renoxa_physio/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.86s0 3.6-.07 4.86c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.86.07s-3.6 0-4.86-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.86c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.5 0-4.74.07-.9.04-1.38.19-1.7.32-.43.16-.74.36-1.06.68-.32.32-.52.63-.68 1.06-.13.32-.28.8-.32 1.7C3.43 8.5 3.43 8.85 3.43 12s0 3.5.07 4.74c.04.9.19 1.38.32 1.7.16.43.36.74.68 1.06.32.32.63.52 1.06.68.32.13.8.28 1.7.32 1.24.07 1.59.07 4.74.07s3.5 0 4.74-.07c.9-.04 1.38-.19 1.7-.32.43-.16.74-.36 1.06-.68.32-.32.52-.63.68-1.06.13-.32.28-.8.32-1.7.07-1.24.07-1.59.07-4.74s0-3.5-.07-4.74c-.04-.9-.19-1.38-.32-1.7a2.85 2.85 0 0 0-.68-1.06 2.85 2.85 0 0 0-1.06-.68c-.32-.13-.8-.28-1.7-.32C15.5 4 15.15 4 12 4zm0 3.06A4.94 4.94 0 1 1 7.06 12 4.94 4.94 0 0 1 12 7.06zm0 1.8A3.14 3.14 0 1 0 15.14 12 3.14 3.14 0 0 0 12 8.86zm5.15-3.2a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15z"/></svg></a>
@@ -1360,10 +1367,9 @@
       <a href="muscle-ligament-injuries.html">Muscle &amp; Ligament Injuries</a>
       <a href="arthritis.html">Arthritis</a>
       <a href="postural-problems.html">Postural Problems</a>
-      <a href="paralysis-rehabilitation.html">Paralysis Rehabilitation</a>
+      <a href="stroke-rehabilitation.html">Stroke Rehabilitation</a>
       <a href="parkinsons-rehabilitation.html">Parkinson's Rehabilitation</a>
-      <a href="knee-replacement-rehabilitation.html">Post Knee Replacement Rehab</a>
-      <a href="hip-replacement-rehabilitation.html">Post Hip Replacement Rehab</a>
+      <a href="post-surgery-rehabilitation.html">Post-Surgery Rehabilitation</a>
       <a href="balance-walking-disorders.html">Balance &amp; Walking Disorders</a>
       <a href="heel-pain-plantar-fasciitis.html">Heel Pain (Plantar Fasciitis)</a>
       <a href="#home-physio">Home Physio</a>
@@ -1403,10 +1409,9 @@
           <option value="Muscle & Ligament Injuries">Muscle &amp; Ligament Injuries</option>
           <option value="Arthritis">Arthritis</option>
           <option value="Postural Problems">Postural Problems</option>
-          <option value="Paralysis Rehabilitation">Paralysis Rehabilitation</option>
+          <option value="Stroke Rehabilitation">Stroke Rehabilitation</option>
           <option value="Parkinson's Rehabilitation">Parkinson's Rehabilitation</option>
-          <option value="Post Knee Replacement Rehabilitation">Post Knee Replacement Rehab</option>
-          <option value="Post Hip Replacement Rehabilitation">Post Hip Replacement Rehab</option>
+          <option value="Post-Surgery Rehabilitation">Post-Surgery Rehabilitation</option>
           <option value="Balance & Walking Disorders">Balance &amp; Walking Disorders</option>
           <option value="Heel Pain (Plantar Fasciitis)">Heel Pain (Plantar Fasciitis)</option>
           <option value="Other">Other</option>
@@ -1761,6 +1766,7 @@
   initCarousel({track:'blogTrack',dots:'blogDots',prev:'blogPrev',next:'blogNext',gap:26});
   initCarousel({track:'faqTrack',dots:'faqDots',prev:'faqPrev',next:'faqNext',gap:24});
   initCarousel({track:'docsTrack',dots:'docsDots',prev:'docsPrev',next:'docsNext',gap:18});
+  initCarousel({track:'quadTrack',dots:'quadDots',gap:14});
 </script>
 
 <!-- ============ STRUCTURED DATA (schema.org JSON-LD) — powers SEO rich results, -->
@@ -1819,20 +1825,18 @@
     { "@type": "MedicalTherapy", "name": "Muscle & Ligament Injuries" },
     { "@type": "MedicalTherapy", "name": "Arthritis" },
     { "@type": "MedicalTherapy", "name": "Postural Problems" },
-    { "@type": "MedicalTherapy", "name": "Paralysis Rehabilitation" },
+    { "@type": "MedicalTherapy", "name": "Stroke Rehabilitation" },
     { "@type": "MedicalTherapy", "name": "Parkinson's Rehabilitation" },
-    { "@type": "MedicalTherapy", "name": "Post Knee Replacement Rehabilitation" },
-    { "@type": "MedicalTherapy", "name": "Post Hip Replacement Rehabilitation" },
+    { "@type": "MedicalTherapy", "name": "Post-Surgery Rehabilitation" },
     { "@type": "MedicalTherapy", "name": "Balance & Walking Disorders" },
     { "@type": "MedicalTherapy", "name": "Heel Pain (Plantar Fasciitis)" },
     { "@type": "MedicalTherapy", "name": "Chiropractic Care" },
     { "@type": "MedicalTherapy", "name": "Home Physiotherapy Visits" }
   ],
   "employee": [
-    { "@type": "Physician", "name": "Dr. Aarav Mehta", "medicalSpecialty": "Orthopedic Physiotherapy", "hasCredential": "MPT — Orthopedics" },
-    { "@type": "Physician", "name": "Dr. Priya Nair", "medicalSpecialty": "Neurological Physiotherapy", "hasCredential": "MPT — Neurology" },
-    { "@type": "Physician", "name": "Dr. Vikram Singh", "medicalSpecialty": "Sports Physiotherapy", "hasCredential": "MPT — Sports" },
-    { "@type": "Physician", "name": "Dr. Sneha Reddy", "medicalSpecialty": "General Physiotherapy", "hasCredential": "BPT" }
+    { "@type": "Physician", "name": "Dr. Gungun Sharma", "medicalSpecialty": "General Physiotherapy", "hasCredential": "BPT", "worksFor": "Kailash Hospital, Noida" },
+    { "@type": "Physician", "name": "Dr. Baibhav Mishra", "medicalSpecialty": "General Physiotherapy", "worksFor": "Yatharth Hospital, Greater Noida" },
+    { "@type": "Physician", "name": "Dr. Waseem", "medicalSpecialty": "Neurological Physiotherapy", "hasCredential": "MPT — Neurology", "worksFor": "Max Hospital, Noida" }
   ],
   "aggregateRating": {
     "@type": "AggregateRating",
