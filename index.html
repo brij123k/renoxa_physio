@@ -84,7 +84,8 @@
   .menu-btn span:nth-child(2){width:34px}
   .menu-btn:hover span:nth-child(2){width:46px}
   .brand{display:flex;flex-direction:column;align-items:center;line-height:1}
-  a.brand-link, a.sb-brand-link, a.fb-brand-link{text-decoration:none;color:inherit;display:inline-flex;cursor:pointer;}
+  a.brand-link, a.sb-brand-link, a.fb-brand-link{text-decoration:none;color:inherit;display:inline-flex;cursor:pointer;position:relative;z-index:12;-webkit-tap-highlight-color:transparent;padding:4px 8px;margin:-4px -8px;border-radius:10px;transition:opacity .2s;}
+  a.brand-link:hover, a.sb-brand-link:hover, a.fb-brand-link:hover{opacity:.82;}
   .brand .name{font-size:34px;font-weight:800;letter-spacing:.14em;display:flex;align-items:center;}
   .brand .sub{font-size:10px;font-weight:600;letter-spacing:.52em;color:var(--text-dim);margin-top:7px;margin-left:.5em;}
   .btn-ghost{font-family:inherit;font-size:16px;font-weight:600;color:var(--text);padding:15px 30px;border-radius:14px;cursor:pointer;background:var(--glass-bg);border:1px solid var(--glass-brd);backdrop-filter:blur(12px);transition:.25s;flex-shrink:0;}
@@ -190,7 +191,7 @@
     .btn-primary{padding:13px 22px;font-size:14px;width:100%;justify-content:center;}
     #heroBookCta{padding:13px 22px;font-size:14px;width:100%;}
     .link-play{font-size:15px;}
-    .patient-stage{position:absolute;width:78%;max-width:none;right:-10%;top:28%;height:auto;aspect-ratio:1/1;margin:0;bottom:auto;z-index:6;}
+    .patient-stage{position:absolute;width:96%;max-width:none;right:-18%;top:22%;height:auto;aspect-ratio:1/1;margin:0;bottom:auto;z-index:6;}
     .treat{padding:24px 110px 32px 18px;}
     .wa-fab{right:18px;bottom:18px;width:54px;height:54px;}
     .wa-fab svg{width:28px;height:28px;}
@@ -291,7 +292,16 @@
   }
 
   /* ---- Services quad-cards (4 services per card, circular avatars) ---- */
-  .quad-wrap{width:100%;max-width:1180px;margin:0 auto 40px;}
+  .quad-wrap{position:relative;width:100%;max-width:1180px;margin:0 auto 40px;}
+  .quad-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:8;width:38px;height:38px;border-radius:50%;
+    border:1px solid rgba(255,255,255,.32);background:rgba(7,32,40,.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    color:#fff;font-size:22px;line-height:0;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    transition:.2s;box-shadow:0 6px 18px rgba(0,0,0,.45);}
+  .quad-arrow:hover{background:rgba(7,32,40,.92);}
+  .quad-arrow.prev{left:0;}
+  .quad-arrow.next{right:0;}
+  /* above 680px the services become a static grid, so the arrows aren't needed */
+  @media(min-width:681px){ .quad-arrow{display:none !important;} }
   .quad-viewport{overflow:hidden;}
   .quad-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
   @media(min-width:681px){ .quad-grid{transform:none !important;cursor:default;} }
@@ -862,7 +872,7 @@
     .tb-main{font-size:11px;}
     .tb-sub{font-size:9px;}
 
-    .patient-stage{width:72%;right:-14%;top:26%;}
+    .patient-stage{width:94%;right:-20%;top:21%;}
     .treat{padding:20px 92px 24px 14px;}
     .hstat{padding:10px 8px;}
     .hero-stats .stat-num{font-size:19px;}
@@ -902,7 +912,7 @@
 <div class="sb-overlay" id="sbOverlay"></div>
 <aside class="sidebar" id="sidebar" aria-label="Site menu">
   <div class="sb-head">
-    <a class="sb-brand-link" href="index.html" aria-label="Go to homepage"><div class="sb-brand"><div class="name">Renoxa</div><div class="sub">PHYSIOTHERAPY</div></div></a>
+    <a class="sb-brand-link" href="index.html" aria-label="Go to homepage" style="position:relative;z-index:99;display:inline-flex;pointer-events:auto;cursor:pointer;text-decoration:none;color:inherit;" onclick="window.location.href='index.html';return false;"><div class="sb-brand" style="pointer-events:none;"><div class="name">Renoxa</div><div class="sub">PHYSIOTHERAPY</div></div></a>
     <button class="sb-close" id="sbClose" aria-label="Close menu">&times;</button>
   </div>
 
@@ -976,7 +986,7 @@
     <div class="orb"></div>
     <header>
       <button class="menu-btn" id="menuBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
-      <a class="brand-link" href="index.html" aria-label="Go to homepage"><div class="brand"><div class="name">Renoxa</div><div class="sub">PHYSIOTHERAPY</div></div></a>
+      <a class="brand-link" href="index.html" aria-label="Go to homepage" style="position:relative;z-index:99;display:inline-flex;pointer-events:auto;cursor:pointer;text-decoration:none;color:inherit;" onclick="window.location.href='index.html';return false;"><div class="brand" style="pointer-events:none;"><div class="name">Renoxa</div><div class="sub">PHYSIOTHERAPY</div></div></a>
       <button class="btn-ghost" id="heroBook">Book Now</button>
     </header>
     <div class="copy">
@@ -1037,11 +1047,11 @@
     <button class="testi-arrow prev" id="testiPrev" aria-label="Previous">&#8249;</button>
     <button class="testi-arrow next" id="testiNext" aria-label="Next">&#8250;</button>
     <div class="testi-viewport"><div class="testi-track" id="testiTrack">
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/4b8b240facf54d24bf1d0c0a7bb17fd7.mp4"></video><div class="testi-overlay"><div class="testi-name">Anjali Sharma</div><div class="testi-role">Back pain recovery</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/754a1b1918044839b2080b7073df4062.mp4"></video><div class="testi-overlay"><div class="testi-name">Rohit Verma</div><div class="testi-role">Sports injury rehab</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/1dd8b062b9dd4512a42721874abea22c.mp4"></video><div class="testi-overlay"><div class="testi-name">Meera Joshi</div><div class="testi-role">Knee surgery recovery</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/48faa9d69e58490287e99ffdad92f9da.mp4"></video><div class="testi-overlay"><div class="testi-name">Sameer Khan</div><div class="testi-role">Posture correction</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/6ed329816189405e8f5256ca9e7f9ad3.mp4"></video><div class="testi-overlay"><div class="testi-name">Kavita Nair</div><div class="testi-role">Frozen shoulder recovery</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/4b8b240facf54d24bf1d0c0a7bb17fd7.mp4"></video><div class="testi-overlay"><div class="testi-name"></div><div class="testi-role">Post Stroke</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/754a1b1918044839b2080b7073df4062.mp4"></video><div class="testi-overlay"><div class="testi-name"></div><div class="testi-role">Knee Replacement</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/1dd8b062b9dd4512a42721874abea22c.mp4"></video><div class="testi-overlay"><div class="testi-name"></div><div class="testi-role">Cervical Pain</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/48faa9d69e58490287e99ffdad92f9da.mp4"></video><div class="testi-overlay"><div class="testi-name"></div><div class="testi-role">Golfers Elbow</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/6ed329816189405e8f5256ca9e7f9ad3.mp4"></video><div class="testi-overlay"><div class="testi-name"></div><div class="testi-role">Elbow Injury</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
     </div></div>
     <div class="navigation"><div class="dots" id="testiDots"></div></div>
   </div>
@@ -1054,6 +1064,8 @@
     <p class="services-sub">Specialized physiotherapy programs tailored to your body and your recovery goals.</p>
   </div>
   <div class="quad-wrap">
+    <button class="quad-arrow prev" id="quadPrev" aria-label="Previous services">&#8249;</button>
+    <button class="quad-arrow next" id="quadNext" aria-label="Next services">&#8250;</button>
     <div class="quad-viewport"><div class="quad-grid" id="quadTrack">
       <div class="quad-card">
         <a class="quad-item" href="low-back-pain.html"><div class="quad-avatar"><div class="quad-avatar-fallback"><svg viewBox="0 0 24 24"><path d="M12 2v20M8 6l4-2 4 2M8 10h8M8 14h8M8 18h8"/></svg></div><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_33_51_PM.png?v=1781359445" alt="Low Back Pain" onerror="this.style.display='none'"></div><span class="quad-name">Low Back Pain</span></a>
@@ -1394,7 +1406,7 @@
 <footer class="site-footer" id="site-footer">
   <div class="footer-top">
     <div class="footer-brand" id="f-brand">
-      <a class="fb-brand-link" href="index.html" aria-label="Go to homepage"><div class="fb-name">Renoxa</div><div class="fb-sub">PHYSIOTHERAPY</div></a>
+      <a class="fb-brand-link" href="index.html" aria-label="Go to homepage" style="position:relative;z-index:99;display:inline-flex;pointer-events:auto;cursor:pointer;text-decoration:none;color:inherit;" onclick="window.location.href='index.html';return false;"><div style="pointer-events:none;"><div class="fb-name">Renoxa</div><div class="fb-sub">PHYSIOTHERAPY</div></div></a>
       <p>Personalized physiotherapy and rehabilitation — helping athletes and everyday patients move, recover, and feel their best.</p>
       <div class="f-social">
         <a href="https://www.instagram.com/renoxa_physio/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.86s0 3.6-.07 4.86c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.86.07s-3.6 0-4.86-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.2 15.6 2.2 15.2 2.2 12s0-3.6.07-4.86c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.15 0-3.5 0-4.74.07-.9.04-1.38.19-1.7.32-.43.16-.74.36-1.06.68-.32.32-.52.63-.68 1.06-.13.32-.28.8-.32 1.7C3.43 8.5 3.43 8.85 3.43 12s0 3.5.07 4.74c.04.9.19 1.38.32 1.7.16.43.36.74.68 1.06.32.32.63.52 1.06.68.32.13.8.28 1.7.32 1.24.07 1.59.07 4.74.07s3.5 0 4.74-.07c.9-.04 1.38-.19 1.7-.32.43-.16.74-.36 1.06-.68.32-.32.52-.63.68-1.06.13-.32.28-.8.32-1.7.07-1.24.07-1.59.07-4.74s0-3.5-.07-4.74c-.04-.9-.19-1.38-.32-1.7a2.85 2.85 0 0 0-.68-1.06 2.85 2.85 0 0 0-1.06-.68c-.32-.13-.8-.28-1.7-.32C15.5 4 15.15 4 12 4zm0 3.06A4.94 4.94 0 1 1 7.06 12 4.94 4.94 0 0 1 12 7.06zm0 1.8A3.14 3.14 0 1 0 15.14 12 3.14 3.14 0 0 0 12 8.86zm5.15-3.2a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15z"/></svg></a>
@@ -1972,7 +1984,7 @@
   initCarousel({track:'blogTrack',dots:'blogDots',prev:'blogPrev',next:'blogNext',gap:26});
   initCarousel({track:'faqTrack',dots:'faqDots',prev:'faqPrev',next:'faqNext',gap:24});
   initCarousel({track:'docsTrack',dots:'docsDots',prev:'docsPrev',next:'docsNext',gap:18});
-  initCarousel({track:'quadTrack',dots:'quadDots',gap:14});
+  initCarousel({track:'quadTrack',dots:'quadDots',prev:'quadPrev',next:'quadNext',gap:14});
 </script>
 
 <!-- ============ STRUCTURED DATA (schema.org JSON-LD) — powers SEO rich results, -->
