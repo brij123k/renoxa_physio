@@ -477,15 +477,6 @@
   .testi-sound svg{width:17px;height:17px;fill:#fff;}
   .testi-sound.is-on svg.icon-muted{display:none;}
   .testi-sound:not(.is-on) svg.icon-sound{display:none;}
-  .testi-hint{position:absolute;left:50%;bottom:64px;transform:translateX(-50%);z-index:4;display:inline-flex;align-items:center;gap:7px;
-    padding:8px 15px;border-radius:30px;white-space:nowrap;cursor:pointer;
-    background:rgba(8,22,28,.72);border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(8px);
-    color:#fff;font-family:inherit;font-size:12.5px;font-weight:700;letter-spacing:.01em;
-    box-shadow:0 8px 22px rgba(0,0,0,.4);animation:hintPulse 2.4s ease-in-out infinite;transition:opacity .3s ease;}
-  .testi-hint svg{width:15px;height:15px;fill:#fff;flex-shrink:0;}
-  .testi-hint.gone{opacity:0;pointer-events:none;}
-  @keyframes hintPulse{0%,100%{transform:translateX(-50%) scale(1);}50%{transform:translateX(-50%) scale(1.05);}}
-  @media(max-width:680px){.testi-hint{bottom:52px;padding:7px 12px;font-size:11px;}.testi-hint svg{width:13px;height:13px;}}
   @media(max-width:680px){
     .testimonials{padding:52px 18px 64px;}
     .testi-track{justify-content:flex-start;}
@@ -1039,11 +1030,11 @@
     <button class="testi-arrow prev" id="testiPrev" aria-label="Previous">&#8249;</button>
     <button class="testi-arrow next" id="testiNext" aria-label="Next">&#8250;</button>
     <div class="testi-viewport"><div class="testi-track" id="testiTrack">
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/4b8b240facf54d24bf1d0c0a7bb17fd7.mp4"></video><div class="testi-overlay"><div class="testi-name">Anjali Sharma</div><div class="testi-role">Back pain recovery</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/754a1b1918044839b2080b7073df4062.mp4"></video><div class="testi-overlay"><div class="testi-name">Rohit Verma</div><div class="testi-role">Sports injury rehab</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/1dd8b062b9dd4512a42721874abea22c.mp4"></video><div class="testi-overlay"><div class="testi-name">Meera Joshi</div><div class="testi-role">Knee surgery recovery</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/48faa9d69e58490287e99ffdad92f9da.mp4"></video><div class="testi-overlay"><div class="testi-name">Sameer Khan</div><div class="testi-role">Posture correction</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/6ed329816189405e8f5256ca9e7f9ad3.mp4"></video><div class="testi-overlay"><div class="testi-name">Kavita Nair</div><div class="testi-role">Frozen shoulder recovery</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/4b8b240facf54d24bf1d0c0a7bb17fd7.mp4"></video><div class="testi-overlay"><div class="testi-name"> </div><div class="testi-role">Post Stroke</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/754a1b1918044839b2080b7073df4062.mp4"></video><div class="testi-overlay"><div class="testi-name"></div><div class="testi-role">Knee Replacement</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/1dd8b062b9dd4512a42721874abea22c.mp4"></video><div class="testi-overlay"><div class="testi-name"></div><div class="testi-role">Cervical Pain</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/48faa9d69e58490287e99ffdad92f9da.mp4"></video><div class="testi-overlay"><div class="testi-name"></div><div class="testi-role">Golfers Elbow</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/6ed329816189405e8f5256ca9e7f9ad3.mp4"></video><div class="testi-overlay"><div class="testi-name"></div><div class="testi-role">Elbow Injury</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
     </div></div>
     <div class="navigation"><div class="dots" id="testiDots"></div></div>
   </div>
@@ -1704,17 +1695,13 @@
     [...cards].forEach(c=>c.addEventListener('click',e=>{if(moved){e.stopImmediatePropagation();e.preventDefault();}},true));
   })();
 
-  /* ---- Testimonial videos: first clip autoplays, the rest wait for a click ---- */
+  /* ---- Testimonial videos: nothing autoplays, one click starts a clip with sound ---- */
   (function(){
-    // Set to false if you'd rather sound only ever turn on via the speaker button.
-    const SOUND_ON_FIRST_CLICK = true;
-
     const items = [...document.querySelectorAll('.testi-card')].map(card=>({
       card, vid:card.querySelector('video'),
       play:card.querySelector('.testi-play'), snd:card.querySelector('.testi-sound')
     })).filter(i=>i.vid);
     if(!items.length) return;
-    const first = items[0];
 
     function syncPlay(i){ if(i.play) i.play.classList.toggle('is-playing', !i.vid.paused); }
     function syncSound(i){
@@ -1723,24 +1710,24 @@
       i.snd.classList.toggle('is-on', on);
       i.snd.setAttribute('aria-label', on ? 'Mute video' : 'Unmute video');
     }
-    // Only one video is ever audible - unmuting one mutes the rest.
+    // Only one clip is ever audible - starting one mutes and stops the rest.
     function soloSound(target){
-      items.forEach(i=>{ if(i!==target && !i.vid.muted){ i.vid.muted=true; syncSound(i); } });
+      items.forEach(i=>{
+        if(i===target) return;
+        if(!i.vid.paused) i.vid.pause();
+        if(!i.vid.muted){ i.vid.muted=true; syncSound(i); }
+        syncPlay(i);
+      });
       target.vid.muted=false;
       target.vid.volume=1;
       target.vid.play().catch(()=>{});
       syncSound(target); syncPlay(target);
-      if(typeof hideHint === 'function') hideHint();
     }
-    // Pressing play is a user gesture, so we can turn the sound on in the same step -
+    // Pressing play is a user gesture, so the sound can come on in the same step -
     // no second click on the speaker needed.
     function toggle(i){
-      if(i.vid.paused){
-        soloSound(i);          // unmutes this clip, mutes the others, starts it
-      } else {
-        i.vid.pause();
-        syncPlay(i);
-      }
+      if(i.vid.paused) soloSound(i);
+      else { i.vid.pause(); syncPlay(i); }
     }
 
     items.forEach(i=>{
@@ -1760,70 +1747,19 @@
       syncSound(i); syncPlay(i);
     });
 
-    // A "tap for sound" prompt, shown only if the browser refuses to start unmuted.
-    let hint = null;
-    function showHint(){
-      if(hint || !first.vid.muted) return;
-      hint = document.createElement('button');
-      hint.type = 'button';
-      hint.className = 'testi-hint';
-      hint.innerHTML = '<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/>'
-        + '<path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>'
-        + '<path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>Tap for sound';
-      hint.addEventListener('click', e=>{ e.stopPropagation(); soloSound(first); });
-      hint.addEventListener('pointerdown', e=>e.stopPropagation());
-      first.card.appendChild(hint);
-    }
-    function hideHint(){ if(hint) hint.classList.add('gone'); }
-
-    // ONLY the first clip runs on its own, and we ASK for sound right away.
-    // Browsers block audio until the visitor interacts, so if the unmuted attempt is
-    // refused we quietly retry muted and show the prompt instead.
-    (function startFirst(){
-      first.vid.muted = false;
-      first.vid.volume = 1;
-      const p = first.vid.play();
-      const fallback = ()=>{
-        first.vid.muted = true;
-        first.vid.play().catch(()=>{});
-        syncSound(first); syncPlay(first);
-        showHint();
-      };
-      if(p && typeof p.then === 'function'){
-        p.then(()=>{
-          // some browsers accept play() but force it silent - check once it's running
-          setTimeout(()=>{
-            if(first.vid.muted || first.vid.paused) fallback();
-            else { syncSound(first); syncPlay(first); }
-          }, 120);
-        }).catch(fallback);
-      } else {
-        setTimeout(()=>{ if(first.vid.paused) fallback(); }, 120);
-      }
-    })();
-
-    // Pause it while it's off screen so it isn't playing to nobody.
+    // Nothing plays on load - every card waits behind its play button.
+    // A clip that scrolls out of view stops, so audio never follows the visitor.
     if('IntersectionObserver' in window){
       const io=new IntersectionObserver(entries=>{
         entries.forEach(en=>{
-          if(en.isIntersecting) first.vid.play().catch(()=>{});
-          else first.vid.pause();
-          syncPlay(first);
+          if(en.isIntersecting) return;
+          const i=items.find(x=>x.card===en.target); if(!i || i.vid.paused) return;
+          i.vid.pause();
+          if(!i.vid.muted){ i.vid.muted=true; syncSound(i); }
+          syncPlay(i);
         });
-      },{threshold:.35});
-      io.observe(first.card);
-    }
-
-    // First click/tap anywhere on the page turns the sound on for that first clip.
-    if(SOUND_ON_FIRST_CLICK){
-      let armed=false;
-      const events=['click','touchstart','keydown'];
-      function onFirstGesture(){
-        if(armed) return; armed=true;
-        events.forEach(ev=>document.removeEventListener(ev,onFirstGesture));
-        soloSound(first);
-      }
-      events.forEach(ev=>document.addEventListener(ev,onFirstGesture,{passive:true}));
+      },{threshold:.25});
+      items.forEach(i=>io.observe(i.card));
     }
   })();
 
