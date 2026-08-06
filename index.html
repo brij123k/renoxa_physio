@@ -454,7 +454,7 @@
   .testi-card{position:relative;flex:0 0 auto;width:calc((100% - 104px) / 5);border-radius:28px;overflow:hidden;background:#06181d;border:1px solid var(--glass-brd);box-shadow:0 18px 45px rgba(0,0,0,.4);aspect-ratio:9/16;transition:transform .35s ease, box-shadow .35s ease;}
   .testi-card:hover{transform:translateY(-10px);box-shadow:0 30px 60px rgba(0,0,0,.55);}
   .testi-card:nth-child(even){margin-top:0;}
-  .testi-arrow{position:absolute;top:46%;transform:translateY(-50%);z-index:5;width:46px;height:46px;border-radius:50%;border:1px solid var(--glass-brd);background:rgba(255,255,255,.1);backdrop-filter:blur(8px);color:#fff;font-size:26px;line-height:0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;}
+  .testi-arrow{position:absolute;top:46%;transform:translateY(-50%);z-index:8;width:46px;height:46px;border-radius:50%;border:1px solid var(--glass-brd);background:rgba(255,255,255,.1);backdrop-filter:blur(8px);color:#fff;font-size:26px;line-height:0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;}
   .testi-arrow:hover{background:rgba(255,255,255,.25);}
   .testi-arrow.prev{left:-12px;}
   .testi-arrow.next{right:-12px;}
@@ -482,13 +482,16 @@
     .testi-track{justify-content:flex-start;}
     .testi-head{margin-bottom:32px;}
     .testi-card{width:74vw;max-width:300px;margin-top:0 !important;}
-    .testi-arrow{display:none;}
+    .testi-arrow{width:38px;height:38px;font-size:22px;background:rgba(7,32,40,.72);border-color:rgba(255,255,255,.32);box-shadow:0 6px 18px rgba(0,0,0,.45);}
+    .testi-arrow.prev{left:2px;}
+    .testi-arrow.next{right:2px;}
     .testi-card{border-radius:16px;}
     .testi-card .testi-overlay{padding:12px;}
     .testi-card .testi-name{font-size:13px;}
     .testi-card .testi-role{font-size:11px;}
     .testi-play{width:46px;height:46px;}
     .testi-play svg{width:16px;height:16px;}
+    .testi-play.is-playing{opacity:.5;}
     .testi-sound{width:32px;height:32px;top:8px;right:8px;}
     .testi-sound svg{width:14px;height:14px;}
   }
@@ -1030,11 +1033,11 @@
     <button class="testi-arrow prev" id="testiPrev" aria-label="Previous">&#8249;</button>
     <button class="testi-arrow next" id="testiNext" aria-label="Next">&#8250;</button>
     <div class="testi-viewport"><div class="testi-track" id="testiTrack">
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/4b8b240facf54d24bf1d0c0a7bb17fd7.mp4"></video><div class="testi-overlay"><div class="testi-name"> </div><div class="testi-role">Post Stroke</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/754a1b1918044839b2080b7073df4062.mp4"></video><div class="testi-overlay"><div class="testi-name"></div><div class="testi-role">Knee Replacement</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/1dd8b062b9dd4512a42721874abea22c.mp4"></video><div class="testi-overlay"><div class="testi-name"></div><div class="testi-role">Cervical Pain</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/48faa9d69e58490287e99ffdad92f9da.mp4"></video><div class="testi-overlay"><div class="testi-name"></div><div class="testi-role">Golfers Elbow</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
-    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/6ed329816189405e8f5256ca9e7f9ad3.mp4"></video><div class="testi-overlay"><div class="testi-name"></div><div class="testi-role">Elbow Injury</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/4b8b240facf54d24bf1d0c0a7bb17fd7.mp4"></video><div class="testi-overlay"><div class="testi-name">Anjali Sharma</div><div class="testi-role">Back pain recovery</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/754a1b1918044839b2080b7073df4062.mp4"></video><div class="testi-overlay"><div class="testi-name">Rohit Verma</div><div class="testi-role">Sports injury rehab</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/1dd8b062b9dd4512a42721874abea22c.mp4"></video><div class="testi-overlay"><div class="testi-name">Meera Joshi</div><div class="testi-role">Knee surgery recovery</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/48faa9d69e58490287e99ffdad92f9da.mp4"></video><div class="testi-overlay"><div class="testi-name">Sameer Khan</div><div class="testi-role">Posture correction</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
+    <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/6ed329816189405e8f5256ca9e7f9ad3.mp4"></video><div class="testi-overlay"><div class="testi-name">Kavita Nair</div><div class="testi-role">Frozen shoulder recovery</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
     </div></div>
     <div class="navigation"><div class="dots" id="testiDots"></div></div>
   </div>
@@ -1730,15 +1733,24 @@
       else { i.vid.pause(); syncPlay(i); }
     }
 
+    // Depending on the browser, a tap may arrive via the carousel's pointer handling,
+    // via a plain click, or both - this stops the second one undoing the first.
+    function alreadyHandled(){ return Date.now() - (window.__testiTapAt || 0) < 500; }
+
     items.forEach(i=>{
-      if(i.play) i.play.addEventListener('click', e=>{ e.stopPropagation(); toggle(i); });
-      // tapping the clip itself works too (no hover on touch screens)
+      if(i.play) i.play.addEventListener('click', e=>{
+        e.stopPropagation();
+        if(alreadyHandled()) return;
+        toggle(i);
+      });
       i.card.addEventListener('click', e=>{
+        if(alreadyHandled()) return;
         if(e.target.closest('.testi-sound') || e.target.closest('.testi-play')) return;
         toggle(i);
       });
       if(i.snd) i.snd.addEventListener('click', e=>{
         e.stopPropagation();
+        if(alreadyHandled()) return;
         if(i.vid.muted) soloSound(i);
         else { i.vid.muted=true; syncSound(i); }
       });
@@ -1746,6 +1758,19 @@
       i.vid.addEventListener('pause', ()=>syncPlay(i));
       syncSound(i); syncPlay(i);
     });
+
+    // On touch the carousel captures the pointer, which re-targets the click to the
+    // track - so the carousel calls these directly when a tap wasn't a swipe.
+    window.__testiTap = function(card){
+      const i = items.find(x=>x.card===card);
+      if(i) toggle(i);
+    };
+    window.__testiTapSound = function(card){
+      const i = items.find(x=>x.card===card);
+      if(!i) return;
+      if(i.vid.muted) soloSound(i);
+      else { i.vid.muted=true; syncSound(i); }
+    };
 
     // Nothing plays on load - every card waits behind its play button.
     // A clip that scrolls out of view stops, so audio never follows the visitor.
@@ -1797,11 +1822,37 @@
     window.addEventListener('load', build);
     if(prev) prev.addEventListener('click',()=>go(index-1));
     if(next) next.addEventListener('click',()=>go(index+1));
-    track.querySelectorAll('.testi-play, .testi-sound').forEach(b=> b.addEventListener('pointerdown', e=>e.stopPropagation()));
-    let dragging=false, sx=0, dx=0, base=0;
-    track.addEventListener('pointerdown',e=>{ dragging=true; sx=e.clientX; dx=0; base=-index*step; track.classList.add('dragging'); track.setPointerCapture(e.pointerId); });
-    track.addEventListener('pointermove',e=>{ if(!dragging) return; dx=e.clientX-sx; track.style.transform='translateX('+(base+dx)+'px)'; });
-    function end(){ if(!dragging) return; dragging=false; track.classList.remove('dragging'); if(Math.abs(dx)>step*0.22) go(index+(dx<0?1:-1)); else apply(); dx=0; }
+    // the play/sound buttons are handled through the track's tap logic above, so they
+    // deliberately do NOT stop pointerdown - that keeps swiping possible from anywhere.
+    let dragging=false, sx=0, dx=0, base=0, moved=false, downEl=null, capturedId=null;
+    track.addEventListener('pointerdown',e=>{
+      dragging=true; moved=false; downEl=e.target; sx=e.clientX; dx=0; base=-index*step;
+      track.classList.add('dragging');
+      try{ track.setPointerCapture(e.pointerId); capturedId=e.pointerId; }catch(_){}
+    });
+    track.addEventListener('pointermove',e=>{
+      if(!dragging) return;
+      dx=e.clientX-sx;
+      if(Math.abs(dx)>6) moved=true;
+      track.style.transform='translateX('+(base+dx)+'px)';
+    });
+    function end(){
+      if(!dragging) return;
+      dragging=false;
+      track.classList.remove('dragging');
+      if(capturedId!==null){ try{ track.releasePointerCapture(capturedId); }catch(_){} capturedId=null; }
+      if(Math.abs(dx)>step*0.22) go(index+(dx<0?1:-1)); else apply();
+      // a tap, not a swipe -> play/pause the clip that was touched
+      if(!moved && downEl && downEl.closest){
+        const card=downEl.closest('.testi-card');
+        if(card){
+          window.__testiTapAt = Date.now();
+          if(downEl.closest('.testi-sound')){ if(window.__testiTapSound) window.__testiTapSound(card); }
+          else if(window.__testiTap) window.__testiTap(card);
+        }
+      }
+      downEl=null; dx=0;
+    }
     track.addEventListener('pointerup',end); track.addEventListener('pointercancel',end);
   })();
 
@@ -1880,12 +1931,39 @@
     });
     if(prev) prev.addEventListener('click',()=>go(index-1));
     if(next) next.addEventListener('click',()=>go(index+1));
-    let dragging=false,sx=0,dx=0,base=0,moved=false;
-    track.addEventListener('pointerdown',e=>{ dragging=true;moved=false;sx=e.clientX;dx=0;base=-index*step;track.classList.add('dragging');try{track.setPointerCapture(e.pointerId);}catch(_){}});
+    let dragging=false,sx=0,dx=0,base=0,moved=false,downEl=null,capturedId=null,navAt=0;
+    track.addEventListener('pointerdown',e=>{
+      dragging=true;moved=false;downEl=e.target;sx=e.clientX;dx=0;base=-index*step;
+      track.classList.add('dragging');
+      try{ track.setPointerCapture(e.pointerId); capturedId=e.pointerId; }catch(_){}
+    });
     track.addEventListener('pointermove',e=>{ if(!dragging)return;dx=e.clientX-sx;if(Math.abs(dx)>4)moved=true;track.style.transform='translateX('+(base+dx)+'px)'; });
-    function end(){ if(!dragging)return;dragging=false;track.classList.remove('dragging');if(Math.abs(dx)>step*0.2)go(index+(dx<0?1:-1));else apply();dx=0; }
+    function end(){
+      if(!dragging)return;
+      dragging=false;
+      track.classList.remove('dragging');
+      if(capturedId!==null){ try{ track.releasePointerCapture(capturedId); }catch(_){} capturedId=null; }
+      if(Math.abs(dx)>step*0.2)go(index+(dx<0?1:-1));else apply();
+      // Capturing the pointer re-targets the click to the track, so a tap on a card's
+      // link never reached it - follow the link ourselves when it wasn't a swipe.
+      if(!moved && downEl && downEl.closest){
+        const a = downEl.closest('a[href]');
+        if(a && track.contains(a)){
+          const href = a.getAttribute('href');
+          if(href && href !== '#'){
+            navAt = Date.now();
+            if(a.target === '_blank') window.open(href, '_blank', 'noopener');
+            else window.location.href = href;
+          }
+        }
+      }
+      downEl=null; dx=0;
+    }
     track.addEventListener('pointerup',end); track.addEventListener('pointercancel',end);
-    [...cards].forEach(c=>c.addEventListener('click',e=>{ if(moved){e.preventDefault();e.stopImmediatePropagation();} },true));
+    // block the browser's own click if we dragged, or if we just navigated above
+    [...cards].forEach(c=>c.addEventListener('click',e=>{
+      if(moved || Date.now()-navAt < 500){ e.preventDefault(); e.stopImmediatePropagation(); }
+    },true));
   }
   initCarousel({track:'blogTrack',dots:'blogDots',prev:'blogPrev',next:'blogNext',gap:26});
   initCarousel({track:'faqTrack',dots:'faqDots',prev:'faqPrev',next:'faqNext',gap:24});
