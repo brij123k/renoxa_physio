@@ -555,11 +555,14 @@
     .bpost-img{width:100%;aspect-ratio:16/10;}
     .bpost-body{padding:22px 22px 26px;}
     .bpost-title{font-size:20px;}
-    .blog-arrow{display:none;}
     .faq{display:flex;min-height:auto;padding:52px 18px 60px;}
     .faq-slide{width:78vw;max-width:320px;padding:24px 22px;}
     .faq-slide .faq-q-txt{font-size:18px;}
-    .faq-arrow{display:none;}
+    /* compact arrows for every carousel on small screens */
+    .blog-arrow,.faq-arrow,.docs-arrow{width:38px;height:38px;font-size:22px;z-index:8;
+      background:rgba(7,32,40,.72);border-color:rgba(255,255,255,.32);box-shadow:0 6px 18px rgba(0,0,0,.45);}
+    .blog-arrow.prev,.faq-arrow.prev,.docs-arrow.prev{left:0;}
+    .blog-arrow.next,.faq-arrow.next,.docs-arrow.next{right:0;}
   }
 
   /* ============ TABLET RESPONSIVE ============ */
@@ -687,11 +690,11 @@
   .doc-exp{display:inline-block;margin-top:10px;font-size:10.5px;font-weight:700;color:#cfe6ea;background:rgba(255,255,255,.07);border:1px solid var(--glass-brd);padding:5px 10px;border-radius:30px;}
   @media(max-width:680px){.doc-card{width:150px;}}
 
-  .docs-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:44px;height:44px;border-radius:50%;border:1px solid var(--glass-brd);background:rgba(255,255,255,.12);backdrop-filter:blur(8px);color:#fff;font-size:25px;line-height:0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;display:none;}
+  .docs-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:8;width:44px;height:44px;border-radius:50%;border:1px solid var(--glass-brd);background:rgba(255,255,255,.12);backdrop-filter:blur(8px);color:#fff;font-size:25px;line-height:0;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;}
   .docs-arrow:hover{background:rgba(255,255,255,.26);}
   .docs-arrow.prev{left:-16px;}
   .docs-arrow.next{right:-16px;}
-  /* docs-arrow stays hidden at every width — dots + swipe/drag are the nav on mobile, real grid on desktop */
+  /* below 761px this is a swipeable carousel, so the arrows show; above it becomes a real grid and they're hidden */
 
   /* Desktop / tablet: real grid, original big cards, no carousel chrome */
   @media(min-width:761px){
@@ -705,6 +708,7 @@
     .doc-spec{font-size:12px;margin-top:8px;}
     .doc-exp{font-size:11px;margin-top:10px;padding:5px 10px;}
     .docs-carousel .navigation{display:none;}
+    .docs-arrow{display:none !important;}
   }
   @media(min-width:761px) and (max-width:1100px){
     .docs-track{grid-template-columns:repeat(3,1fr);}
