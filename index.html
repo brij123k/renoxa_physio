@@ -324,7 +324,6 @@
     .quad-wrap{margin-bottom:30px;}
     .quad-grid{display:flex;grid-template-columns:unset;gap:14px;
       transition:transform .55s cubic-bezier(.4,0,.2,1);will-change:transform;cursor:grab;touch-action:pan-y;}
-    .quad-grid.dragging{transition:none;cursor:grabbing;}
     .quad-card{flex:0 0 84%;max-width:340px;border-radius:20px;padding:10px;}
     .quad-item{padding:10px 8px;gap:12px;}
     .quad-avatar{width:44px;height:44px;}
@@ -459,8 +458,7 @@
   .testi-head{text-align:center;max-width:660px;margin:0 auto 32px;}
   .testi-carousel{position:relative;max-width:1320px;margin:0 auto;width:100%;}
   .testi-viewport{overflow:hidden;}
-  .testi-track{display:flex;align-items:flex-start;justify-content:center;gap:26px;transition:transform .55s cubic-bezier(.4,0,.2,1);will-change:transform;cursor:grab;touch-action:pan-y;}
-  .testi-track.dragging{transition:none;cursor:grabbing;}
+  .testi-track{display:flex;align-items:flex-start;justify-content:center;gap:26px;}
   .testi-card{position:relative;flex:0 0 auto;width:calc((100% - 104px) / 5);border-radius:28px;overflow:hidden;background:#06181d;border:1px solid var(--glass-brd);box-shadow:0 18px 45px rgba(0,0,0,.4);aspect-ratio:9/16;transition:transform .35s ease, box-shadow .35s ease;}
   .testi-card:hover{transform:translateY(-10px);box-shadow:0 30px 60px rgba(0,0,0,.55);}
   .testi-card:nth-child(even){margin-top:0;}
@@ -527,8 +525,7 @@
   .blog-head{text-align:center;max-width:660px;margin:0 auto 28px;}
   .blog-carousel{position:relative;max-width:900px;margin:0 auto;width:100%;}
   .blog-viewport{overflow:hidden;border-radius:24px;}
-  .blog-track{display:flex;align-items:stretch;gap:26px;transition:transform .55s cubic-bezier(.4,0,.2,1);will-change:transform;cursor:grab;touch-action:pan-y;}
-  .blog-track.dragging{transition:none;cursor:grabbing;}
+  .blog-track{display:flex;align-items:stretch;gap:26px;}
   .bpost{position:relative;flex:0 0 100%;display:flex;background:rgba(255,255,255,.05);border:1px solid var(--glass-brd);border-radius:24px;overflow:hidden;text-decoration:none;color:var(--text);min-height:320px;transition:background .25s;}
   .bpost:hover{background:rgba(255,255,255,.08);}
   .bpost-img{width:46%;flex-shrink:0;object-fit:cover;background:#0d3744;}
@@ -548,8 +545,7 @@
   .faq-head{text-align:center;max-width:660px;margin:0 auto 26px;}
   .faq-carousel{position:relative;max-width:1100px;margin:0 auto;width:100%;}
   .faq-viewport{overflow:hidden;}
-  .faq-track{display:flex;align-items:stretch;gap:24px;transition:transform .55s cubic-bezier(.4,0,.2,1);will-change:transform;cursor:grab;touch-action:pan-y;}
-  .faq-track.dragging{transition:none;cursor:grabbing;}
+  .faq-track{display:flex;align-items:stretch;gap:24px;}
   .faq-slide{flex:0 0 auto;width:340px;background:rgba(255,255,255,.05);border:1px solid var(--glass-brd);border-radius:22px;padding:30px 28px;display:flex;flex-direction:column;gap:14px;}
   .faq-slide .faq-num{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-bright);}
   .faq-slide .faq-q-txt{font-size:20px;font-weight:800;line-height:1.3;color:var(--text);}
@@ -686,8 +682,7 @@
   /* ---- Doctors: small-card carousel on mobile, full grid on desktop ---- */
   .docs-carousel{position:relative;max-width:900px;margin:0 auto;width:100%;}
   .docs-viewport{overflow:hidden;}
-  .docs-track{display:flex;align-items:stretch;gap:18px;transition:transform .55s cubic-bezier(.4,0,.2,1);will-change:transform;cursor:grab;touch-action:pan-y;}
-  .docs-track.dragging{transition:none;cursor:grabbing;}
+  .docs-track{display:flex;align-items:stretch;gap:18px;}
   .doc-card{width:170px;flex:0 0 auto;background:rgba(255,255,255,.05);border:1px solid var(--glass-brd);border-radius:18px;overflow:hidden;backdrop-filter:blur(10px);transition:transform .25s;}
   .doc-card:hover{transform:translateY(-6px);}
   .doc-photo{position:relative;width:100%;aspect-ratio:4/5;background:linear-gradient(160deg,#155161,#0a2c36);display:flex;align-items:center;justify-content:center;overflow:hidden;}
@@ -901,6 +896,35 @@
     .home-cta{padding:14px 26px;font-size:14px;}
   }
 
+  /* =====================================================================
+     SLIDERS - clean slate. No JavaScript at all: each one is a native
+     horizontal scroll container with snap. Swipe on touch, trackpad or
+     shift+wheel on desktop. Build whatever controls you want on top.
+     ===================================================================== */
+  .testi-viewport,.quad-viewport,.docs-viewport,.blog-viewport,.faq-viewport{
+    overflow-x:auto;overflow-y:hidden;
+    -webkit-overflow-scrolling:touch;
+    scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;
+    scrollbar-width:none;-ms-overflow-style:none;
+  }
+  .testi-viewport::-webkit-scrollbar,.quad-viewport::-webkit-scrollbar,
+  .docs-viewport::-webkit-scrollbar,.blog-viewport::-webkit-scrollbar,
+  .faq-viewport::-webkit-scrollbar{display:none;}
+
+  .testi-card,.quad-card,.doc-card,.bpost,.faq-slide{scroll-snap-align:center;}
+
+  /* Below 760px every track lays out in a row and scrolls */
+  @media(max-width:760px){
+    .testi-track,.quad-grid,.docs-track,.blog-track,.faq-track{
+      display:flex;width:max-content;justify-content:flex-start;}
+    .testi-card{width:74vw;max-width:300px;flex:0 0 auto;}
+    .quad-card{width:84vw;max-width:340px;flex:0 0 auto;}
+    .bpost{width:88vw;max-width:420px;flex:0 0 auto;}
+    .faq-slide{width:78vw;max-width:320px;flex:0 0 auto;}
+    .doc-card{width:150px;flex:0 0 auto;}
+  }
+
   @media (prefers-reduced-motion: reduce){
     *{animation-duration:.001ms !important;transition-duration:.001ms !important;}
     html{scroll-behavior:auto;}
@@ -1044,8 +1068,6 @@
     <p class="services-sub">Hear directly from the people we've helped get back on their feet.</p>
   </div>
   <div class="testi-carousel">
-    <button class="testi-arrow prev" id="testiPrev" aria-label="Previous">&#8249;</button>
-    <button class="testi-arrow next" id="testiNext" aria-label="Next">&#8250;</button>
     <div class="testi-viewport"><div class="testi-track" id="testiTrack">
     <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/4b8b240facf54d24bf1d0c0a7bb17fd7.mp4"></video><div class="testi-overlay"><div class="testi-name"></div><div class="testi-role">Post Stroke</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
     <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/754a1b1918044839b2080b7073df4062.mp4"></video><div class="testi-overlay"><div class="testi-name"></div><div class="testi-role">Knee Replacement</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
@@ -1053,7 +1075,6 @@
     <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/48faa9d69e58490287e99ffdad92f9da.mp4"></video><div class="testi-overlay"><div class="testi-name"></div><div class="testi-role">Golfers Elbow</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
     <div class="testi-card"><video muted loop playsinline preload="metadata" src="https://cdn.shopify.com/videos/c/o/v/6ed329816189405e8f5256ca9e7f9ad3.mp4"></video><div class="testi-overlay"><div class="testi-name"></div><div class="testi-role">Elbow Injury</div></div><button class="testi-sound" aria-label="Unmute video"><svg class="icon-sound" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a4.5 4.5 0 0 1 0 7" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8 8 0 0 1 0 12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="icon-muted" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"/></svg></button><button class="testi-play" aria-label="Play video"><svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><svg class="icon-pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg></button></div>
     </div></div>
-    <div class="navigation"><div class="dots" id="testiDots"></div></div>
   </div>
 </section>
 
@@ -1064,8 +1085,6 @@
     <p class="services-sub">Specialized physiotherapy programs tailored to your body and your recovery goals.</p>
   </div>
   <div class="quad-wrap">
-    <button class="quad-arrow prev" id="quadPrev" aria-label="Previous services">&#8249;</button>
-    <button class="quad-arrow next" id="quadNext" aria-label="Next services">&#8250;</button>
     <div class="quad-viewport"><div class="quad-grid" id="quadTrack">
       <div class="quad-card">
         <a class="quad-item" href="low-back-pain.html"><div class="quad-avatar"><div class="quad-avatar-fallback"><svg viewBox="0 0 24 24"><path d="M12 2v20M8 6l4-2 4 2M8 10h8M8 14h8M8 18h8"/></svg></div><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_33_51_PM.png?v=1781359445" alt="Low Back Pain" onerror="this.style.display='none'"></div><span class="quad-name">Low Back Pain</span></a>
@@ -1091,7 +1110,6 @@
         <a class="quad-item" href="heel-pain-plantar-fasciitis.html"><div class="quad-avatar"><div class="quad-avatar-fallback"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_36_53_PM.png?v=1781359630" alt="Heel Pain (Plantar Fasciitis)" onerror="this.style.display='none'"></div><span class="quad-name">Heel Pain (Plantar Fasciitis)</span></a>
       </div>
     </div></div>
-    <div class="navigation" id="quadNav"><div class="dots" id="quadDots"></div></div>
   </div>
   <button class="book-all" id="bookOpen" type="button">Book Now</button>
   <div class="svc-process">
@@ -1113,8 +1131,6 @@
     <p class="services-sub">Experienced, qualified and genuinely invested in getting you moving again.</p>
   </div>
   <div class="docs-carousel">
-    <button class="docs-arrow prev" id="docsPrev" aria-label="Previous physiotherapist">&#8249;</button>
-    <button class="docs-arrow next" id="docsNext" aria-label="Next physiotherapist">&#8250;</button>
     <div class="docs-viewport"><div class="docs-track" id="docsTrack">
     <div class="doc-card">
       <div class="doc-photo"><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/IMG_3636_1.jpg?v=1785434903" alt="Dr. Abhi Kumar, physiotherapist" onerror="this.style.display='none'"><span class="doc-initials">AK</span></div>
@@ -1157,7 +1173,6 @@
       </div>
     </div>
     </div></div>
-    <div class="navigation"><div class="dots" id="docsDots"></div></div>
   </div>
 
   <div class="cert-inline cert-gold">
@@ -1276,8 +1291,6 @@
     <p class="services-sub">Simple, practical advice from our physiotherapists to help you move better and recover faster.</p>
   </div>
   <div class="blog-carousel">
-    <button class="blog-arrow prev" id="blogPrev" aria-label="Previous article">&#8249;</button>
-    <button class="blog-arrow next" id="blogNext" aria-label="Next article">&#8250;</button>
     <div class="blog-viewport"><div class="blog-track" id="blogTrack">
       <a class="bpost" href="blog-back-pain.html">
         <img class="bpost-img" src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Jun_13_2026_07_33_51_PM.png?v=1781359445" alt="Woman doing a lower back stretch at home" onerror="this.style.opacity='0.4'">
@@ -1325,7 +1338,6 @@
         </div>
       </a>
     </div></div>
-    <div class="navigation"><div class="dots" id="blogDots"></div></div>
   </div>
 </section>
 
@@ -1336,8 +1348,6 @@
     <h2 class="services-title">Frequently Asked Questions</h2>
   </div>
   <div class="faq-carousel">
-    <button class="faq-arrow prev" id="faqPrev" aria-label="Previous question">&#8249;</button>
-    <button class="faq-arrow next" id="faqNext" aria-label="Next question">&#8250;</button>
     <div class="faq-viewport"><div class="faq-track" id="faqTrack">
       <div class="faq-slide">
         <span class="faq-num">01</span>
@@ -1370,7 +1380,6 @@
         <p class="faq-a-txt">We work with several major insurers and also offer self-pay packages. Contact us with your provider details and we'll confirm your coverage.</p>
       </div>
     </div></div>
-    <div class="navigation"><div class="dots" id="faqDots"></div></div>
   </div>
 </section>
 
@@ -1804,74 +1813,6 @@
     }
   })();
 
-  /* ---- Testimonials carousel ---- */
-  (function(){
-    const track=document.getElementById('testiTrack');
-    const dotsWrap=document.getElementById('testiDots');
-    const prev=document.getElementById('testiPrev');
-    const next=document.getElementById('testiNext');
-    if(!track) return;
-    const cards=track.children, GAP=26;
-    let index=0, maxIndex=0, step=0, rebuildT=null;
-    function apply(){
-      track.style.transform='translateX('+(-index*step)+'px)';
-      [...dotsWrap.children].forEach((d,i)=> d.classList.toggle('active', i===index));
-    }
-    function go(i){ index = i<0 ? maxIndex : (i>maxIndex ? 0 : i); apply(); }
-    function build(){
-      const cw=cards[0].getBoundingClientRect().width; step=cw+GAP;
-      const vpw=track.parentElement.clientWidth;
-      const vis=Math.max(1, Math.floor((vpw+GAP)/step));
-      maxIndex=Math.max(0, cards.length-vis);
-      if(index>maxIndex) index=maxIndex;
-      dotsWrap.innerHTML='';
-      for(let i=0;i<=maxIndex;i++){ const b=document.createElement('button'); b.className='dot'; b.addEventListener('click',()=>go(i)); dotsWrap.appendChild(b); }
-      const multi = maxIndex>0;
-      if(prev) prev.style.display = multi ? '' : 'none';
-      if(next) next.style.display = multi ? '' : 'none';
-      dotsWrap.parentElement.style.display = multi ? '' : 'none';
-      apply();
-    }
-    function debouncedBuild(){ clearTimeout(rebuildT); rebuildT=setTimeout(build,120); }
-    build();
-    window.addEventListener('resize', debouncedBuild);
-    window.addEventListener('load', build);
-    if(prev) prev.addEventListener('click',()=>go(index-1));
-    if(next) next.addEventListener('click',()=>go(index+1));
-    // the play/sound buttons are handled through the track's tap logic above, so they
-    // deliberately do NOT stop pointerdown - that keeps swiping possible from anywhere.
-    let dragging=false, sx=0, dx=0, base=0, moved=false, downEl=null, capturedId=null;
-    track.addEventListener('pointerdown',e=>{
-      dragging=true; moved=false; downEl=e.target; sx=e.clientX; dx=0; base=-index*step;
-      track.classList.add('dragging');
-      try{ track.setPointerCapture(e.pointerId); capturedId=e.pointerId; }catch(_){}
-    });
-    track.addEventListener('pointermove',e=>{
-      if(!dragging) return;
-      dx=e.clientX-sx;
-      if(Math.abs(dx)>6) moved=true;
-      track.style.transform='translateX('+(base+dx)+'px)';
-    });
-    function end(){
-      if(!dragging) return;
-      dragging=false;
-      track.classList.remove('dragging');
-      if(capturedId!==null){ try{ track.releasePointerCapture(capturedId); }catch(_){} capturedId=null; }
-      if(Math.abs(dx)>step*0.22) go(index+(dx<0?1:-1)); else apply();
-      // a tap, not a swipe -> play/pause the clip that was touched
-      if(!moved && downEl && downEl.closest){
-        const card=downEl.closest('.testi-card');
-        if(card){
-          window.__testiTapAt = Date.now();
-          if(downEl.closest('.testi-sound')){ if(window.__testiTapSound) window.__testiTapSound(card); }
-          else if(window.__testiTap) window.__testiTap(card);
-        }
-      }
-      downEl=null; dx=0;
-    }
-    track.addEventListener('pointerup',end); track.addEventListener('pointercancel',end);
-  })();
-
   /* ---- Why-card detail modal (mobile: tap a card to read the full text) ---- */
   (function(){
     const modal=document.getElementById('whyModal');
@@ -1905,86 +1846,6 @@
     document.addEventListener('keydown', e=>{ if(e.key==='Escape' && modal.classList.contains('open')) close(); });
   })();
 
-  /* ---- Reusable single-slide carousel (Blog + FAQ + Doctors) ---- */
-  function initCarousel(opts){
-    const track=document.getElementById(opts.track);
-    const dotsWrap=document.getElementById(opts.dots);
-    const prev=document.getElementById(opts.prev);
-    const next=document.getElementById(opts.next);
-    if(!track||!dotsWrap) return;
-    const cards=track.children, GAP=opts.gap||26;
-    let index=0,maxIndex=0,step=0,rebuildT=null;
-    function apply(){
-      track.style.transform='translateX('+(-index*step)+'px)';
-      [...dotsWrap.children].forEach((d,i)=>d.classList.toggle('active',i===index));
-    }
-    function go(i){ index=i<0?maxIndex:(i>maxIndex?0:i); apply(); }
-    function build(){
-      if(!cards.length) return;
-      const cw=cards[0].getBoundingClientRect().width;
-      if(!cw){ return; } // not rendered yet (e.g. hidden/collapsed) - skip, will retry on next resize/load
-      step=cw+GAP;
-      const vpw=track.parentElement.clientWidth;
-      // use floor (not round) so we never claim more full cards fit than actually do -
-      // rounding up here was causing the last slide(s) to be unreachable / a blank gap at the end
-      const vis=Math.max(1,Math.floor((vpw+GAP)/step));
-      maxIndex=Math.max(0,cards.length-vis);
-      if(index>maxIndex) index=maxIndex;
-      dotsWrap.innerHTML='';
-      for(let i=0;i<=maxIndex;i++){ const b=document.createElement('button'); b.className='dot'; b.addEventListener('click',()=>go(i)); dotsWrap.appendChild(b); }
-      const multi=maxIndex>0;
-      if(prev) prev.style.display=multi?'':'none';
-      if(next) next.style.display=multi?'':'none';
-      dotsWrap.parentElement.style.display=multi?'':'none';
-      apply();
-    }
-    function debouncedBuild(){ clearTimeout(rebuildT); rebuildT=setTimeout(build,120); }
-    build();
-    window.addEventListener('resize',debouncedBuild);
-    window.addEventListener('load', build);
-    [...track.querySelectorAll('img')].forEach(img=>{
-      if(!img.complete) img.addEventListener('load', debouncedBuild, {once:true});
-    });
-    if(prev) prev.addEventListener('click',()=>go(index-1));
-    if(next) next.addEventListener('click',()=>go(index+1));
-    let dragging=false,sx=0,dx=0,base=0,moved=false,downEl=null,capturedId=null,navAt=0;
-    track.addEventListener('pointerdown',e=>{
-      dragging=true;moved=false;downEl=e.target;sx=e.clientX;dx=0;base=-index*step;
-      track.classList.add('dragging');
-      try{ track.setPointerCapture(e.pointerId); capturedId=e.pointerId; }catch(_){}
-    });
-    track.addEventListener('pointermove',e=>{ if(!dragging)return;dx=e.clientX-sx;if(Math.abs(dx)>4)moved=true;track.style.transform='translateX('+(base+dx)+'px)'; });
-    function end(){
-      if(!dragging)return;
-      dragging=false;
-      track.classList.remove('dragging');
-      if(capturedId!==null){ try{ track.releasePointerCapture(capturedId); }catch(_){} capturedId=null; }
-      if(Math.abs(dx)>step*0.2)go(index+(dx<0?1:-1));else apply();
-      // Capturing the pointer re-targets the click to the track, so a tap on a card's
-      // link never reached it - follow the link ourselves when it wasn't a swipe.
-      if(!moved && downEl && downEl.closest){
-        const a = downEl.closest('a[href]');
-        if(a && track.contains(a)){
-          const href = a.getAttribute('href');
-          if(href && href !== '#'){
-            navAt = Date.now();
-            if(a.target === '_blank') window.open(href, '_blank', 'noopener');
-            else window.location.href = href;
-          }
-        }
-      }
-      downEl=null; dx=0;
-    }
-    track.addEventListener('pointerup',end); track.addEventListener('pointercancel',end);
-    // block the browser's own click if we dragged, or if we just navigated above
-    [...cards].forEach(c=>c.addEventListener('click',e=>{
-      if(moved || Date.now()-navAt < 500){ e.preventDefault(); e.stopImmediatePropagation(); }
-    },true));
-  }
-  initCarousel({track:'blogTrack',dots:'blogDots',prev:'blogPrev',next:'blogNext',gap:26});
-  initCarousel({track:'faqTrack',dots:'faqDots',prev:'faqPrev',next:'faqNext',gap:24});
-  initCarousel({track:'docsTrack',dots:'docsDots',prev:'docsPrev',next:'docsNext',gap:18});
-  initCarousel({track:'quadTrack',dots:'quadDots',prev:'quadPrev',next:'quadNext',gap:14});
 </script>
 
 <!-- ============ STRUCTURED DATA (schema.org JSON-LD) — powers SEO rich results, -->
