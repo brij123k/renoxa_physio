@@ -906,15 +906,21 @@
   .process-note{font-size:14.5px;line-height:1.75;color:var(--text-dim);max-width:760px;margin-bottom:30px;}
 
   /* ---- Hero banner image ---- */
+  /* FIX: image was being cropped on all four sides by object-fit:cover inside a
+     4:3 box. Using contain + a white card shows the whole photo intact. */
   .svc-hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;}
-  .svc-hero-img{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/3;background:rgba(255,255,255,.06);border:1px solid var(--glass-brd);box-shadow:0 20px 50px rgba(0,0,0,.3);}
-  .svc-hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .svc-hero-img{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/3;}
+  .svc-hero-img img{position:absolute;inset:0;z-index:2;width:100%;height:100%;object-fit:contain;object-position:center;}
   .svc-hero-img .svc-hero-img-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-    background:radial-gradient(circle at 40% 35%, rgba(86,176,196,.28), rgba(8,32,40,.1) 70%);}
+    background:transparent;}
   .svc-hero-img .svc-hero-img-fallback svg{width:76px;height:76px;stroke:rgba(217,241,245,.35);fill:none;stroke-width:1.3;}
   @media(max-width:980px){
     .svc-hero-grid{grid-template-columns:1fr;gap:28px;}
-    .svc-hero-img{order:-1;aspect-ratio:16/9;max-width:480px;margin:0 auto;}
+    /* On small screens the image sits in normal flow and sets its own height,
+       so the box can never collapse the way an aspect-ratio-only box can. */
+    .svc-hero-img{order:-1;aspect-ratio:auto;max-width:480px;margin:0 auto;}
+    .svc-hero-img img{position:static;width:100%;height:auto;display:block;}
+    .svc-hero-img .svc-hero-img-fallback{display:none;}
   }
   @media(max-width:680px){.svc-hero-img{border-radius:16px;}}
 
@@ -934,7 +940,7 @@
   /* ---- Treatment gallery ---- */
   .svc-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
   .svc-gallery-card{position:relative;aspect-ratio:3/4;border-radius:24px;overflow:hidden;background:rgba(255,255,255,.05);border:1px solid var(--glass-brd);box-shadow:0 14px 30px rgba(0,0,0,.24);}
-  .svc-gallery-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;}
+  .svc-gallery-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:1;}
   .svc-gallery-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
     background:radial-gradient(circle at 40% 35%, rgba(86,176,196,.28), rgba(8,32,40,.1) 70%);}
   .svc-gallery-fallback svg{width:44px;height:44px;stroke:rgba(217,241,245,.35);fill:none;stroke-width:1.4;}
@@ -1052,10 +1058,10 @@
       <div class="qfact"><div class="qf-num">80%+</div><div class="qf-label">Regain full range*</div></div>
       </div>
     </div>
-    <div class="svc-hero-img">
-      <div class="svc-hero-img-fallback"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div>
-      <img src="REPLACE_HERO_shoulder-frozen-shoulder.jpg" alt="Shoulder Pain &amp; Frozen Shoulder physiotherapy treatment at Renoxa" onerror="this.style.display='none'">
-    </div>
+<div class="svc-hero-img">
+  <div class="svc-hero-img-fallback"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div>
+  <img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/ChatGPT_Image_Aug_8_2026_08_50_41_PM.png?v=1786215301" alt="Physiotherapist treating a patient's shoulder at Renoxa" loading="lazy" onload="this.previousElementSibling.style.display='none'" onerror="this.style.display='none'">
+</div>
     </div>
   </div>
 
@@ -1070,10 +1076,10 @@
     <section class="svc-block" id="gallery">
       <h2>Treatment in Action</h2>
       <div class="svc-gallery">
-      <div class="svc-gallery-card"><div class="svc-gallery-fallback"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><img src="REPLACE_GALLERY_shoulder-frozen-shoulder_1.jpg" alt="In-Clinic Assessment for Shoulder Pain &amp; Frozen Shoulder at Renoxa" onerror="this.style.display='none'"><span class="svc-gallery-cap">In-Clinic Assessment</span></div>
-      <div class="svc-gallery-card"><div class="svc-gallery-fallback"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><img src="REPLACE_GALLERY_shoulder-frozen-shoulder_2.jpg" alt="Joint mobilization for capsular stiffness for Shoulder Pain &amp; Frozen Shoulder at Renoxa" onerror="this.style.display='none'"><span class="svc-gallery-cap">Joint mobilization for capsular stiffness</span></div>
-      <div class="svc-gallery-card"><div class="svc-gallery-fallback"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><img src="REPLACE_GALLERY_shoulder-frozen-shoulder_3.jpg" alt="Scapular control exercises for Shoulder Pain &amp; Frozen Shoulder at Renoxa" onerror="this.style.display='none'"><span class="svc-gallery-cap">Scapular control exercises</span></div>
-      <div class="svc-gallery-card"><div class="svc-gallery-fallback"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><img src="REPLACE_GALLERY_shoulder-frozen-shoulder_4.jpg" alt="Home Recovery Program for Shoulder Pain &amp; Frozen Shoulder at Renoxa" onerror="this.style.display='none'"><span class="svc-gallery-cap">Home Recovery Program</span></div>
+      <div class="svc-gallery-card"><div class="svc-gallery-fallback"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><img src="REPLACE_GALLERY_shoulder-frozen-shoulder_1.jpg" alt="In-Clinic Assessment for Shoulder Pain &amp; Frozen Shoulder at Renoxa" loading="lazy" onerror="this.style.display='none'"><span class="svc-gallery-cap">In-Clinic Assessment</span></div>
+      <div class="svc-gallery-card"><div class="svc-gallery-fallback"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><img src="REPLACE_GALLERY_shoulder-frozen-shoulder_2.jpg" alt="Joint mobilization for capsular stiffness for Shoulder Pain &amp; Frozen Shoulder at Renoxa" loading="lazy" onerror="this.style.display='none'"><span class="svc-gallery-cap">Joint mobilization for capsular stiffness</span></div>
+      <div class="svc-gallery-card"><div class="svc-gallery-fallback"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><img src="REPLACE_GALLERY_shoulder-frozen-shoulder_3.jpg" alt="Scapular control exercises for Shoulder Pain &amp; Frozen Shoulder at Renoxa" loading="lazy" onerror="this.style.display='none'"><span class="svc-gallery-cap">Scapular control exercises</span></div>
+      <div class="svc-gallery-card"><div class="svc-gallery-fallback"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><img src="REPLACE_GALLERY_shoulder-frozen-shoulder_4.jpg" alt="Home Recovery Program for Shoulder Pain &amp; Frozen Shoulder at Renoxa" loading="lazy" onerror="this.style.display='none'"><span class="svc-gallery-cap">Home Recovery Program</span></div>
       </div>
     </section>
 
