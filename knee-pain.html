@@ -907,11 +907,11 @@
 
   /* ---- Hero banner image ---- */
   .svc-hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;}
-  .svc-hero-img{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/3;background:rgba(255,255,255,.06);border:1px solid var(--glass-brd);box-shadow:0 20px 50px rgba(0,0,0,.3);}
-  .svc-hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .svc-hero-img{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:4/3;background:linear-gradient(160deg,#eaf6f8 0%,#cfe9ee 55%,#a9d8e0 100%);box-shadow:0 20px 50px rgba(0,0,0,.3);}
+  .svc-hero-img img{position:absolute;inset:0;z-index:2;width:100%;height:100%;object-fit:contain;object-position:center;padding:22px;box-sizing:border-box;}
   .svc-hero-img .svc-hero-img-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
     background:radial-gradient(circle at 40% 35%, rgba(86,176,196,.28), rgba(8,32,40,.1) 70%);}
-  .svc-hero-img .svc-hero-img-fallback svg{width:76px;height:76px;stroke:rgba(217,241,245,.35);fill:none;stroke-width:1.3;}
+  .svc-hero-img .svc-hero-img-fallback svg{width:76px;height:76px;stroke:rgba(15,68,82,.4);fill:none;stroke-width:1.3;}
   @media(max-width:980px){
     .svc-hero-grid{grid-template-columns:1fr;gap:28px;}
     .svc-hero-img{order:-1;aspect-ratio:16/9;max-width:480px;margin:0 auto;}
@@ -933,11 +933,11 @@
 
   /* ---- Treatment gallery ---- */
   .svc-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-  .svc-gallery-card{position:relative;aspect-ratio:3/4;border-radius:24px;overflow:hidden;background:rgba(255,255,255,.05);border:1px solid var(--glass-brd);box-shadow:0 14px 30px rgba(0,0,0,.24);}
-  .svc-gallery-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;}
+  .svc-gallery-card{position:relative;aspect-ratio:3/4;border-radius:24px;overflow:hidden;background:linear-gradient(160deg,#eaf6f8 0%,#cfe9ee 100%);border:1px solid var(--glass-brd);box-shadow:0 14px 30px rgba(0,0,0,.24);}
+  .svc-gallery-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;z-index:1;padding:14px;box-sizing:border-box;}
   .svc-gallery-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
     background:radial-gradient(circle at 40% 35%, rgba(86,176,196,.28), rgba(8,32,40,.1) 70%);}
-  .svc-gallery-fallback svg{width:44px;height:44px;stroke:rgba(217,241,245,.35);fill:none;stroke-width:1.4;}
+  .svc-gallery-fallback svg{width:44px;height:44px;stroke:rgba(15,68,82,.4);fill:none;stroke-width:1.4;}
   .svc-gallery-cap{position:absolute;left:12px;bottom:12px;z-index:3;max-width:calc(100% - 24px);padding:8px 14px;border-radius:30px;
     background:rgba(7,32,40,.62);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.30);color:#fff;font-size:12px;font-weight:700;
     letter-spacing:.01em;box-shadow:0 8px 20px rgba(0,0,0,.3);}
@@ -947,7 +947,9 @@
     .svc-gallery-card{border-radius:16px;}
     .svc-gallery-cap{left:8px;bottom:8px;padding:6px 11px;font-size:10.5px;}
   }
-
+.brand{text-decoration:none;color:inherit;cursor:pointer;transition:opacity .2s;}
+.brand:hover{opacity:.82;}
+.brand .name,.brand .sub{text-decoration:none;}
 </style>
 </head>
 <body>
@@ -1021,7 +1023,10 @@
 <div class="stage-sub" id="top">
   <div class="top-header">
     <button class="menu-btn" id="menuBtn" aria-label="Open menu"><span></span><span></span><span></span></button>
-    <div class="brand"><div class="name">Renoxa</div><div class="sub">PHYSIOTHERAPY</div></div>
+    <a href="index.html" class="brand" aria-label="Renoxa Physiotherapy — Home">
+  <div class="name">Renoxa</div>
+  <div class="sub">PHYSIOTHERAPY</div>
+</a>
     <button class="btn-ghost" id="heroBook">Book Now</button>
   </div>
 
@@ -1040,10 +1045,10 @@
       <div class="trust-line"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>MPT &amp; BPT qualified team &middot; Home physiotherapy across Delhi NCR &middot; Chiropractic care available</div>
       <p class="svc-intro">Knee pain can come from the joint itself, the surrounding ligaments and tendons, or the muscles that control the leg. It affects people of every age, from young athletes with ligament strain to older adults with wear-and-tear changes. Physiotherapy identifies which structures are involved and builds a strengthening and mobility program that reduces load on the painful area while restoring confident movement.</p>
       <div class="cta-row">
-        <a class="btn-primary btn-whatsapp" href="https://wa.me/919310515789?text=Hi%20Renoxa%2C%20I%27d%20like%20to%20book%20an%20assessment%20for%20Knee%20Pain." target="_blank" rel="noopener">
+        <button type="button" class="btn-primary btn-whatsapp" id="heroConsultCta">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.824 11.824 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-          WhatsApp
-        </a>
+          Free Consultation
+        </button>
         <button class="btn-ghost" id="heroBookCta">Book Appointment</button>
       </div>
       <div class="quick-facts">
@@ -1054,8 +1059,34 @@
     </div>
     <div class="svc-hero-img">
       <div class="svc-hero-img-fallback"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div>
-      <img src="REPLACE_HERO_knee-pain.jpg" alt="Knee Pain physiotherapy treatment at Renoxa" onerror="this.style.display='none'">
+      <img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/3277bea1-cb31-401b-a6c3-20582379bc42.png?v=1786215301" alt="Knee Pain physiotherapy treatment at Renoxa" onerror="this.style.display='none'">
     </div>
+    </div>
+  </div>
+
+
+  <div class="cert-inline cert-gold" style="margin:30px auto 36px;">
+    <div class="cert-head">
+      <div class="services-eyebrow">Accredited &amp; Trusted</div>
+      <p>The credentials behind every session</p>
+    </div>
+    <div class="cert-strip">
+      <div class="cert-item">
+        <div class="cert-ico"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8z"/></svg></div>
+        <span>Indian Association of Physiotherapists</span>
+      </div>
+      <div class="cert-item">
+        <div class="cert-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5L7 22l5-3 5 3-1.5-8.5"/></svg></div>
+        <span>ISO 9001 Certified Clinic</span>
+      </div>
+      <div class="cert-item">
+        <div class="cert-ico"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/></svg></div>
+        <span>MPT &amp; BPT Qualified Team</span>
+      </div>
+      <div class="cert-item">
+        <div class="cert-ico"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <span>Govt. Registered Practice</span>
+      </div>
     </div>
   </div>
 
@@ -1070,10 +1101,10 @@
     <section class="svc-block" id="gallery">
       <h2>Treatment in Action</h2>
       <div class="svc-gallery">
-      <div class="svc-gallery-card"><div class="svc-gallery-fallback"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><img src="REPLACE_GALLERY_knee-pain_1.jpg" alt="In-Clinic Assessment for Knee Pain at Renoxa" onerror="this.style.display='none'"><span class="svc-gallery-cap">In-Clinic Assessment</span></div>
-      <div class="svc-gallery-card"><div class="svc-gallery-fallback"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><img src="REPLACE_GALLERY_knee-pain_2.jpg" alt="Quadriceps &amp; hip strengthening for Knee Pain at Renoxa" onerror="this.style.display='none'"><span class="svc-gallery-cap">Quadriceps &amp; hip strengthening</span></div>
-      <div class="svc-gallery-card"><div class="svc-gallery-fallback"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><img src="REPLACE_GALLERY_knee-pain_3.jpg" alt="Gait and movement retraining for Knee Pain at Renoxa" onerror="this.style.display='none'"><span class="svc-gallery-cap">Gait and movement retraining</span></div>
-      <div class="svc-gallery-card"><div class="svc-gallery-fallback"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><img src="REPLACE_GALLERY_knee-pain_4.jpg" alt="Home Recovery Program for Knee Pain at Renoxa" onerror="this.style.display='none'"><span class="svc-gallery-cap">Home Recovery Program</span></div>
+      <div class="svc-gallery-card"><div class="svc-gallery-fallback"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/3277bea1-cb31-401b-a6c3-20582379bc42.png?v=1786215301" alt="In-Clinic Assessment for Knee Pain at Renoxa" onerror="this.style.display='none'"><span class="svc-gallery-cap">In-Clinic Assessment</span></div>
+      <div class="svc-gallery-card"><div class="svc-gallery-fallback"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/IMG_2995_JPG.jpg?v=1787304884" alt="Quadriceps &amp; hip strengthening for Knee Pain at Renoxa" onerror="this.style.display='none'"><span class="svc-gallery-cap">Quadriceps &amp; hip strengthening</span></div>
+      <div class="svc-gallery-card"><div class="svc-gallery-fallback"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/IMG_2765_JPG.jpg?v=1787304884" alt="Gait and movement retraining for Knee Pain at Renoxa" onerror="this.style.display='none'"><span class="svc-gallery-cap">Gait and movement retraining</span></div>
+      <div class="svc-gallery-card"><div class="svc-gallery-fallback"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><img src="https://cdn.shopify.com/s/files/1/0778/9474/6301/files/IMG_1578_JPG.jpg?v=1787304882" alt="Home Recovery Program for Knee Pain at Renoxa" onerror="this.style.display='none'"><span class="svc-gallery-cap">Home Recovery Program</span></div>
       </div>
     </section>
 
@@ -1261,19 +1292,28 @@
         <select id="bk-problem">
           <option value="Low Back Pain">Low Back Pain</option>
           <option value="Neck Pain">Neck Pain</option>
-          <option value="Knee Pain">Knee Pain</option>
-          <option value="Shoulder Pain & Frozen Shoulder">Shoulder Pain &amp; Frozen Shoulder</option>
           <option value="Sciatica">Sciatica</option>
           <option value="Slip Disc">Slip Disc</option>
+          <option value="Postural Problems">Postural Problems</option>
+          <option value="Knee Pain">Knee Pain</option>
+          <option value="Arthritis">Arthritis</option>
+          <option value="Shoulder Pain & Frozen Shoulder">Shoulder Pain &amp; Frozen Shoulder</option>
+          <option value="Hip Pain">Hip Pain</option>
+          <option value="Ankle Pain">Ankle Pain</option>
+          <option value="Heel Pain (Plantar Fasciitis)">Heel Pain (Plantar Fasciitis)</option>
+          <option value="Joint Stiffness">Joint Stiffness</option>
           <option value="Sports Injuries">Sports Injuries</option>
           <option value="Muscle & Ligament Injuries">Muscle &amp; Ligament Injuries</option>
-          <option value="Arthritis">Arthritis</option>
-          <option value="Postural Problems">Postural Problems</option>
           <option value="Stroke Rehabilitation">Stroke Rehabilitation</option>
           <option value="Parkinson's Rehabilitation">Parkinson's Rehabilitation</option>
-          <option value="Post-Surgery Rehabilitation">Post-Surgery Rehabilitation</option>
+          <option value="Spinal Cord Injury Rehabilitation">Spinal Cord Injury Rehabilitation</option>
+          <option value="Cerebral Palsy (CP) Rehabilitation">Cerebral Palsy (CP) Rehabilitation</option>
+          <option value="Multiple Sclerosis (MS) Rehabilitation">Multiple Sclerosis (MS) Rehabilitation</option>
+          <option value="Traumatic Brain Injury (TBI) Rehabilitation">Traumatic Brain Injury (TBI) Rehabilitation</option>
+          <option value="Guillain-Barré Syndrome Rehabilitation">Guillain-Barré Syndrome (GBS) Rehabilitation</option>
+          <option value="Facial Palsy Rehabilitation">Facial Palsy Rehabilitation</option>
           <option value="Balance & Walking Disorders">Balance &amp; Walking Disorders</option>
-          <option value="Heel Pain (Plantar Fasciitis)">Heel Pain (Plantar Fasciitis)</option>
+          <option value="Post-Surgery Rehabilitation">Post-Surgery Rehabilitation</option>
           <option value="Other">Other</option>
         </select>
       </div>
@@ -1313,7 +1353,7 @@
     const get   = id => document.getElementById(id);
     function open(){ modal.classList.add('open'); document.body.style.overflow='hidden'; setTimeout(()=>get('bk-name').focus(),250); }
     function close(){ modal.classList.remove('open'); document.body.style.overflow=''; err.style.display='none'; }
-    ['heroBook','heroBookCta','ctaBook'].forEach(id=>{ const el=document.getElementById(id); if(el) el.addEventListener('click', ()=>open()); });
+    ['heroBook','heroBookCta','ctaBook','heroConsultCta'].forEach(id=>{ const el=document.getElementById(id); if(el) el.addEventListener('click', ()=>open()); });
     modal.querySelectorAll('[data-close]').forEach(el=> el.addEventListener('click', close));
     modal.addEventListener('click', e=>{ if(e.target===modal) close(); });
     document.addEventListener('keydown', e=>{ if(e.key==='Escape' && modal.classList.contains('open')) close(); });
