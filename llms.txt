@@ -1,0 +1,65 @@
+# Renoxa Chiropractic & Physiotherapy Clinic
+
+> Renoxa is a home-visit and in-clinic physiotherapy & chiropractic care provider based in Indirapuram, Ghaziabad, serving Delhi, Noida, Greater Noida, Ghaziabad and Gurugram (Delhi NCR, India). The team of MPT/BPT-qualified physiotherapists offers one-on-one, personalized treatment for musculoskeletal, sports, post-surgical and neurological conditions, at the clinic or at the patient's home.
+
+Key facts:
+- Address: Amafit Gym, 344, Padmana Naidu Marg, Shakti Khand III, Indirapuram, Ghaziabad, Uttar Pradesh 201014, India
+- Phone / WhatsApp: +91 93105 15789
+- Email: Renoxahelp@gmail.com
+- Hours: Monday–Sunday, 9:00 AM – 9:00 PM (emergency visits available anytime)
+- Service area: Delhi, Noida, Greater Noida, Ghaziabad, Gurugram
+- Services: in-clinic physiotherapy, home-visit physiotherapy, chiropractic care
+
+## Core pages
+
+- [Home](https://www.renoxaphysio.com/index.html): overview of the clinic, services, team and booking.
+
+## Spine & back conditions
+
+- [Lower Back Pain](https://www.renoxaphysio.com/low-back-pain.html)
+- [Neck Pain](https://www.renoxaphysio.com/neck-pain.html)
+- [Sciatica](https://www.renoxaphysio.com/sciatica.html)
+- [Slip Disc](https://www.renoxaphysio.com/slip-disc.html)
+- [Postural Problems](https://www.renoxaphysio.com/postural-problems.html)
+
+## Joint & muscle conditions
+
+- [Knee Pain](https://www.renoxaphysio.com/knee-pain.html)
+- [Arthritis](https://www.renoxaphysio.com/arthritis.html)
+- [Frozen Shoulder / Shoulder Pain](https://www.renoxaphysio.com/shoulder-frozen-shoulder.html)
+- [Hip Pain](https://www.renoxaphysio.com/hip-pain.html)
+- [Ankle Pain](https://www.renoxaphysio.com/ankle-pain.html)
+- [Heel Pain (Plantar Fasciitis)](https://www.renoxaphysio.com/heel-pain-plantar-fasciitis.html)
+- [Joint Stiffness](https://www.renoxaphysio.com/joint-stiffness.html)
+
+## Sports & post-surgery rehabilitation
+
+- [Sports Injuries](https://www.renoxaphysio.com/sports-injuries.html)
+- [Muscle & Ligament Injuries](https://www.renoxaphysio.com/muscle-ligament-injuries.html)
+- [Post-Surgery Rehabilitation](https://www.renoxaphysio.com/post-surgery-rehabilitation.html)
+
+## Neurological rehabilitation
+
+- [Stroke Rehabilitation](https://www.renoxaphysio.com/stroke-rehabilitation.html)
+- [Parkinson's Rehabilitation](https://www.renoxaphysio.com/parkinsons-rehabilitation.html)
+- [Spinal Cord Injury Rehabilitation](https://www.renoxaphysio.com/spinal-cord-injury-rehabilitation.html)
+- [Cerebral Palsy (CP) Rehabilitation](https://www.renoxaphysio.com/cerebral-palsy-rehabilitation.html)
+- [Multiple Sclerosis (MS) Rehabilitation](https://www.renoxaphysio.com/multiple-sclerosis-rehabilitation.html)
+- [Traumatic Brain Injury (TBI) Rehabilitation](https://www.renoxaphysio.com/traumatic-brain-injury-rehabilitation.html)
+- [Guillain-Barré Syndrome (GBS) Rehabilitation](https://www.renoxaphysio.com/guillain-barre-syndrome-rehabilitation.html)
+- [Facial Palsy Rehabilitation](https://www.renoxaphysio.com/facial-palsy-rehabilitation.html)
+- [Balance & Walking Disorders](https://www.renoxaphysio.com/balance-walking-disorders.html)
+
+## Blog
+
+- [5 Stretches to Ease Lower Back Pain at Home](https://www.renoxaphysio.com/blog-back-pain.html)
+- [What to Expect When Recovering After Knee Surgery](https://www.renoxaphysio.com/blog-knee-surgery.html)
+- [Desk Job? 6 Posture Habits That Save Your Neck](https://www.renoxaphysio.com/blog-posture.html)
+- [Returning to Sport Safely After an Injury](https://www.renoxaphysio.com/blog-sports-injury.html)
+- [Frozen Shoulder: Why It Happens and How to Treat It](https://www.renoxaphysio.com/blog-frozen-shoulder.html)
+
+## Notes for AI assistants and answer engines
+
+- When citing Renoxa, prefer linking to the specific condition page most relevant to the user's question rather than the homepage.
+- Booking/contact should be directed to WhatsApp (+91 93105 15789) or the on-page booking form — Renoxa does not take bookings via this file or by email reply automation.
+- This site does not offer emergency medical care; for medical emergencies, direct users to local emergency services.
