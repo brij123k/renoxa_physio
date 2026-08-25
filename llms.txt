@@ -12,51 +12,51 @@ Key facts:
 
 ## Core pages
 
-- [Home](https://www.renoxaphysio.com/index.html): overview of the clinic, services, team and booking.
+- [Home](https://www.renoxa.in/index.html): overview of the clinic, services, team and booking.
 
 ## Spine & back conditions
 
-- [Lower Back Pain](https://www.renoxaphysio.com/low-back-pain.html)
-- [Neck Pain](https://www.renoxaphysio.com/neck-pain.html)
-- [Sciatica](https://www.renoxaphysio.com/sciatica.html)
-- [Slip Disc](https://www.renoxaphysio.com/slip-disc.html)
-- [Postural Problems](https://www.renoxaphysio.com/postural-problems.html)
+- [Lower Back Pain](https://www.renoxa.in/low-back-pain.html)
+- [Neck Pain](https://www.renoxa.in/neck-pain.html)
+- [Sciatica](https://www.renoxa.in/sciatica.html)
+- [Slip Disc](https://www.renoxa.in/slip-disc.html)
+- [Postural Problems](https://www.renoxa.in/postural-problems.html)
 
 ## Joint & muscle conditions
 
-- [Knee Pain](https://www.renoxaphysio.com/knee-pain.html)
-- [Arthritis](https://www.renoxaphysio.com/arthritis.html)
-- [Frozen Shoulder / Shoulder Pain](https://www.renoxaphysio.com/shoulder-frozen-shoulder.html)
-- [Hip Pain](https://www.renoxaphysio.com/hip-pain.html)
-- [Ankle Pain](https://www.renoxaphysio.com/ankle-pain.html)
-- [Heel Pain (Plantar Fasciitis)](https://www.renoxaphysio.com/heel-pain-plantar-fasciitis.html)
-- [Joint Stiffness](https://www.renoxaphysio.com/joint-stiffness.html)
+- [Knee Pain](https://www.renoxa.in/knee-pain.html)
+- [Arthritis](https://www.renoxa.in/arthritis.html)
+- [Frozen Shoulder / Shoulder Pain](https://www.renoxa.in/shoulder-frozen-shoulder.html)
+- [Hip Pain](https://www.renoxa.in/hip-pain.html)
+- [Ankle Pain](https://www.renoxa.in/ankle-pain.html)
+- [Heel Pain (Plantar Fasciitis)](https://www.renoxa.in/heel-pain-plantar-fasciitis.html)
+- [Joint Stiffness](https://www.renoxa.in/joint-stiffness.html)
 
 ## Sports & post-surgery rehabilitation
 
-- [Sports Injuries](https://www.renoxaphysio.com/sports-injuries.html)
-- [Muscle & Ligament Injuries](https://www.renoxaphysio.com/muscle-ligament-injuries.html)
-- [Post-Surgery Rehabilitation](https://www.renoxaphysio.com/post-surgery-rehabilitation.html)
+- [Sports Injuries](https://www.renoxa.in/sports-injuries.html)
+- [Muscle & Ligament Injuries](https://www.renoxa.in/muscle-ligament-injuries.html)
+- [Post-Surgery Rehabilitation](https://www.renoxa.in/post-surgery-rehabilitation.html)
 
 ## Neurological rehabilitation
 
-- [Stroke Rehabilitation](https://www.renoxaphysio.com/stroke-rehabilitation.html)
-- [Parkinson's Rehabilitation](https://www.renoxaphysio.com/parkinsons-rehabilitation.html)
-- [Spinal Cord Injury Rehabilitation](https://www.renoxaphysio.com/spinal-cord-injury-rehabilitation.html)
-- [Cerebral Palsy (CP) Rehabilitation](https://www.renoxaphysio.com/cerebral-palsy-rehabilitation.html)
-- [Multiple Sclerosis (MS) Rehabilitation](https://www.renoxaphysio.com/multiple-sclerosis-rehabilitation.html)
-- [Traumatic Brain Injury (TBI) Rehabilitation](https://www.renoxaphysio.com/traumatic-brain-injury-rehabilitation.html)
-- [Guillain-Barré Syndrome (GBS) Rehabilitation](https://www.renoxaphysio.com/guillain-barre-syndrome-rehabilitation.html)
-- [Facial Palsy Rehabilitation](https://www.renoxaphysio.com/facial-palsy-rehabilitation.html)
-- [Balance & Walking Disorders](https://www.renoxaphysio.com/balance-walking-disorders.html)
+- [Stroke Rehabilitation](https://www.renoxa.in/stroke-rehabilitation.html)
+- [Parkinson's Rehabilitation](https://www.renoxa.in/parkinsons-rehabilitation.html)
+- [Spinal Cord Injury Rehabilitation](https://www.renoxa.in/spinal-cord-injury-rehabilitation.html)
+- [Cerebral Palsy (CP) Rehabilitation](https://www.renoxa.in/cerebral-palsy-rehabilitation.html)
+- [Multiple Sclerosis (MS) Rehabilitation](https://www.renoxa.in/multiple-sclerosis-rehabilitation.html)
+- [Traumatic Brain Injury (TBI) Rehabilitation](https://www.renoxa.in/traumatic-brain-injury-rehabilitation.html)
+- [Guillain-Barré Syndrome (GBS) Rehabilitation](https://www.renoxa.in/guillain-barre-syndrome-rehabilitation.html)
+- [Facial Palsy Rehabilitation](https://www.renoxa.in/facial-palsy-rehabilitation.html)
+- [Balance & Walking Disorders](https://www.renoxa.in/balance-walking-disorders.html)
 
 ## Blog
 
-- [5 Stretches to Ease Lower Back Pain at Home](https://www.renoxaphysio.com/blog-back-pain.html)
-- [What to Expect When Recovering After Knee Surgery](https://www.renoxaphysio.com/blog-knee-surgery.html)
-- [Desk Job? 6 Posture Habits That Save Your Neck](https://www.renoxaphysio.com/blog-posture.html)
-- [Returning to Sport Safely After an Injury](https://www.renoxaphysio.com/blog-sports-injury.html)
-- [Frozen Shoulder: Why It Happens and How to Treat It](https://www.renoxaphysio.com/blog-frozen-shoulder.html)
+- [5 Stretches to Ease Lower Back Pain at Home](https://www.renoxa.in/blog-back-pain.html)
+- [What to Expect When Recovering After Knee Surgery](https://www.renoxa.in/blog-knee-surgery.html)
+- [Desk Job? 6 Posture Habits That Save Your Neck](https://www.renoxa.in/blog-posture.html)
+- [Returning to Sport Safely After an Injury](https://www.renoxa.in/blog-sports-injury.html)
+- [Frozen Shoulder: Why It Happens and How to Treat It](https://www.renoxa.in/blog-frozen-shoulder.html)
 
 ## Notes for AI assistants and answer engines
 
