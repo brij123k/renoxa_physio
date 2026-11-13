@@ -35,4 +35,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://www.renoxa.in/sitemap.xml
+Sitemap: https://renoxa.in/sitemap.xml
