@@ -1,0 +1,42 @@
+name: Sync blog from Shopify
+
+on:
+  schedule:
+    - cron: "0 * * * *"   # every hour
+  workflow_dispatch:       # "Run workflow" button for an instant sync
+
+permissions:
+  contents: write
+
+concurrency:
+  group: shopify-blog-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Pull visible blog posts from Shopify
+        env:
+          SHOPIFY_STORE_DOMAIN: ${{ secrets.SHOPIFY_STORE_DOMAIN }}
+          SHOPIFY_STOREFRONT_TOKEN: ${{ secrets.SHOPIFY_STOREFRONT_TOKEN }}
+          SHOPIFY_BLOG_HANDLE: ${{ vars.SHOPIFY_BLOG_HANDLE || 'news' }}
+        run: python scripts/sync_shopify_blog.py
+
+      - name: Commit and push changes (triggers the website deploy)
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No blog changes."
+            exit 0
+          fi
+          git config user.name "renoxa-blog-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Sync blog posts from Shopify"
+          git push

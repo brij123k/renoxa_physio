@@ -14,6 +14,21 @@ Key facts:
 
 - [Home](https://renoxa.in/): overview of the clinic, services, team and booking.
 
+## Areas served (home visits + Indirapuram clinic)
+
+- [Physiotherapy in Noida](https://renoxa.in/physiotherapy-in-noida.html)
+- [Physiotherapy in Delhi](https://renoxa.in/physiotherapy-in-delhi.html)
+- [Physiotherapy in Ghaziabad](https://renoxa.in/physiotherapy-in-ghaziabad.html)
+- [Physiotherapy in Greater Noida & Greater Noida West](https://renoxa.in/physiotherapy-in-greater-noida.html)
+- [Physiotherapy in Indirapuram (clinic)](https://renoxa.in/physiotherapy-in-indirapuram.html)
+- [Physiotherapy in Vaishali](https://renoxa.in/physiotherapy-in-vaishali.html)
+- [Physiotherapy in Vasundhara](https://renoxa.in/physiotherapy-in-vasundhara.html)
+- [Physiotherapy in Mayur Vihar](https://renoxa.in/physiotherapy-in-mayur-vihar.html)
+- [Physiotherapy in New Ashok Nagar](https://renoxa.in/physiotherapy-in-new-ashok-nagar.html)
+- [Physiotherapy in Trilokpuri](https://renoxa.in/physiotherapy-in-trilokpuri.html)
+- [Physiotherapy in Noida Sectors 1–19 (incl. 15, 16, 18)](https://renoxa.in/physiotherapy-in-noida-sector-15.html)
+- [Physiotherapy in Noida Sector 62, 63 & 71–78](https://renoxa.in/physiotherapy-in-noida-sector-62.html)
+
 ## Spine & back conditions
 
 - [Lower Back Pain](https://renoxa.in/low-back-pain.html)
@@ -50,6 +65,17 @@ Key facts:
 - [Facial Palsy Rehabilitation](https://renoxa.in/facial-palsy-rehabilitation.html)
 - [Balance & Walking Disorders](https://renoxa.in/balance-walking-disorders.html)
 
+## Hindi pages (हिंदी)
+
+- [घर पर फिजियोथेरेपी](https://renoxa.in/hi-home-physiotherapy.html)
+- [घुटनों के दर्द का इलाज](https://renoxa.in/hi-knee-pain.html)
+- [कमर दर्द का इलाज](https://renoxa.in/hi-back-pain.html)
+- [गर्दन दर्द और सर्वाइकल](https://renoxa.in/hi-neck-pain.html)
+- [साइटिका का इलाज](https://renoxa.in/hi-sciatica.html)
+- [फ्रोजन शोल्डर का इलाज](https://renoxa.in/hi-frozen-shoulder.html)
+- [लकवा / स्ट्रोक के बाद फिजियोथेरेपी](https://renoxa.in/hi-stroke-rehabilitation.html)
+- [स्लिप डिस्क का इलाज](https://renoxa.in/hi-slip-disc.html)
+
 ## Blog
 
 - [5 Stretches to Ease Lower Back Pain at Home](https://renoxa.in/blog-back-pain.html)
@@ -57,6 +83,9 @@ Key facts:
 - [Desk Job? 6 Posture Habits That Save Your Neck](https://renoxa.in/blog-posture.html)
 - [Returning to Sport Safely After an Injury](https://renoxa.in/blog-sports-injury.html)
 - [Frozen Shoulder: Why It Happens and How to Treat It](https://renoxa.in/blog-frozen-shoulder.html)
+
+<!-- SHOPIFY-BLOG:START -->
+<!-- SHOPIFY-BLOG:END -->
 
 ## Notes for AI assistants and answer engines
 
