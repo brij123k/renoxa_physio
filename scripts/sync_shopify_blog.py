@@ -13,6 +13,7 @@ Hand-written blog-*.html pages are never touched.
 Required environment variables:
   SHOPIFY_STORE_DOMAIN       e.g. bablu-bxbvivbh.myshopify.com
   SHOPIFY_STOREFRONT_TOKEN   Storefront API access token (read content scope)
+    or SHOPIFY_ADMIN_TOKEN    Admin API token "shpat_..." (needs read_content scope)
 Optional:
   SHOPIFY_BLOG_HANDLE        blog handle, default "news"
   SHOPIFY_API_VERSION        default "2025-01"
@@ -20,7 +21,7 @@ Optional:
 Uses only the Python standard library.
 """
 import html, json, os, re, sys, urllib.parse, urllib.request
-from datetime import datetime
+from datetime import datetime, timezone
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = "https://renoxa.in/"
@@ -46,11 +47,79 @@ query Articles($handle: String!, $after: String) {
 }"""
 
 
+ADMIN_BLOG_QUERY = """
+query Blog($q: String!) { blogs(first: 1, query: $q) { nodes { id handle } } }"""
+
+ADMIN_QUERY = """
+query Articles($q: String!, $after: String) {
+  articles(first: 50, after: $after, query: $q, sortKey: PUBLISHED_AT, reverse: true) {
+    pageInfo { hasNextPage endCursor }
+    nodes {
+      handle title summary body publishedAt isPublished tags
+      blog { handle }
+      image { url altText }
+      author { name }
+      seoTitle: metafield(namespace: "global", key: "title_tag") { value }
+      seoDesc: metafield(namespace: "global", key: "description_tag") { value }
+    }
+  }
+}"""
+
+
+def _post(url, headers, query, variables):
+    body = json.dumps({"query": query, "variables": variables}).encode()
+    req = urllib.request.Request(url, data=body, headers={"Content-Type": "application/json", **headers})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        data = json.load(r)
+    if data.get("errors"):
+        sys.exit(f"Shopify API error: {data['errors']}")
+    return data["data"]
+
+
+def fetch_articles_admin(domain, token, handle, version):
+    """Admin API path (token starts with shpat_). Needs the read_content scope."""
+    url = f"https://{domain}/admin/api/{version}/graphql.json"
+    hdr = {"X-Shopify-Access-Token": token}
+    blogs = _post(url, hdr, ADMIN_BLOG_QUERY, {"q": f"handle:{handle}"})["blogs"]["nodes"]
+    blogs = [b for b in blogs if b["handle"] == handle]
+    if not blogs:
+        sys.exit(f"No blog with handle '{handle}' found. Check SHOPIFY_BLOG_HANDLE.")
+    blog_id = blogs[0]["id"].rsplit("/", 1)[-1]
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    out, after = [], None
+    while True:
+        conn = _post(url, hdr, ADMIN_QUERY, {"q": f"blog_id:{blog_id}", "after": after})["articles"]
+        for a in conn["nodes"]:
+            # only visible posts whose (scheduled) publish time has passed
+            if not a["isPublished"] or not a["publishedAt"] or a["publishedAt"] > now:
+                continue
+            if (a.get("blog") or {}).get("handle") != handle:
+                continue
+            out.append({
+                "handle": a["handle"], "title": a["title"],
+                "excerpt": plain(a.get("summary") or "", 300) if a.get("summary") else "",
+                "contentHtml": a.get("body") or "",
+                "content": plain(a.get("body") or "", 2000),
+                "publishedAt": a["publishedAt"], "tags": a.get("tags") or [],
+                "image": a.get("image"),
+                "seo": {"title": (a.get("seoTitle") or {}).get("value"),
+                        "description": (a.get("seoDesc") or {}).get("value")},
+                "authorV2": a.get("author"),
+            })
+        if not conn["pageInfo"]["hasNextPage"]:
+            return out
+        after = conn["pageInfo"]["endCursor"]
+
+
 def fetch_articles():
     domain = os.environ["SHOPIFY_STORE_DOMAIN"].strip().replace("https://", "").strip("/")
-    token = os.environ["SHOPIFY_STOREFRONT_TOKEN"].strip()
+    token = (os.environ.get("SHOPIFY_ADMIN_TOKEN") or os.environ.get("SHOPIFY_STOREFRONT_TOKEN") or "").strip()
+    if not token:
+        sys.exit("Set SHOPIFY_ADMIN_TOKEN or SHOPIFY_STOREFRONT_TOKEN.")
     handle = os.environ.get("SHOPIFY_BLOG_HANDLE", "news").strip()
     version = os.environ.get("SHOPIFY_API_VERSION", "2025-01").strip()
+    if token.startswith("shpat_"):
+        return fetch_articles_admin(domain, token, handle, version)
     url = f"https://{domain}/api/{version}/graphql.json"
     out, after = [], None
     while True:
